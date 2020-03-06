@@ -8,17 +8,20 @@ public class Messages {
     public static String SPLIT_LINE = "______________________________________________________________";
 
     /** Let the statement be printed in center. **/
-    public static void printInCenter (@NotNull String str) {
+    public static void printInCenter(@NotNull String str) {
         int left = (83 - str.length()) / 2;
         int right = 83 - left - str.length();
         String repeatedChar = " ";
-        String buff = "\t∣" + repeatedChar.repeat(Math.max(0, left)) +
-                str + repeatedChar.repeat(Math.max(0, right - 1)) + "∣";
+        String buff = "\t∣"
+                + repeatedChar.repeat(Math.max(0, left))
+                + str
+                + repeatedChar.repeat(Math.max(0, right - 1))
+                + "∣";
         System.out.println(buff);
     }
 
     /** Show a ASCII code message to user. **/
-    public static void greet () {
+    public static void greet() {
         System.out.println(HEADER_LINE);
         printInCenter("_____  ____  __    _    _____  ___   ___    __    _    ");
         printInCenter(" | |  | |_  / /`  | |_|  | |  / / \\ | | \\  / /\\  \\ \\_/ ");

@@ -1,7 +1,7 @@
 package seedu.techtoday;
 
 import java.util.Scanner;
-import static seedu.techtoday.common.Messages.*;
+import static seedu.techtoday.common.Messages.greet;
 
 public class TechToday {
     /**
