@@ -1,4 +1,4 @@
-package seedu.TechToday;
+package seedu.techtoday;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

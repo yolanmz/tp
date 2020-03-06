@@ -1,4 +1,4 @@
-package seedu.TechToday.common;
+package seedu.techtoday.common;
 
 import org.jetbrains.annotations.NotNull;
 
