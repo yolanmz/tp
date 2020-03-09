@@ -1,5 +1,9 @@
 package seedu.duke;
 
+
+/**
+ * Main class for Article objects.
+ */
 public class Article {
 
     public static  String name;
@@ -16,3 +20,4 @@ public class Article {
         return (name + ": " + url);
     }
 }
+
