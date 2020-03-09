@@ -6,8 +6,9 @@ import java.util.ArrayList;
 public class Features {
 
     public static ArrayList<Article> savedArticles;
+    
     /**
-    * Add an article found outside the program
+    * Add an article found outside the program.
     */
     public void addArticle() {
         System.out.println("Enter the name of the article: ");
