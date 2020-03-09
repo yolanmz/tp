@@ -1,5 +1,6 @@
 package seedu.duke;
 
+
 /**
  * Main class for Article objects.
  */
