@@ -3,9 +3,6 @@ package seedu.duke;
 import java.util.Scanner;
 import java.util.ArrayList;
 
-/**
- * Main class for all the features of TechToday
- */
 public class Features {
 
     public static ArrayList<Article> savedArticles;
