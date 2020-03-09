@@ -1,7 +1,7 @@
 package seedu.duke;
 
 /**
- * Main class for Article objects
+ * Main class for Article objects.
  */
 public class Article {
 
