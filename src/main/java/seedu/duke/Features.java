@@ -12,7 +12,7 @@ public class Features {
 
     /**
      * Saves a chose article from view to the saved articles list.
-     * @param command - The command given by the user. 
+     * @param command - The command given by the user.
      */
     public void saveView(String command) {
         int articleNum = Integer.parseInt(command) - 1;
