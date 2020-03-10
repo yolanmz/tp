@@ -1,8 +1,15 @@
 package seedu.techtoday;
 
 
+import org.jetbrains.annotations.NotNull;
+
+import java.util.Iterator;
 import java.util.Scanner;
 import java.util.ArrayList;
+
+import static seedu.techtoday.common.Messages.HEADER_LINE;
+import static seedu.techtoday.common.Messages.BOTTOM_LINE;
+import static seedu.techtoday.common.Messages.printInCenter;
 
 public class Features {
 
@@ -13,14 +20,16 @@ public class Features {
     * Add an article found outside the program.
     */
     public void addArticle() {
-        System.out.println("Enter the name of the article: ");
+        System.out.println(HEADER_LINE);
+        printInCenter("Enter the name of the article: ");
         Scanner in = new Scanner(System.in);
         String articleName = in.nextLine();
-        System.out.println("Enter the url of the article: ");
+        printInCenter("Enter the url of the article: ");
         String articleUrl = in.nextLine();
-        Article toAdd = new Article(articleName, articleUrl);
+        Article toAdd = new Article(articleName, articleUrl, "default");
         savedArticles.add(toAdd);
-        System.out.println("You saved a new article: " + toAdd);
+        printInCenter("You saved a new article: " + toAdd);
+        System.out.println(BOTTOM_LINE);
     }
 
 
@@ -32,7 +41,25 @@ public class Features {
         int articleNum = Integer.parseInt(command) - 1;
         Article toSave = viewArticles.get(articleNum);
         savedArticles.add(toSave);
-        System.out.println("This article has been saved: " + toSave);
+        System.out.println(HEADER_LINE);
+        printInCenter("This article has been saved: " + toSave);
+        System.out.println(BOTTOM_LINE);
+    }
 
+
+    /**
+     * Lists all saved articles by category.
+     * @param category - The command given by the user.
+     */
+    public void list(String category) {
+        System.out.println(HEADER_LINE);
+        for (Article savedArticle : savedArticles) {
+            if (!category.isEmpty()) {
+                printInCenter(savedArticle.toString());
+            } else if (Article.category.equals(category)) {
+                printInCenter(savedArticle.toString());
+            }
+        }
+        System.out.println(BOTTOM_LINE);
     }
 }
