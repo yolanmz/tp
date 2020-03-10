@@ -1,4 +1,4 @@
-package seedu.duke;
+package seedu.techtoday;
 
 
 import java.util.Scanner;
