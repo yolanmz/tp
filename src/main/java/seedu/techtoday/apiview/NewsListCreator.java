@@ -37,5 +37,6 @@ public class NewsListCreator {
             JsonReader.index += 1;
         }
         System.out.println(JsonReader.newsList.toString(10));
+        //return (JsonReader.newsList.toString(10));
     }
 }
