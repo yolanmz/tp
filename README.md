@@ -1,4 +1,5 @@
 # Project Template for the tP
+## Team 14
 
 This is a project template for a small CLI Java project. It uses Gradle for build automation and GitHub Actions for CI.
 
