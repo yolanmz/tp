@@ -14,7 +14,8 @@ repositories {
 
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.5.0'
-    implementation 'org.jetbrains:annotations:15.0'
+    compile 'com.google.code.gson:gson:2.8.6'
+    compile 'com.mashape.unirest:unirest-java:1.4.9'
     implementation 'org.jetbrains:annotations:15.0'
 }
 

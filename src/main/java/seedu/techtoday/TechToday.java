@@ -1,7 +1,10 @@
 package seedu.techtoday;
 
-import java.util.Scanner;
+import seedu.techtoday.apiview.JsonReader;
 import static seedu.techtoday.common.Messages.greet;
+
+import java.io.IOException;
+import java.util.Scanner;
 
 public class TechToday {
     /**
@@ -9,9 +12,22 @@ public class TechToday {
      */
     public static void main(String[] args) {
         greet();
-        System.out.println("What is your name?");
+        Scanner scanner = new Scanner(System.in);
+        String command = scanner.nextLine();
 
-        Scanner in = new Scanner(System.in);
-        System.out.println("Hello " + in.nextLine());
+        if (command.equals("view")) {
+            try {
+                JsonReader.viewNewNews();
+            } catch (IOException e) {
+                // Write a reason not print something here
+            }
+        } else if (command.equals("exit")) {
+            System.exit(0);
+        }
+
+
+        {
+            System.out.println("Command" + command +  "in progress or not valid");
+        }
     }
 }

@@ -1,9 +1,5 @@
 package seedu.techtoday;
 
-
-import org.jetbrains.annotations.NotNull;
-
-import java.util.Iterator;
 import java.util.Scanner;
 import java.util.ArrayList;
 
