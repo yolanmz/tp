@@ -13,7 +13,10 @@ public class TechToday {
     public static ArrayList<Article> savedArticles = new ArrayList<>();
     public static ArrayList<Article> viewArticles;
 
-    public static void getViewArticles () {
+    /**
+     * Function that updates defaults for view articles
+     */
+    public static void getViewArticles() {
         viewArticles.add(new Article("Hackers Hit US health agency during coronavirus crisis","https://www.cnet.com/news/hackers-hit-us-health-agency-during-coronavirus-crisis/", "default" ));
         viewArticles.add(new Article("Microsoft Releases Xbox Series X specs, controller details","https://www.cnet.com/news/microsoft-releases-xbox-series-x-specs-controller-details/", "default" ));
         viewArticles.add(new Article("Apple find @1.2B by France's competition watchdog", "https://www.cnet.com/news/apple-fined-1-2b-by-frances-competition-watchdog/", "default"));
