@@ -21,7 +21,12 @@ public class TechToday {
             } catch (IOException e) {
                 // Write a reason not print something here
             }
-        } else {
+        } else if (command.equals("exit")) {
+            System.exit(0);
+        }
+
+
+        {
             System.out.println("Command" + command +  "in progress or not valid");
         }
     }
