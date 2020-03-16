@@ -2,16 +2,16 @@ package seedu.techtoday.apiview;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import java.io.IOException;
+import java.io.Reader;
 import java.io.*;
 import java.net.URL;
 import java.nio.charset.Charset;
-
 
 /**
  *
  *  Represents a class that parses JSON objects that are required for the project.
  */
-
 public class JsonParser {
     private static String readAll(Reader rd) throws IOException {
         StringBuilder sb = new StringBuilder();
@@ -22,17 +22,29 @@ public class JsonParser {
         return sb.toString();
     }
 
-
-    public static int[] stringToArray(String array){
+    /**
+     * Returns an array of the words in a string seperated by a comma.
+     * @param array String of words that ill be converted into an array
+     * @return arrOfIndices Array representing the indices of the news articles that are to be saved.
+     */
+    public static int[] stringToArray(String array) {
         String[] arrayStr = array.split(",");
         int[] arrOfIndices = new int[6];
-        for (int i= 1; i < 7; i++){
+        for (int i = 1; i < 7; i++){
             int a = Integer.parseInt(arrayStr[i].trim());
             arrOfIndices[i - 1] = a;
         }
         return arrOfIndices;
     }
 
+    /**
+     * Returns a string from a news url.
+     *
+     * @param url url representing a news article
+     * @return String representing news in the form of a json text.
+     * @throws IOException
+     * @throws JSONException
+     */
     public static String readJsonArrayfromURL(String url) throws IOException, JSONException {
         InputStream is = new URL(url).openStream();
         try {
@@ -44,6 +56,14 @@ public class JsonParser {
         }
     }
 
+    /**
+     * Reads a JSON object from a url
+     *
+     * @param url url representing news
+     * @return json JSON object representing news.
+     * @throws IOException
+     * @throws JSONException
+     */
     public static JSONObject readJsonFromUrl(String url) throws IOException, JSONException {
         InputStream is = new URL(url).openStream();
         try {

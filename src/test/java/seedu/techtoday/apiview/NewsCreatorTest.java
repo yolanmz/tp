@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class NewsCreatorTest {
 
     @Test
-    void testNewsCreation(){
+    void testNewsCreation() {
         String inputJsonText = "{ \"by\" : \"pjmlp\",\"descendants\" : 6, \"id\" : 22582276, \"kids\" : [ 22582600 ], " +
                 "\"score\" : 76, \"time\" : 1584262684, \"title\" : \"WebAssembly brings " +
                 "extensibility to network proxies\", \"type\" : \"story\", \"url\" :" +

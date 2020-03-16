@@ -11,7 +11,7 @@ public class NewsCreator {
      * @param json takes a JSON object representing one rews article
      * @return newsDetails a JSON object representing only the necessary parts of that particular JSON news object.
      */
-    public static JSONObject rawToProcessedNews(JSONObject json){
+    public static JSONObject rawToProcessedNews(JSONObject json) {
         String title = json.get("title").toString();
         String timeStamp = json.get("time").toString();
         String url = json.get("url").toString();
