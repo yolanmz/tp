@@ -17,7 +17,7 @@ public class TechToday {
         Scanner scanner = new Scanner(System.in);
         String command = scanner.nextLine();
 
-        if (command.equals("view news")){
+        if (command.equals("view news")) {
             try {
                 JsonReader.viewNewNews();
             } catch (IOException e) {
