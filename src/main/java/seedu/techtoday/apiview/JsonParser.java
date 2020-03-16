@@ -8,10 +8,7 @@ import java.io.*;
 import java.net.URL;
 import java.nio.charset.Charset;
 
-/**
- *
- *  Represents a class that parses JSON objects that are required for the project.
- */
+/** Represents a class that parses JSON objects that are required for the project. */
 public class JsonParser {
     private static String readAll(Reader rd) throws IOException {
         StringBuilder sb = new StringBuilder();
