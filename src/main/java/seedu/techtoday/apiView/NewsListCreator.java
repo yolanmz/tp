@@ -41,5 +41,4 @@ public class NewsListCreator {
         }
         System.out.println(JsonReader.newsList.toString(10));
     }
-
 }

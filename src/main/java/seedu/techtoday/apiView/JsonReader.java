@@ -23,10 +23,5 @@ public class JsonReader {
     public static void viewNewNews() throws IOException, JSONException {
         NewsListCreator.execute("https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty");
     }
-
-//    public static void main(String[] args) throws IOException, JSONException {
-//          NewsListCreator.execute("https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty");
-//
-//    }
 }
 
