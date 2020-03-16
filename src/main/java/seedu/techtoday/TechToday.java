@@ -20,7 +20,7 @@ public class TechToday {
         greet();
         Ui ui = new Ui(savedArticles);
         Features features = new Features(savedArticles, viewArticles);
-        while(isRunning) {
+        while (isRunning) {
             String userResponse = ui.getCommand();
             String command = userResponse.split(" ")[0];
             String restOfUserInput = userResponse.replace(command, "").trim();
