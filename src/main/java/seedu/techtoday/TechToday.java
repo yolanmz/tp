@@ -1,6 +1,6 @@
 package seedu.techtoday;
 
-import seedu.techtoday.apiView.JsonReader;
+import seedu.techtoday.apiview.JsonReader;
 
 import java.io.IOException;
 import java.util.Scanner;

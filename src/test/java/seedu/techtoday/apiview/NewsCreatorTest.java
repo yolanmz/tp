@@ -1,4 +1,4 @@
-package seedu.techtoday.apiView;
+package seedu.techtoday.apiview;
 
 import org.json.JSONObject;
 import org.junit.jupiter.api.Test;

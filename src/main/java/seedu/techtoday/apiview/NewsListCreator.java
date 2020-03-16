@@ -1,4 +1,4 @@
-package seedu.techtoday.apiView;
+package seedu.techtoday.apiview;
 
 import java.io.IOException;
 import org.json.JSONException;
