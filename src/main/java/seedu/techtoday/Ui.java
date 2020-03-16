@@ -3,8 +3,8 @@ package seedu.techtoday;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/***
- * Class for User Interface objects and interacting with user commands
+/**
+ * Class for User Interface objects and interacting with user commands.
  */
 public class Ui {
 
@@ -15,8 +15,8 @@ public class Ui {
     }
 
     /**
-     * Returns the trimmed command of the user input
-     * @return String representation of user input trimmed
+     * Returns the trimmed command of the user input.
+     * @return String representation of user input trimmed.
      */
     public String getCommand() {
         Scanner userInput = new Scanner(System.in);

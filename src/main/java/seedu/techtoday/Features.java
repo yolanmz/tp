@@ -60,8 +60,8 @@ public class Features {
     }
 
     /**
-     * Deletes an article from the saved list articles
-     * @param command - command given by the user
+     * Deletes an article from the saved list articles.
+     * @param command - command given by the user.
      */
     public void delete(String command) {
         int articleNum = Integer.parseInt(command) - 1;

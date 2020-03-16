@@ -9,13 +9,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TechToday {
-    /**
-     * Main entry-point for the java.duke.Duke application.
-     */
     public static boolean isRunning = true;
     public static ArrayList<Article> savedArticles = new ArrayList<>();
     public static ArrayList<Article> viewArticles;
 
+    /**
+     * Main entry-point for the java.techtoday application.
+     */
     public static void main(String[] args) {
         greet();
         Ui ui = new Ui(savedArticles);
@@ -46,7 +46,6 @@ public class TechToday {
             } else {
                 System.out.println("Invalid command! Please try again!");
             }
-
         }
     }
 }
