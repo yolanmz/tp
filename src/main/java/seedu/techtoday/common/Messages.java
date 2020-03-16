@@ -35,7 +35,6 @@ public class Messages {
         printInCenter("2. list [category (optional)]");
         printInCenter("3. save [article number] [category (optional)]");
         printInCenter("4. add [category]");
-        printInCenter("5. delete [article number]");
         printInCenter("");
         System.out.println(BOTTOM_LINE);
         System.out.println("     What can I do for you?");
