@@ -25,5 +25,6 @@ public class Article {
     public String toString() {
         return (name + " [" + category + "] : " + url);
     }
+
 }
 
