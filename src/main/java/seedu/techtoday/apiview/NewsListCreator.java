@@ -5,10 +5,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-/**
- *
- * Represents a creates a list of news that can be viewed by the user.
- */
+/** Represents a creates a list of news that can be viewed by the user. */
 public class NewsListCreator {
 
     /**
@@ -16,21 +13,21 @@ public class NewsListCreator {
      *
      * @param url URL  with a list of user stories identified by their story number(check url)
      *            (example: "https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty").
-     * @throws IOException
-     * @throws JSONException
+     * @throws IOException IO exception.
+     * @throws JSONException JSON exception.
      */
     public static void execute(String url) throws IOException, JSONException {
 
-        String indicesStr = JsonParser.readJsonArrayfromURL(url);
+        String indicesStr = JsonParser.readJsonArrayfromUrl(url);
         int[] indicesArr = JsonParser.stringToArray(indicesStr);
-        for (int i = 0; i < indicesArr.length; i++){
-            String HEAD_OF_URL = "https://hacker-news.firebaseio.com/v0/item/";
+        for (int i = 0; i < indicesArr.length; i++) {
+            String headOfUrl = "https://hacker-news.firebaseio.com/v0/item/";
             String midUrl = Integer.toString(indicesArr[i]);
-            String TAIL_URL = ".json?print=pretty";
-            String URL = HEAD_OF_URL + midUrl + TAIL_URL;
+            String tailUrl = ".json?print=pretty";
+            String URL = headOfUrl + midUrl + tailUrl;
 
             // Creating a news each time
-            JSONObject rawNews= JsonParser.readJsonFromUrl(URL);
+            JSONObject rawNews = JsonParser.readJsonFromUrl(URL);
             JSONObject processedNews = NewsCreator.rawToProcessedNews(rawNews);
 
             //Adding it to bigger newslist

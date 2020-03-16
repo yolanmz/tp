@@ -5,9 +5,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-/**
- *  Represents a class that reads a URL as a JSON object
- */
+/** Represents a class that reads a URL as a JSON objecs. */
 public class JsonReader {
 
     public static JSONObject newsList = new JSONObject();

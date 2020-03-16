@@ -27,7 +27,7 @@ public class JsonParser {
     public static int[] stringToArray(String array) {
         String[] arrayStr = array.split(",");
         int[] arrOfIndices = new int[6];
-        for (int i = 1; i < 7; i++){
+        for (int i = 1; i < 7; i++) {
             int a = Integer.parseInt(arrayStr[i].trim());
             arrOfIndices[i - 1] = a;
         }
@@ -37,12 +37,12 @@ public class JsonParser {
     /**
      * Returns a string from a news url.
      *
-     * @param url url representing a news article
+     * @param url url representing a news article.
      * @return String representing news in the form of a json text.
-     * @throws IOException
-     * @throws JSONException
+     * @throws IOException IO expection.
+     * @throws JSONException JSON exception.
      */
-    public static String readJsonArrayfromURL(String url) throws IOException, JSONException {
+    public static String readJsonArrayfromUrl(String url) throws IOException, JSONException {
         InputStream is = new URL(url).openStream();
         try {
             BufferedReader rd = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
@@ -54,12 +54,11 @@ public class JsonParser {
     }
 
     /**
-     * Reads a JSON object from a url
-     *
+     * Reads a JSON object from a url.
      * @param url url representing news
      * @return json JSON object representing news.
-     * @throws IOException
-     * @throws JSONException
+     * @throws IOException IO exception.
+     * @throws JSONException JSON exception.
      */
     public static JSONObject readJsonFromUrl(String url) throws IOException, JSONException {
         InputStream is = new URL(url).openStream();
