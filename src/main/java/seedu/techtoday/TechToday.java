@@ -1,6 +1,7 @@
 package seedu.techtoday;
 
 import seedu.techtoday.apiView.JsonReader;
+import static seedu.techtoday.common.Messages.greet;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -10,6 +11,7 @@ public class TechToday {
      * Main entry-point for the java.duke.Duke application.
      */
     public static void main(String[] args) {
+        greet();
         System.out.println("Hey");
         System.out.println("What do you want to do?");
         Scanner scanner = new Scanner(System.in);
