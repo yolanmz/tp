@@ -24,10 +24,10 @@ public class NewsListCreator {
             String headOfUrl = "https://hacker-news.firebaseio.com/v0/item/";
             String midUrl = Integer.toString(indicesArr[i]);
             String tailUrl = ".json?print=pretty";
-            String URL = headOfUrl + midUrl + tailUrl;
+            String finalUrl = headOfUrl + midUrl + tailUrl;
 
             // Creating a news each time
-            JSONObject rawNews = JsonParser.readJsonFromUrl(URL);
+            JSONObject rawNews = JsonParser.readJsonFromUrl(finalUrl);
             JSONObject processedNews = NewsCreator.rawToProcessedNews(rawNews);
 
             //Adding it to bigger newslist
