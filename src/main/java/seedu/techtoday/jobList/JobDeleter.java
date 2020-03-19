@@ -1,5 +1,6 @@
 package seedu.techtoday.jobList;
 
+import seedu.techtoday.noteList.SavedNoteList;
 import seedu.techtoday.objects.Job;
 import java.util.ArrayList;
 
@@ -14,8 +15,8 @@ public class JobDeleter{
      */
     public static void execute(ArrayList<Job> savedJobList, String command){
         String[] commandArray = command.split(" ");
-        int jobNumber = Integer.parseInt(commandArray[1]) - 1;
-        Job jobToDelete = ViewedJobList.viewedJobList.get(jobNumber);
+        int jobNumber = Integer.parseInt(commandArray[2]) - 1;
+        Job jobToDelete = SavedJobList.savedJobList.get(jobNumber);
         System.out.println("Deleting the following job:");
         JobPrinter.printIsolatedJob(jobToDelete);
         SavedJobList.savedJobList.remove(jobNumber);

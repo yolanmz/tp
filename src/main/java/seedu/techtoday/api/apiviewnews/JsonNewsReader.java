@@ -2,7 +2,6 @@ package seedu.techtoday.api.apiviewnews;
 
 import java.io.IOException;
 import org.json.JSONException;
-import seedu.techtoday.api.apiviewnews.ViewedArticleListCreator;
 import seedu.techtoday.articleList.ArticleListPrinter;
 import seedu.techtoday.articleList.ViewedArticleList;
 

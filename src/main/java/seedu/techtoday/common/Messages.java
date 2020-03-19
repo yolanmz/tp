@@ -31,10 +31,11 @@ public class Messages {
         printInCenter("Let me show you some technology news to refresh your mind!");
         printInCenter(SPLIT_LINE);
         printInCenter("Your queries can be of the following forms:");
-        printInCenter("1. view [topic]");
-        printInCenter("2. list [category (optional)]");
-        printInCenter("3. save [article number] [category (optional)]");
-        printInCenter("4. add [category]");
+        printInCenter("1. view [article / job]");
+        printInCenter("2. list [article / job / note]");
+        printInCenter("3. save [article / job / note] [index number (optional)]");
+        printInCenter("4. delete [article / job / note] [index number]");
+        printInCenter("5. addinfo [article / job / note] [index number] [extract]");
         printInCenter("");
         System.out.println(BOTTOM_LINE);
         System.out.println("     What can I do for you?");

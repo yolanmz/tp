@@ -6,7 +6,6 @@ import java.util.ArrayList;
 public class JobListPrinter {
     /**
      * Prints all available tasks.
-     *
      * @param jobList List that stores the jobs mentioned until now.
      */
     public static void execute(ArrayList<Job> jobList) {
