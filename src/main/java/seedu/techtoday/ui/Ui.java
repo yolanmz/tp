@@ -1,4 +1,6 @@
-package seedu.techtoday;
+package seedu.techtoday.ui;
+
+import seedu.techtoday.objects.Article;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -8,17 +10,12 @@ import java.util.Scanner;
  */
 public class Ui {
 
-    public static ArrayList<Article> savedArticles;
-
-    public Ui(ArrayList<Article> articles) {
-        this.savedArticles = articles;
-    }
 
     /**
      * Returns the trimmed command of the user input.
      * @return String representation of user input trimmed.
      */
-    public String getCommand() {
+    public static String getCommand() {
         Scanner userInput = new Scanner(System.in);
         String userResponse = userInput.nextLine();
         return userResponse.trim();

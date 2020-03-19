@@ -1,4 +1,4 @@
-package seedu.techtoday.apiview;
+package seedu.techtoday.api;
 
 import org.json.JSONException;
 import org.json.JSONObject;
