@@ -1,12 +1,16 @@
-package seedu.techtoday.apiview;
+package seedu.techtoday.api.apiviewjobs;
 
-import java.io.IOException;
+
 import org.json.JSONException;
 import org.json.JSONObject;
+import seedu.techtoday.api.JsonParser;
+import seedu.techtoday.jobList.ViewedJobList;
+import seedu.techtoday.objects.Job;
 
+import java.io.IOException;
 
 /** Represents a creates a list of news that can be viewed by the user. */
-public class NewsListCreator {
+public class ViewedJobListCreator {
 
     /**
      * Takes a url and pick 5 top stories to print.
@@ -27,16 +31,12 @@ public class NewsListCreator {
             String finalUrl = headOfUrl + midUrl + tailUrl;
 
             // Creating a news each time
-            JSONObject rawNews = JsonParser.readJsonFromUrl(finalUrl);
-            JSONObject processedNews = NewsCreator.rawToProcessedNews(rawNews);
+            JSONObject rawJob = JsonParser.readJsonFromUrl(finalUrl);
+//            System.out.println(rawNews.toString());
+            Job processedJob = JobsCreator.rawToProcessedJob(rawJob);
 
-            //Adding it to bigger newslist
-            JsonReader.newsList.put(Integer.toString(JsonReader.index), processedNews);
-
-            //Incrementing Index
-            JsonReader.index += 1;
+            //Adding it to ArrayList jobList
+            ViewedJobList.viewedJobList.add(processedJob);
         }
-        System.out.println(JsonReader.newsList.toString(10));
-        //return (JsonReader.newsList.toString(10));
     }
 }
