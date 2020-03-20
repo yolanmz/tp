@@ -2,9 +2,23 @@ package seedu.techtoday;
 
 import seedu.techtoday.api.apiviewjobs.JsonJobsReader;
 import seedu.techtoday.api.apiviewnews.JsonNewsReader;
-import seedu.techtoday.articleList.*;
-import seedu.techtoday.jobList.*;
-import seedu.techtoday.noteList.*;
+import seedu.techtoday.articleList.SavedArticleList;
+import seedu.techtoday.articleList.ViewedArticleList;
+import seedu.techtoday.articleList.ArticleDeleter;
+import seedu.techtoday.articleList.ArticleListPrinter;
+import seedu.techtoday.articleList.ArticleSaver;
+import seedu.techtoday.articleList.ArticlePrinter;
+import seedu.techtoday.jobList.SavedJobList;
+import seedu.techtoday.jobList.ViewedJobList;
+import seedu.techtoday.jobList.JobDeleter;
+import seedu.techtoday.jobList.JobListPrinter;
+import seedu.techtoday.jobList.JobPrinter;
+import seedu.techtoday.jobList.JobSaver;
+import seedu.techtoday.noteList.SavedNoteList;
+import seedu.techtoday.noteList.NotePrinter;
+import seedu.techtoday.noteList.NoteListPrinter;
+import seedu.techtoday.noteList.NoteSaver;
+import seedu.techtoday.noteList.NoteDeleter;
 import seedu.techtoday.objects.Article;
 import seedu.techtoday.objects.Job;
 import seedu.techtoday.objects.Note;
@@ -14,7 +28,19 @@ import static seedu.techtoday.common.Messages.greet;
 
 import java.io.IOException;
 
+/**
+ * <h1>TechToday News/Jobs/Notes for technology related information for the technologist.</h1>
+ * Entry point of the "TechToday" application.
+ * Initializes the application and starts the interaction with the user.
+ * <b>Note:</b> This application is written for CS2113 for tp at the NUS School of computing.
+ * @author  Alaukik, Kate, Melissa, Yolanda,
+ * @since   2020-03-27
+ */
 public class TechToday {
+
+    /** Version info of the program. */
+    public static final String VERSION = "Hiroshi Nagai - Version 1.0";
+
     public static boolean isRunning = true;
     public ViewedArticleList viewedArticleList;
     public SavedArticleList savedArticleList;
@@ -22,6 +48,7 @@ public class TechToday {
     public SavedJobList savedJobList;
     public SavedNoteList savedNoteList;
 
+    /** Constructor that initializes the data structures that saves technology information. */
     public TechToday() {
         viewedArticleList = new ViewedArticleList();
         savedArticleList = new SavedArticleList();
@@ -49,90 +76,101 @@ public class TechToday {
                     try {
                         JsonJobsReader.viewNewJobs();
                     } catch (IOException e) {
+                        System.out.println("Your device is not connected to the internet");
                     }
                 } else if (type.equals("article")) {
                     try {
                         JsonNewsReader.viewNewNews();
                     } catch (IOException e) {
+                        System.out.println("Your device is not connected to the internet");
                     }
                 }
                 break;
-            }
-            case "exit":
+            } case "exit": {
                 isRunning = false;
                 break;
-            case "save": {
+            } case "save": {
                 String type = userResponse.split(" ")[1];
                 switch (type) {
-                    case "article":
+                    case "article": {
                         ArticleSaver.execute(SavedArticleList.savedArticleList, userResponse);
                         break;
-                    case "job":
+                    }
+                    case "job": {
                         JobSaver.execute(SavedJobList.savedJobList, userResponse);
                         break;
-                    case "note":
+                    }
+                    case "note": {
                         NoteSaver.execute(SavedNoteList.savedNoteList, userResponse);
                         break;
+                    }
                 }
                 break;
-            }
-            case "list": {
+            } case "list": {
                 String type = userResponse.split(" ")[1];
                 switch (type) {
-                    case "article":
+                    case "article": {
                         ArticleListPrinter.execute(SavedArticleList.savedArticleList);
                         break;
-                    case "job":
+                    }
+
+                    case "job": {
                         JobListPrinter.execute(SavedJobList.savedJobList);
                         break;
-                    case "note":
+                    }
+                    case "note": {
                         NoteListPrinter.execute(SavedNoteList.savedNoteList);
                         break;
+                    }
                 }
                 break;
-            }
-            case "delete": {
+            } case "delete": {
                 String type = userResponse.split(" ")[1];
                 switch (type) {
-                    case "article":
+                    case "article": {
                         ArticleDeleter.execute(SavedArticleList.savedArticleList, userResponse);
                         break;
-                    case "job":
+                    }
+                    case "job": {
                         JobDeleter.execute(SavedJobList.savedJobList, userResponse);
                         break;
-                    case "note":
+                    }
+                    case "note": {
                         NoteDeleter.execute(SavedNoteList.savedNoteList, userResponse);
                         break;
+                    }
                 }
                 break;
-            }
-            case "addinfo": {
+            } case "addinfo": {
                 String type = userResponse.split(" ")[1];
                 int index = Integer.parseInt(userResponse.split(" ")[2]) - 1;
                 String extract = userResponse.split(" ", 4)[3];
                 switch (type) {
-                    case "article":
+                    case "article": {
                         Article article = SavedArticleList.savedArticleList.get(index);
                         article.setExtract(article, extract);
                         ArticlePrinter.printIsolatedArticle(article);
                         break;
-                    case "job":
+                    }
+                    case "job": {
                         Job job = SavedJobList.savedJobList.get(index);
                         job.setExtract(job, extract);
                         JobPrinter.printIsolatedJob(job);
                         break;
-                    case "note":
+                    }
+                    case "note": {
                         Note note = SavedNoteList.savedNoteList.get(index);
                         note.setExtract(note, extract);
                         NotePrinter.printIsolatedArticle(note);
                         break;
+                    }
                 }
                 break;
-            }
-            default:
+            } default: {
                 System.out.println("Command not found, try again");
                 isRunning = false;
                 break;
+                }
             }
         }
     }
