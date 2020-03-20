@@ -2,9 +2,8 @@ package seedu.techtoday.api.apiviewjobs;
 
 import java.io.IOException;
 import org.json.JSONException;
-import seedu.techtoday.api.apiviewnews.ViewedArticleListCreator;
-import seedu.techtoday.articleList.ArticleListPrinter;
-import seedu.techtoday.articleList.ViewedArticleList;
+import seedu.techtoday.jobList.JobListPrinter;
+import seedu.techtoday.jobList.ViewedJobList;
 
 
 /** Represents a class that reads a URL as a JSON objecs. */
@@ -17,8 +16,8 @@ public class JsonJobsReader {
      */
 
     public static void viewNewJobs() throws IOException, JSONException {
-        ViewedArticleListCreator.execute("https://hacker-news.firebaseio.com/v0/askstories.json?print=pretty");
-        ArticleListPrinter.execute(ViewedArticleList.viewedArticleList);
+        ViewedJobListCreator.execute("https://hacker-news.firebaseio.com/v0/askstories.json?print=pretty");
+        JobListPrinter.execute(ViewedJobList.viewedJobList);
     }
 }
 

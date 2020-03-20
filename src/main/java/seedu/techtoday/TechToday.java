@@ -2,14 +2,13 @@ package seedu.techtoday;
 
 import seedu.techtoday.api.apiviewjobs.JsonJobsReader;
 import seedu.techtoday.api.apiviewnews.JsonNewsReader;
-import seedu.techtoday.articleList.SavedArticleList;
-import seedu.techtoday.articleList.ViewedArticleList;
-import seedu.techtoday.articleList.ArticleSaver;
-import seedu.techtoday.jobList.SavedJobList;
-import seedu.techtoday.jobList.ViewedJobList;
+import seedu.techtoday.articleList.*;
+import seedu.techtoday.jobList.*;
+import seedu.techtoday.noteList.*;
+import seedu.techtoday.objects.Article;
+import seedu.techtoday.objects.Job;
+import seedu.techtoday.objects.Note;
 import seedu.techtoday.ui.Ui;
-import seedu.techtoday.articleList.ArticleListPrinter;
-import seedu.techtoday.articleList.ArticleDeleter;
 
 import static seedu.techtoday.common.Messages.greet;
 
@@ -21,12 +20,14 @@ public class TechToday {
     public SavedArticleList savedArticleList;
     public ViewedJobList viewedJobList;
     public SavedJobList savedJobList;
+    public SavedNoteList savedNoteList;
 
-    public TechToday(){
+    public TechToday() {
         viewedArticleList = new ViewedArticleList();
         savedArticleList = new SavedArticleList();
         viewedJobList = new ViewedJobList();
-        savedJobList= new SavedJobList();
+        savedJobList = new SavedJobList();
+        savedNoteList = new SavedNoteList();
     }
 
     /**
@@ -41,29 +42,97 @@ public class TechToday {
             String command = userResponse.split(" ")[0];
             String restOfUserInput = userResponse.replace(command, "").trim();
 
-            if (command.equals("jobs")) {
-                try {
-                    JsonJobsReader.viewNewJobs();
-                } catch (IOException e){
+            switch (command) {
+            case "view": {
+                String type = userResponse.split(" ")[1];
+                if (type.equals("job")) {
+                    try {
+                        JsonJobsReader.viewNewJobs();
+                    } catch (IOException e) {
+                    }
+                } else if (type.equals("article")) {
+                    try {
+                        JsonNewsReader.viewNewNews();
+                    } catch (IOException e) {
+                    }
                 }
-            } else if (command.equals("news")) {
-                try {
-                    JsonNewsReader.viewNewNews();
-                } catch (IOException e){
-                }
-            } else if (command.equals("exit")){
+                break;
+            }
+            case "exit":
                 isRunning = false;
-            } else if (command.equals("save")){
-                ArticleSaver.execute(SavedArticleList.savedArticleList, userResponse);
-            } else if (command.equals("list")){
-                ArticleListPrinter.execute(SavedArticleList.savedArticleList);
+                break;
+            case "save": {
+                String type = userResponse.split(" ")[1];
+                switch (type) {
+                    case "article":
+                        ArticleSaver.execute(SavedArticleList.savedArticleList, userResponse);
+                        break;
+                    case "job":
+                        JobSaver.execute(SavedJobList.savedJobList, userResponse);
+                        break;
+                    case "note":
+                        NoteSaver.execute(SavedNoteList.savedNoteList, userResponse);
+                        break;
+                }
+                break;
             }
-            else if (command.equals("delete")){
-                ArticleDeleter.execute(SavedArticleList.savedArticleList, userResponse);
+            case "list": {
+                String type = userResponse.split(" ")[1];
+                switch (type) {
+                    case "article":
+                        ArticleListPrinter.execute(SavedArticleList.savedArticleList);
+                        break;
+                    case "job":
+                        JobListPrinter.execute(SavedJobList.savedJobList);
+                        break;
+                    case "note":
+                        NoteListPrinter.execute(SavedNoteList.savedNoteList);
+                        break;
+                }
+                break;
             }
-            else {
+            case "delete": {
+                String type = userResponse.split(" ")[1];
+                switch (type) {
+                    case "article":
+                        ArticleDeleter.execute(SavedArticleList.savedArticleList, userResponse);
+                        break;
+                    case "job":
+                        JobDeleter.execute(SavedJobList.savedJobList, userResponse);
+                        break;
+                    case "note":
+                        NoteDeleter.execute(SavedNoteList.savedNoteList, userResponse);
+                        break;
+                }
+                break;
+            }
+            case "addinfo": {
+                String type = userResponse.split(" ")[1];
+                int index = Integer.parseInt(userResponse.split(" ")[2]) - 1;
+                String extract = userResponse.split(" ", 4)[3];
+                switch (type) {
+                    case "article":
+                        Article article = SavedArticleList.savedArticleList.get(index);
+                        article.setExtract(article, extract);
+                        ArticlePrinter.printIsolatedArticle(article);
+                        break;
+                    case "job":
+                        Job job = SavedJobList.savedJobList.get(index);
+                        job.setExtract(job, extract);
+                        JobPrinter.printIsolatedJob(job);
+                        break;
+                    case "note":
+                        Note note = SavedNoteList.savedNoteList.get(index);
+                        note.setExtract(note, extract);
+                        NotePrinter.printIsolatedArticle(note);
+                        break;
+                }
+                break;
+            }
+            default:
                 System.out.println("Command not found, try again");
                 isRunning = false;
+                break;
             }
         }
     }

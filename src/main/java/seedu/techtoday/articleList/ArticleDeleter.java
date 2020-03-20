@@ -14,8 +14,8 @@ public class ArticleDeleter{
      */
     public static void execute(ArrayList<Article> savedArticleList, String command){
         String[] commandArray = command.split(" ");
-        int articleNumber = Integer.parseInt(commandArray[1]) - 1;
-        Article articleToDelete = ViewedArticleList.viewedArticleList.get(articleNumber);
+        int articleNumber = Integer.parseInt(commandArray[2]) - 1;
+        Article articleToDelete = SavedArticleList.savedArticleList.get(articleNumber);
         System.out.println("Deleting the following article:");
         ArticlePrinter.printIsolatedArticle(articleToDelete);
         SavedArticleList.savedArticleList.remove(articleNumber);
