@@ -16,6 +16,4 @@ public class ArticleListPrinter {
             taskCounter += 1;
         }
     }
-
-
 }

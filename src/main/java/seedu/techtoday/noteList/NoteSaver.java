@@ -22,7 +22,7 @@ public class NoteSaver extends SavedNoteList {
         Note noteToSave = new Note(title, extract, Instant.now().getEpochSecond() + "");
         //add the note
         System.out.println("Done, saved the note with the following details:");
-        NotePrinter.printIsolatedArticle(noteToSave);
+        NotePrinter.printIsolatedNote(noteToSave);
         NoteAdder.execute(SavedNoteList.savedNoteList, noteToSave);
     }
 }

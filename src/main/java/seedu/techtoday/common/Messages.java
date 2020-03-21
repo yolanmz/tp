@@ -36,6 +36,8 @@ public class Messages {
         printInCenter("3. save [article / job / note] [index number (optional)]");
         printInCenter("4. delete [article / job / note] [index number]");
         printInCenter("5. addinfo [article / job / note] [index number] [extract]");
+        printInCenter("6. create [article / job / note]");
+        printInCenter("7. exit");
         printInCenter("");
         System.out.println(BOTTOM_LINE);
         System.out.println("     What can I do for you?");

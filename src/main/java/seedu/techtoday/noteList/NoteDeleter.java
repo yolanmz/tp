@@ -16,7 +16,7 @@ public class NoteDeleter {
         int noteNumber = Integer.parseInt(commandArray[2]) - 1;
         Note noteToDelete = SavedNoteList.savedNoteList.get(noteNumber);
         System.out.println("Deleting the following note:");
-        NotePrinter.printIsolatedArticle(noteToDelete);
+        NotePrinter.printIsolatedNote(noteToDelete);
         SavedNoteList.savedNoteList.remove(noteToDelete);
     }
 }

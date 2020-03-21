@@ -1,7 +1,6 @@
 package seedu.techtoday.articleList;
 
 import seedu.techtoday.objects.Article;
-import java.util.Date;
 
 public class ArticlePrinter {
     public static void execute(int taskCounter, Article article) {

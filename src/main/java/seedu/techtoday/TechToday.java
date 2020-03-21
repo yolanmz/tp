@@ -8,6 +8,8 @@ import seedu.techtoday.articleList.ArticleDeleter;
 import seedu.techtoday.articleList.ArticleListPrinter;
 import seedu.techtoday.articleList.ArticleSaver;
 import seedu.techtoday.articleList.ArticlePrinter;
+import seedu.techtoday.creator.ManualArticleCreator;
+import seedu.techtoday.creator.ManualJobCreator;
 import seedu.techtoday.jobList.SavedJobList;
 import seedu.techtoday.jobList.ViewedJobList;
 import seedu.techtoday.jobList.JobDeleter;
@@ -22,7 +24,10 @@ import seedu.techtoday.noteList.NoteDeleter;
 import seedu.techtoday.objects.Article;
 import seedu.techtoday.objects.Job;
 import seedu.techtoday.objects.Note;
+import seedu.techtoday.storage.InBuiltJobListGenerator;
 import seedu.techtoday.ui.Ui;
+import seedu.techtoday.creator.ManualNoteCreator;
+import seedu.techtoday.storage.InBuiltArticleListGenerator;
 
 import static seedu.techtoday.common.Messages.greet;
 
@@ -76,13 +81,17 @@ public class TechToday {
                     try {
                         JsonJobsReader.viewNewJobs();
                     } catch (IOException e) {
-                        System.out.println("Your device is not connected to the internet");
+                        System.out.println("Your device is not connected to the internet, we will load pre-existing jobs");
+                        InBuiltJobListGenerator.execute();
+                        JobListPrinter.execute(SavedJobList.savedJobList);
                     }
                 } else if (type.equals("article")) {
                     try {
                         JsonNewsReader.viewNewNews();
                     } catch (IOException e) {
-                        System.out.println("Your device is not connected to the internet");
+                        System.out.println("Your device is not connected to the internet, we will load pre-existing articles");
+                        InBuiltArticleListGenerator.execute();
+                        ArticleListPrinter.execute(SavedArticleList.savedArticleList);
                     }
                 }
                 break;
@@ -124,11 +133,29 @@ public class TechToday {
                     }
                 }
                 break;
+            } case "create": {
+                String type = userResponse.split(" ")[1];
+                switch (type) {
+                case "article": {
+                    ManualArticleCreator.execute();
+                    break;
+                }
+                case "job": {
+                    ManualJobCreator.execute();
+                    break;
+                }
+                case "note": {
+                    ManualNoteCreator.execute();
+                    break;
+                }
+                }
+                break;
+
             } case "delete": {
                 String type = userResponse.split(" ")[1];
                 switch (type) {
                     case "article": {
-                        ArticleDeleter.execute(SavedArticleList.savedArticleList, userResponse);
+                        ArticleDeleter.execute(userResponse);
                         break;
                     }
                     case "job": {
@@ -161,7 +188,7 @@ public class TechToday {
                     case "note": {
                         Note note = SavedNoteList.savedNoteList.get(index);
                         note.setExtract(note, extract);
-                        NotePrinter.printIsolatedArticle(note);
+                        NotePrinter.printIsolatedNote(note);
                         break;
                     }
                 }

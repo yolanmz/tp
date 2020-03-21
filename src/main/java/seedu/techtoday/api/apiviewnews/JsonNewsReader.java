@@ -5,7 +5,6 @@ import org.json.JSONException;
 import seedu.techtoday.articleList.ArticleListPrinter;
 import seedu.techtoday.articleList.ViewedArticleList;
 
-
 /** Represents a class that reads a URL as a JSON objecs. */
 public class JsonNewsReader {
 
@@ -14,7 +13,6 @@ public class JsonNewsReader {
      * top stories for the user to view.
      *
      */
-
     public static void viewNewNews() throws IOException, JSONException {
         ViewedArticleListCreator.execute("https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty");
         ArticleListPrinter.execute(ViewedArticleList.viewedArticleList);

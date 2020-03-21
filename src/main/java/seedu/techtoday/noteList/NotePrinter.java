@@ -12,7 +12,7 @@ public class NotePrinter {
                                 + "   Text: " + extract);
     }
 
-    public static void printIsolatedArticle(Note note) {
+    public static void printIsolatedNote(Note note) {
         String timestamp = note.getTimeStamp();
         String title = note.getTitle();
         String extract = note.getExtract();

@@ -20,6 +20,10 @@ public class Article extends Information {
         this.category = category;
     }
 
+    public void setTime(String timeStamp){
+        this.timeStamp = timeStamp;
+    }
+
     public String getUrl() {
         return url;
     }
