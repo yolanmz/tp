@@ -17,7 +17,7 @@ public class Note extends Information {
         super(title, extract, epochSecond);
         String pattern = "yyyy-MMM-dd E hh:mm a";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-        String date = simpleDateFormat.format((new Date(Long.parseLong(epochSecond)*1000)));
+        String date = simpleDateFormat.format((new Date(Long.parseLong(epochSecond) * 1000)));
         this.timeStamp = date;
     }
 }

@@ -32,9 +32,8 @@ public class ViewedJobListCreator {
 
             // Creating a news each time
             JSONObject rawJob = JsonParser.readJsonFromUrl(finalUrl);
-//            System.out.println(rawNews.toString());
+            // System.out.println(rawNews.toString());
             Job processedJob = JobsCreator.rawToProcessedJob(rawJob);
-
             //Adding it to ArrayList jobList
             ViewedJobList.viewedJobList.add(processedJob);
         }
