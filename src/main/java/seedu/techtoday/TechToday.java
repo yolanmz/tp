@@ -137,7 +137,8 @@ public class TechToday {
                     case "note": {
                         NoteSaver.execute(SavedNoteList.savedNoteList, userResponse);
                         break;
-                    }
+                    } default: {
+                        System.out.println("Invalid command for save!");
                 }
                 break;
             } case "list": {
