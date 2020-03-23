@@ -22,7 +22,12 @@ import seedu.techtoday.noteList.NoteDeleter;
 import seedu.techtoday.objects.Article;
 import seedu.techtoday.objects.Job;
 import seedu.techtoday.objects.Note;
-import seedu.techtoday.storage.*;
+import seedu.techtoday.storage.ArticleToFileSaver;
+import seedu.techtoday.storage.InBuiltArticleListGenerator;
+import seedu.techtoday.storage.InBuiltJobListGenerator;
+import seedu.techtoday.storage.JobToFileSaver;
+import seedu.techtoday.storage.Loader;
+import seedu.techtoday.storage.NoteToFileSaver;
 import seedu.techtoday.ui.Ui;
 import seedu.techtoday.creator.ManualNoteCreator;
 
