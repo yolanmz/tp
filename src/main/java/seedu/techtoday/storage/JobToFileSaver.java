@@ -9,7 +9,7 @@ import java.io.FileWriter;
 
 import com.google.gson.JsonObject;
 
-public class JobListToJsonGenerator {
+public class JobToFileSaver {
 
     public static void execute(ArrayList<Job> jobArrayList, String filePath) {
 

@@ -9,7 +9,7 @@ import java.io.FileWriter;
 
 import com.google.gson.JsonObject;
 
-public class ArticleListToJsonGenerator {
+public class ArticleToFileSaver {
 
     public static void execute(ArrayList<Article> articleArrayList, String filePath) {
 
@@ -23,6 +23,7 @@ public class ArticleListToJsonGenerator {
             String category = article.getCategory();
             String extract = article.getExtract();
             String timeStamp = article.getTimeStamp();
+
 
             //article Details
             JsonObject articleDetails = new JsonObject();

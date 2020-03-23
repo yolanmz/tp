@@ -13,7 +13,6 @@ public class JobsCreator {
      * @return Article - article representing jsonObject from internet.
      */
     public static Job rawToProcessedJob(JSONObject json) {
-        System.out.println(json.toString());
         String title = json.get("title").toString();
         int timeStamp = Integer.parseInt(json.get("time").toString());
         String text;

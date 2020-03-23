@@ -4,6 +4,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.FileReader;
 
+import seedu.techtoday.articleList.ArticlePrinter;
+import seedu.techtoday.jobList.JobPrinter;
+import seedu.techtoday.noteList.NotePrinter;
 import seedu.techtoday.noteList.SavedNoteList;
 import seedu.techtoday.objects.Job;
 import seedu.techtoday.objects.Note;
@@ -18,7 +21,7 @@ import seedu.techtoday.jobList.SavedJobList;
 import seedu.techtoday.objects.Article;
 
 
-public class FileJsonReader {
+public class Loader {
     @SuppressWarnings("unchecked")
 
     public static int idxArticle = 1;
@@ -36,8 +39,9 @@ public class FileJsonReader {
         //Iterate over jobList array
         jobList.forEach( obj -> parseJobObject( (JsonObject) obj ) );
 
+
         //Iterate over noteList array
-        jobList.forEach( obj -> parseNoteObject( (JsonObject) obj ) );
+//        noteList.forEach( obj -> parseNoteObject( (JsonObject) obj ) );
     }
 
 
@@ -71,15 +75,23 @@ public class FileJsonReader {
         idxArticle += 1;
 
         //Get article title
-        String title = articleObject.get("title").toString();
-        String url = articleObject.get("url").toString();
-        String timeStamp = articleObject.get("timestamp").toString();
-        String extract = articleObject.get("extract").toString();
-        String category = articleObject.get("category").toString();
+        String title = articleObject.get("title").toString().replaceAll("\"", "");;
+        String url = articleObject.get("url").toString().replaceAll("\"", "");;
+        String timeStamp = articleObject.get("timestamp").toString().replaceAll("\"", "");;
+        String extract = articleObject.get("extract").toString().replaceAll("\"", "");;
+        String category = articleObject.get("category").toString().replaceAll("\"", "");;
 
+        if (category == null){
+            category = "default";
+        }
 
         Article newArticle = new Article(title, url, category);
         newArticle.setTime(timeStamp);
+
+        if (extract == null){
+            extract = "";
+        }
+
         newArticle.setExtract(extract);
 
         SavedArticleList.savedArticleList.add(newArticle);
@@ -95,16 +107,25 @@ public class FileJsonReader {
         idxJob += 1;
 
         //Get article title
-        String title = jobObject.get("title").toString();
-        String text = jobObject.get("text").toString();
-        String timeStamp = jobObject.get("timestamp").toString();
-        String extract = jobObject.get("extract").toString();
-        String category = jobObject.get("category").toString();
+        String title = jobObject.get("title").toString().replaceAll("\"", "");;
+        String text = jobObject.get("text").toString().replaceAll("\"", "");;
+        String timeStamp = jobObject.get("timestamp").toString().replaceAll("\"", "");;
+        String extract = jobObject.get("extract").toString().replaceAll("\"", "");;
+        String category = jobObject.get("category").toString().replaceAll("\"", "");;
+
+        if (category == null){
+            category = "default";
+        }
+
+        if (extract == null){
+            extract = "";
+        }
 
         //Creates a job and a
         Job newJob = new Job(title, text, category);
         newJob.setTime(timeStamp);
         newJob.setExtract(extract);
+
         SavedJobList.savedJobList.add(newJob);
 
     }
@@ -118,13 +139,18 @@ public class FileJsonReader {
         idxNotes += 1;
 
         //Get article title
-        String title = jobObject.get("title").toString();
-        String extract = jobObject.get("extract").toString();
-        String timeStamp = jobObject.get("timestamp").toString();
-//        String category = jobObject.get("category").toString();
+        String title = jobObject.get("title").toString().replaceAll("\"", "");;
+        String extract = jobObject.get("extract").toString().replaceAll("\"", "");;
+        String timeStamp = jobObject.get("timestamp").toString().replaceAll("\"", "");;
+//        String category = jobObject.get("category").toString().replaceAll("\"", "");;
 
-        //Creates a job and a
+
+        //Creates a note and a
         Note newNote = new Note(title, extract, timeStamp);
+
+
+
+//        NotePrinter.printIsolatedNote(newNote);
 
         SavedNoteList.savedNoteList.add(newNote);
 

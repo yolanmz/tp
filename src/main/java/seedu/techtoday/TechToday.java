@@ -6,7 +6,6 @@ import seedu.techtoday.articleList.SavedArticleList;
 import seedu.techtoday.articleList.ViewedArticleList;
 import seedu.techtoday.articleList.ArticleDeleter;
 import seedu.techtoday.articleList.ArticleListPrinter;
-import seedu.techtoday.articleList.ArticleSaver;
 import seedu.techtoday.articleList.ArticlePrinter;
 import seedu.techtoday.creator.ManualArticleCreator;
 import seedu.techtoday.creator.ManualJobCreator;
@@ -15,7 +14,6 @@ import seedu.techtoday.jobList.ViewedJobList;
 import seedu.techtoday.jobList.JobDeleter;
 import seedu.techtoday.jobList.JobListPrinter;
 import seedu.techtoday.jobList.JobPrinter;
-import seedu.techtoday.jobList.JobSaver;
 import seedu.techtoday.noteList.SavedNoteList;
 import seedu.techtoday.noteList.NotePrinter;
 import seedu.techtoday.noteList.NoteListPrinter;
@@ -24,16 +22,13 @@ import seedu.techtoday.noteList.NoteDeleter;
 import seedu.techtoday.objects.Article;
 import seedu.techtoday.objects.Job;
 import seedu.techtoday.objects.Note;
-import seedu.techtoday.storage.InBuiltJobListGenerator;
+import seedu.techtoday.storage.*;
 import seedu.techtoday.ui.Ui;
 import seedu.techtoday.creator.ManualNoteCreator;
-import seedu.techtoday.storage.InBuiltArticleListGenerator;
-import seedu.techtoday.storage.ArticleListToJsonGenerator;
-import seedu.techtoday.storage.JobListToJsonGenerator;
-import seedu.techtoday.storage.FileJsonReader;
-import static seedu.techtoday.common.Messages.greet;
 
-import java.io.FileNotFoundException;
+import static seedu.techtoday.common.Messages.greet;
+import java.io.File;
+
 import java.io.IOException;
 
 /**
@@ -63,8 +58,6 @@ public class TechToday {
         viewedJobList = new ViewedJobList();
         savedJobList = new SavedJobList();
         savedNoteList = new SavedNoteList();
-        FileJsonReader.execute("articleList.json", "jobList.json",
-                "noteList.json");
     }
 
     /**
@@ -73,6 +66,23 @@ public class TechToday {
     public static void main(String[] args) {
         new TechToday();
         greet();
+
+        File articleListFile = new File("articleList.json");
+        File jobListFile = new File("articleList.json");
+        File noteListFile = new File("noteList.json");
+
+        boolean existsArticle = articleListFile.exists();
+        boolean existsJob = jobListFile.exists();
+        boolean existsNote = noteListFile.exists();
+
+        if (existsArticle & existsJob & existsNote) {
+            Loader.execute("articleList.json", "jobList.json",
+                    "noteList.json");
+        } else {
+            System.out.println("No files detected, we will create out own");
+        }
+
+
 
         while (isRunning) {
             String userResponse = Ui.getCommand();
@@ -101,19 +111,20 @@ public class TechToday {
                 }
                 break;
             } case "exit": {
-                ArticleListToJsonGenerator.execute(SavedArticleList.savedArticleList, "articleList.json");
-                JobListToJsonGenerator.execute(SavedJobList.savedJobList, "jobList.json");
+                ArticleToFileSaver.execute(SavedArticleList.savedArticleList, "articleList.json");
+                JobToFileSaver.execute(SavedJobList.savedJobList, "jobList.json");
+                NoteToFileSaver.execute(SavedNoteList.savedNoteList, "noteList.json");
                 isRunning = false;
                 break;
             } case "save": {
                 String type = userResponse.split(" ")[1];
                 switch (type) {
                     case "article": {
-                        ArticleSaver.execute(SavedArticleList.savedArticleList, userResponse);
+                        seedu.techtoday.articleList.ArticleSaver.execute(SavedArticleList.savedArticleList, userResponse);
                         break;
                     }
                     case "job": {
-                        JobSaver.execute(SavedJobList.savedJobList, userResponse);
+                        seedu.techtoday.jobList.JobSaver.execute(SavedJobList.savedJobList, userResponse);
                         break;
                     }
                     case "note": {
