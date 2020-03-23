@@ -222,8 +222,10 @@ public class TechToday {
                     note.setExtract(note, extract);
                     NotePrinter.printIsolatedNote(note);
                     break;
-                } default: {
+                }
+                default: {
                     System.out.println("Invalid command for addinfo!");
+                }
                 }
                 break;
             } default: {
