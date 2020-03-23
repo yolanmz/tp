@@ -150,7 +150,6 @@ public class TechToday {
                         ArticleListPrinter.execute(SavedArticleList.savedArticleList);
                         break;
                     }
-
                     case "job": {
                         JobListPrinter.execute(SavedJobList.savedJobList);
                         break;
@@ -158,7 +157,9 @@ public class TechToday {
                     case "note": {
                         NoteListPrinter.execute(SavedNoteList.savedNoteList);
                         break;
-                    }
+                    } default: {
+                      System.out.println("Invalid command for list!");
+                }
                 }
                 break;
             } case "create": {
