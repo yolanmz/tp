@@ -146,19 +146,19 @@ public class TechToday {
             } case "list": {
                 String type = userResponse.split(" ")[1];
                 switch (type) {
-                    case "article": {
-                        ArticleListPrinter.execute(SavedArticleList.savedArticleList);
-                        break;
-                    }
-                    case "job": {
-                        JobListPrinter.execute(SavedJobList.savedJobList);
-                        break;
-                    }
-                    case "note": {
-                        NoteListPrinter.execute(SavedNoteList.savedNoteList);
-                        break;
-                    } default: {
-                      System.out.println("Invalid command for list!");
+                case "article": {
+                    ArticleListPrinter.execute(SavedArticleList.savedArticleList);
+                    break;
+                }
+                case "job": {
+                    JobListPrinter.execute(SavedJobList.savedJobList);
+                    break;
+                }
+                case "note": {
+                    NoteListPrinter.execute(SavedNoteList.savedNoteList);
+                    break;
+                } default: {
+                    System.out.println("Invalid command for list!");
                 }
                 }
                 break;
@@ -176,25 +176,28 @@ public class TechToday {
                 case "note": {
                     ManualNoteCreator.execute();
                     break;
+                } default: {
+                    System.out.println("Invalid command for create!");
                 }
                 }
                 break;
-
             } case "delete": {
                 String type = userResponse.split(" ")[1];
                 switch (type) {
-                    case "article": {
-                        ArticleDeleter.execute(userResponse);
-                        break;
-                    }
-                    case "job": {
-                        JobDeleter.execute(SavedJobList.savedJobList, userResponse);
-                        break;
-                    }
-                    case "note": {
-                        NoteDeleter.execute(SavedNoteList.savedNoteList, userResponse);
-                        break;
-                    }
+                case "article": {
+                    ArticleDeleter.execute(userResponse);
+                    break;
+                }
+                case "job": {
+                    JobDeleter.execute(SavedJobList.savedJobList, userResponse);
+                    break;
+                }
+                case "note": {
+                    NoteDeleter.execute(SavedNoteList.savedNoteList, userResponse);
+                    break;
+                } default: {
+                    System.out.println("Invalid command for delete!");
+                }
                 }
                 break;
             } case "addinfo": {
@@ -202,24 +205,25 @@ public class TechToday {
                 int index = Integer.parseInt(userResponse.split(" ")[2]) - 1;
                 String extract = userResponse.split(" ", 4)[3];
                 switch (type) {
-                    case "article": {
-                        Article article = SavedArticleList.savedArticleList.get(index);
-                        article.setExtract(article, extract);
-                        ArticlePrinter.printIsolatedArticle(article);
-                        break;
-                    }
-                    case "job": {
-                        Job job = SavedJobList.savedJobList.get(index);
-                        job.setExtract(job, extract);
-                        JobPrinter.printIsolatedJob(job);
-                        break;
-                    }
-                    case "note": {
-                        Note note = SavedNoteList.savedNoteList.get(index);
-                        note.setExtract(note, extract);
-                        NotePrinter.printIsolatedNote(note);
-                        break;
-                    }
+                case "article": {
+                    Article article = SavedArticleList.savedArticleList.get(index);
+                    article.setExtract(article, extract);
+                    ArticlePrinter.printIsolatedArticle(article);
+                    break;
+                }
+                case "job": {
+                    Job job = SavedJobList.savedJobList.get(index);
+                    job.setExtract(job, extract);
+                    JobPrinter.printIsolatedJob(job);
+                    break;
+                }
+                case "note": {
+                    Note note = SavedNoteList.savedNoteList.get(index);
+                    note.setExtract(note, extract);
+                    NotePrinter.printIsolatedNote(note);
+                    break;
+                } default: {
+                    System.out.println("Invalid command for addinfo!");
                 }
                 break;
             } default: {
