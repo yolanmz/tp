@@ -20,7 +20,7 @@ public class Job extends Information {
         this.category = category;
     }
 
-    public String getUrl() {
+    public String getText() {
         return text;
     }
 

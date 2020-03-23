@@ -3,7 +3,7 @@ package seedu.techtoday.api.apiviewnews;
 import java.io.IOException;
 import org.json.JSONException;
 import org.json.JSONObject;
-import seedu.techtoday.api.JsonParser;
+import seedu.techtoday.api.UrlJsonParser;
 import seedu.techtoday.articleList.ViewedArticleList;
 import seedu.techtoday.objects.Article;
 
@@ -20,8 +20,8 @@ public class ViewedArticleListCreator {
      */
     public static void execute(String url) throws IOException, JSONException {
 
-        String indicesStr = JsonParser.readJsonArrayfromUrl(url);
-        int[] indicesArr = JsonParser.stringToArray(indicesStr);
+        String indicesStr = UrlJsonParser.readJsonArrayfromUrl(url);
+        int[] indicesArr = UrlJsonParser.stringToArray(indicesStr);
         for (int i = 0; i < indicesArr.length; i++) {
             String headOfUrl = "https://hacker-news.firebaseio.com/v0/item/";
             String midUrl = Integer.toString(indicesArr[i]);
@@ -29,7 +29,7 @@ public class ViewedArticleListCreator {
             String finalUrl = headOfUrl + midUrl + tailUrl;
 
             // Creating a news each time
-            JSONObject rawNews = JsonParser.readJsonFromUrl(finalUrl);
+            JSONObject rawNews = UrlJsonParser.readJsonFromUrl(finalUrl);
 //            System.out.println(rawNews.toString());
             Article processedArticle = NewsCreator.rawToProcessedNews(rawNews);
 

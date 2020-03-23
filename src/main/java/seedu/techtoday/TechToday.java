@@ -28,9 +28,12 @@ import seedu.techtoday.storage.InBuiltJobListGenerator;
 import seedu.techtoday.ui.Ui;
 import seedu.techtoday.creator.ManualNoteCreator;
 import seedu.techtoday.storage.InBuiltArticleListGenerator;
-
+import seedu.techtoday.storage.ArticleListToJsonGenerator;
+import seedu.techtoday.storage.JobListToJsonGenerator;
+import seedu.techtoday.storage.FileJsonReader;
 import static seedu.techtoday.common.Messages.greet;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
@@ -60,6 +63,8 @@ public class TechToday {
         viewedJobList = new ViewedJobList();
         savedJobList = new SavedJobList();
         savedNoteList = new SavedNoteList();
+        FileJsonReader.execute("articleList.json", "jobList.json",
+                "noteList.json");
     }
 
     /**
@@ -96,6 +101,8 @@ public class TechToday {
                 }
                 break;
             } case "exit": {
+                ArticleListToJsonGenerator.execute(SavedArticleList.savedArticleList, "articleList.json");
+                JobListToJsonGenerator.execute(SavedJobList.savedJobList, "jobList.json");
                 isRunning = false;
                 break;
             } case "save": {

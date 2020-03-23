@@ -3,7 +3,7 @@ package seedu.techtoday.api.apiviewjobs;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import seedu.techtoday.api.JsonParser;
+import seedu.techtoday.api.UrlJsonParser;
 import seedu.techtoday.jobList.ViewedJobList;
 import seedu.techtoday.objects.Job;
 
@@ -22,8 +22,8 @@ public class ViewedJobListCreator {
      */
     public static void execute(String url) throws IOException, JSONException {
 
-        String indicesStr = JsonParser.readJsonArrayfromUrl(url);
-        int[] indicesArr = JsonParser.stringToArray(indicesStr);
+        String indicesStr = UrlJsonParser.readJsonArrayfromUrl(url);
+        int[] indicesArr = UrlJsonParser.stringToArray(indicesStr);
         for (int i = 0; i < indicesArr.length; i++) {
             String headOfUrl = "https://hacker-news.firebaseio.com/v0/item/";
             String midUrl = Integer.toString(indicesArr[i]);
@@ -31,7 +31,7 @@ public class ViewedJobListCreator {
             String finalUrl = headOfUrl + midUrl + tailUrl;
 
             // Creating a news each time
-            JSONObject rawJob = JsonParser.readJsonFromUrl(finalUrl);
+            JSONObject rawJob = UrlJsonParser.readJsonFromUrl(finalUrl);
             // System.out.println(rawNews.toString());
             Job processedJob = JobsCreator.rawToProcessedJob(rawJob);
             //Adding it to ArrayList jobList

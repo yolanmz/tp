@@ -10,6 +10,7 @@ public class Information {
     protected String title;
     protected String extract;
     protected String timeStamp;
+    protected String category;
 
     public Information(String title, String extract, String timeStamp) {
         this.title = title;
@@ -48,5 +49,16 @@ public class Information {
 
     public String getTimeStamp() {
         return timeStamp;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setTime(String timeStamp){
+        this.timeStamp = timeStamp;
+    }
+
+    public void setExtract(String extract) {this.extract = extract;
     }
 }
