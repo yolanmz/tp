@@ -126,19 +126,21 @@ public class TechToday {
             } case "save": {
                 String type = userResponse.split(" ")[1];
                 switch (type) {
-                    case "article": {
-                        seedu.techtoday.articleList.ArticleSaver.execute(SavedArticleList.savedArticleList, userResponse);
-                        break;
-                    }
-                    case "job": {
-                        seedu.techtoday.jobList.JobSaver.execute(SavedJobList.savedJobList, userResponse);
-                        break;
-                    }
-                    case "note": {
-                        NoteSaver.execute(SavedNoteList.savedNoteList, userResponse);
-                        break;
-                    } default: {
-                        System.out.println("Invalid command for save!");
+                case "article": {
+                    seedu.techtoday.articleList.ArticleSaver.execute(SavedArticleList.savedArticleList, userResponse);
+                    break;
+                }
+                case "job": {
+                    seedu.techtoday.jobList.JobSaver.execute(SavedJobList.savedJobList, userResponse);
+                    break;
+                }
+                case "note": {
+                    NoteSaver.execute(SavedNoteList.savedNoteList, userResponse);
+                    break;
+                }
+                default: {
+                    System.out.println("Invalid command for save!");
+                }
                 }
                 break;
             } case "list": {
