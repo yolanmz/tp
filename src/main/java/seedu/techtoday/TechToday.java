@@ -110,7 +110,8 @@ public class TechToday {
                     try {
                         JsonNewsReader.viewNewNews();
                     } catch (IOException e) {
-                        System.out.println("Your device is not connected to the internet, we will load pre-existing articles");
+                        System.out.println("Your device is not connected to the internet, " 
+                                           + "we will load pre-existing articles");
                         InBuiltArticleListGenerator.execute();
                         ArticleListPrinter.execute(SavedArticleList.savedArticleList);
                     }
