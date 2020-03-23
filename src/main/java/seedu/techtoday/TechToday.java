@@ -101,7 +101,8 @@ public class TechToday {
                     try {
                         JsonJobsReader.viewNewJobs();
                     } catch (IOException e) {
-                        System.out.println("Your device is not connected to the internet, we will load pre-existing jobs");
+                        System.out.println("Your device is not connected to the internet, 
+                                           we will load pre-existing jobs");
                         InBuiltJobListGenerator.execute();
                         JobListPrinter.execute(SavedJobList.savedJobList);
                     }
