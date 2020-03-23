@@ -232,7 +232,7 @@ public class TechToday {
                 System.out.println("Command not found, try again");
                 isRunning = false;
                 break;
-                }
+            }
             }
         }
     }
