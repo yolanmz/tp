@@ -7,6 +7,10 @@ import seedu.techtoday.objects.Information;
  * ADD JAVADOC.
  */
 public class CurrentTimeFetcher {
+    /**
+     * ADD JAVADOC.
+     * @return - ADD HERE.
+     */
     public static String execute() {
         Instant instant = Instant.now();
         long timeStampSeconds = instant.getEpochSecond();

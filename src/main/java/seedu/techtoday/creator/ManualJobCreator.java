@@ -10,6 +10,9 @@ import seedu.techtoday.ui.Ui;
  * ADD JAVADOC.
  */
 public class ManualJobCreator {
+    /**
+     * ADD JAVADOC.
+     */
     public static void execute() {
         System.out.println("Enter the title of the job?");
         String title = Ui.getCommand();

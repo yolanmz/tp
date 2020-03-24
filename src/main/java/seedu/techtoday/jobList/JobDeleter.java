@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 
 /** Represents command that is used to call a method to delete job from taskList. */
-public class JobDeleter{
+public class JobDeleter {
     /**
      * Deletes the task at index taskNumber from the tasklist.
      *

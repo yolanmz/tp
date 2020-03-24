@@ -14,7 +14,7 @@ public class JobSaver extends SavedJobList {
      * @param taskList - ADD HERE.
      * @param command - ADD HERE.
      */
-    public static void execute(ArrayList<Job> taskList, String command){
+    public static void execute(ArrayList<Job> taskList, String command) {
         String[] commandArray = command.split(" ");
         int commandNumber = Integer.parseInt(commandArray[2]) - 1;
         Job jobToSave = ViewedJobList.viewedJobList.get(commandNumber);

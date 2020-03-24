@@ -12,6 +12,9 @@ import seedu.techtoday.ui.Ui;
  */
 public class ManualNoteCreator {
 
+    /**
+     * ADD JAVADOC.
+     */
     public static void execute() {
         System.out.println("Enter the title you would like to give this Note?");
         String title = Ui.getCommand();

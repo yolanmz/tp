@@ -9,6 +9,10 @@ import seedu.techtoday.ui.Ui;
  * ADD JAVADOC.
  */
 public class ManualArticleCreator {
+
+    /**
+     * ADD JAVADOC.
+     */
     public static void execute() {
         System.out.println("Enter the title of the article?");
         String title = Ui.getCommand();

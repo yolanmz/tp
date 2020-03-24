@@ -9,7 +9,7 @@ public class SavedJobList {
     public static ArrayList<Job> savedJobList;
 
     /** Initializes a new taskList.  */
-    public SavedJobList(){
+    public SavedJobList() {
         savedJobList = new ArrayList<Job>();
     }
 }
