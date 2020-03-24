@@ -1,5 +1,6 @@
 package seedu.techtoday.api.apiviewnews;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 import seedu.techtoday.objects.Article;
 
@@ -11,7 +12,7 @@ public class NewsCreator {
      * @param json JSON object representing a news article.
      * @return Article - article representing jsonObject from internet.
      */
-    public static Article rawToProcessedNews(JSONObject json) {
+    public static Article rawToProcessedNews(JSONObject json) throws JSONException {
         String title = json.get("title").toString();
         int timeStamp = Integer.parseInt(json.get("time").toString());
         String url;
