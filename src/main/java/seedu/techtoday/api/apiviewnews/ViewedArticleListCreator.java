@@ -4,7 +4,7 @@ import java.io.IOException;
 import org.json.JSONException;
 import org.json.JSONObject;
 import seedu.techtoday.api.UrlJsonParser;
-import seedu.techtoday.articleList.ViewedArticleList;
+import seedu.techtoday.articlelist.viewedarticlelist;
 import seedu.techtoday.objects.Article;
 
 /** Represents a creates a list of news that can be viewed by the user. */
@@ -34,7 +34,7 @@ public class ViewedArticleListCreator {
             Article processedArticle = NewsCreator.rawToProcessedNews(rawNews);
 
             //Adding it to ArrayList articleList
-            ViewedArticleList.viewedArticleList.add(processedArticle);
+            viewedarticlelist.viewedArticleList.add(processedArticle);
         }
     }
 }

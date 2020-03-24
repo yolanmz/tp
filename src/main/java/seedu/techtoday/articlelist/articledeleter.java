@@ -1,9 +1,9 @@
-package seedu.techtoday.articleList;
+package seedu.techtoday.articlelist;
 
 import seedu.techtoday.objects.Article;
 
 /** Represents command that is used to call a method to delete article from taskList. */
-public class ArticleDeleter {
+public class articledeleter {
     /**
      * Deletes the task at index taskNumber from the tasklist.
      *
@@ -12,9 +12,9 @@ public class ArticleDeleter {
     public static void execute(String command) {
         String[] commandArray = command.split(" ");
         int articleNumber = Integer.parseInt(commandArray[2]) - 1;
-        Article articleToDelete = SavedArticleList.savedArticleList.get(articleNumber);
+        Article articleToDelete = savedarticlelist.savedArticleList.get(articleNumber);
         System.out.println("Deleting the following article:");
-        ArticlePrinter.printIsolatedArticle(articleToDelete);
-        SavedArticleList.savedArticleList.remove(articleNumber);
+        articleprinter.printIsolatedArticle(articleToDelete);
+        savedarticlelist.savedArticleList.remove(articleNumber);
     }
 }

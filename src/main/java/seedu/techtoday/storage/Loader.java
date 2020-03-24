@@ -4,9 +4,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.FileReader;
 
-import seedu.techtoday.articleList.ArticlePrinter;
-import seedu.techtoday.jobList.JobPrinter;
-import seedu.techtoday.noteList.NotePrinter;
 import seedu.techtoday.noteList.SavedNoteList;
 import seedu.techtoday.objects.Job;
 import seedu.techtoday.objects.Note;
@@ -16,7 +13,7 @@ import com.google.gson.reflect.TypeToken;
 
 
 
-import seedu.techtoday.articleList.SavedArticleList;
+import seedu.techtoday.articlelist.savedarticlelist;
 import seedu.techtoday.jobList.SavedJobList;
 import seedu.techtoday.objects.Article;
 
@@ -42,7 +39,7 @@ public class Loader {
         JsonArray noteList = jsonReader(fileNameNotes);
 
         //Iterate over articleList array
-        articleList.forEach( obj -> parseArticleObject((JsonObject)obj));
+        articleList.forEach(obj -> parseArticleObject((JsonObject)obj));
 
         //Iterate over jobList array
         jobList.forEach(obj -> parseJobObject((JsonObject)obj));
@@ -59,8 +56,7 @@ public class Loader {
      */
     public static JsonArray jsonReader(String fileName) {
 
-        try (FileReader reader = new FileReader(fileName))
-        {
+        try (FileReader reader = new FileReader(fileName)) {
             //Read JSON file
             Object obj = JsonParser.parseReader(reader);
 
@@ -110,7 +106,7 @@ public class Loader {
 
         newArticle.setExtract(extract);
 
-        SavedArticleList.savedArticleList.add(newArticle);
+        savedarticlelist.savedArticleList.add(newArticle);
 
     }
 

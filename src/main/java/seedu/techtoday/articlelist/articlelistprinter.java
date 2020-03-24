@@ -1,9 +1,9 @@
-package seedu.techtoday.articleList;
+package seedu.techtoday.articlelist;
 
 import seedu.techtoday.objects.Article;
 import java.util.ArrayList;
 
-public class ArticleListPrinter {
+public class articlelistprinter {
     /**
      * Prints all available tasks.
      *
@@ -12,7 +12,7 @@ public class ArticleListPrinter {
     public static void execute(ArrayList<Article> articleList) {
         int taskCounter = 1;
         for (Article article : articleList) {
-            ArticlePrinter.execute(taskCounter, article);
+            articleprinter.execute(taskCounter, article);
             taskCounter += 1;
         }
     }

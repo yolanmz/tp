@@ -2,11 +2,7 @@ package seedu.techtoday;
 
 import seedu.techtoday.api.apiviewjobs.JsonJobsReader;
 import seedu.techtoday.api.apiviewnews.JsonNewsReader;
-import seedu.techtoday.articleList.SavedArticleList;
-import seedu.techtoday.articleList.ViewedArticleList;
-import seedu.techtoday.articleList.ArticleDeleter;
-import seedu.techtoday.articleList.ArticleListPrinter;
-import seedu.techtoday.articleList.ArticlePrinter;
+import seedu.techtoday.articlelist.*;
 import seedu.techtoday.creator.ManualArticleCreator;
 import seedu.techtoday.creator.ManualJobCreator;
 import seedu.techtoday.jobList.SavedJobList;
@@ -50,16 +46,16 @@ public class TechToday {
     public static final String VERSION = "Hiroshi Nagai - Version 1.0";
 
     public static boolean isRunning = true;
-    public ViewedArticleList viewedArticleList;
-    public SavedArticleList savedArticleList;
+    public viewedarticlelist viewedArticleList;
+    public savedarticlelist savedArticleList;
     public ViewedJobList viewedJobList;
     public SavedJobList savedJobList;
     public SavedNoteList savedNoteList;
 
     /** Constructor that initializes the data structures that saves technology information. */
     public TechToday() {
-        viewedArticleList = new ViewedArticleList();
-        savedArticleList = new SavedArticleList();
+        viewedArticleList = new viewedarticlelist();
+        savedArticleList = new savedarticlelist();
         viewedJobList = new ViewedJobList();
         savedJobList = new SavedJobList();
         savedNoteList = new SavedNoteList();
@@ -113,12 +109,12 @@ public class TechToday {
                         System.out.println("Your device is not connected to the internet, " 
                                            + "we will load pre-existing articles");
                         InBuiltArticleListGenerator.execute();
-                        ArticleListPrinter.execute(SavedArticleList.savedArticleList);
+                        articlelistprinter.execute(savedarticlelist.savedArticleList);
                     }
                 }
                 break;
             } case "exit": {
-                ArticleToFileSaver.execute(SavedArticleList.savedArticleList, "articleList.json");
+                ArticleToFileSaver.execute(savedarticlelist.savedArticleList, "articleList.json");
                 JobToFileSaver.execute(SavedJobList.savedJobList, "jobList.json");
                 NoteToFileSaver.execute(SavedNoteList.savedNoteList, "noteList.json");
                 isRunning = false;
@@ -127,7 +123,7 @@ public class TechToday {
                 String type = userResponse.split(" ")[1];
                 switch (type) {
                 case "article": {
-                    seedu.techtoday.articleList.ArticleSaver.execute(SavedArticleList.savedArticleList, userResponse);
+                    articlesaver.execute(savedarticlelist.savedArticleList, userResponse);
                     break;
                 }
                 case "job": {
@@ -147,7 +143,7 @@ public class TechToday {
                 String type = userResponse.split(" ")[1];
                 switch (type) {
                 case "article": {
-                    ArticleListPrinter.execute(SavedArticleList.savedArticleList);
+                    articlelistprinter.execute(savedarticlelist.savedArticleList);
                     break;
                 }
                 case "job": {
@@ -185,7 +181,7 @@ public class TechToday {
                 String type = userResponse.split(" ")[1];
                 switch (type) {
                 case "article": {
-                    ArticleDeleter.execute(userResponse);
+                    articledeleter.execute(userResponse);
                     break;
                 }
                 case "job": {
@@ -206,9 +202,9 @@ public class TechToday {
                 String extract = userResponse.split(" ", 4)[3];
                 switch (type) {
                 case "article": {
-                    Article article = SavedArticleList.savedArticleList.get(index);
+                    Article article = savedarticlelist.savedArticleList.get(index);
                     article.setExtract(article, extract);
-                    ArticlePrinter.printIsolatedArticle(article);
+                    articleprinter.printIsolatedArticle(article);
                     break;
                 }
                 case "job": {

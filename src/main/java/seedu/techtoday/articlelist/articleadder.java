@@ -1,11 +1,11 @@
-package seedu.techtoday.articleList;
+package seedu.techtoday.articlelist;
 
 import java.util.ArrayList;
 import seedu.techtoday.objects.Article;
 
-public class ArticleAdder extends ViewedArticleList {
+public class articleadder extends viewedarticlelist {
 
-    public ArticleAdder() {
+    public articleadder() {
         super();
     }
 
