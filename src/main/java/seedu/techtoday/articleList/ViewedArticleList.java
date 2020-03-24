@@ -9,7 +9,7 @@ public class ViewedArticleList {
     public static ArrayList<Article> viewedArticleList;
 
     /** Initializes a new taskList.  */
-    public ViewedArticleList(){
+    public ViewedArticleList() {
         viewedArticleList = new ArrayList<Article>();
     }
 }

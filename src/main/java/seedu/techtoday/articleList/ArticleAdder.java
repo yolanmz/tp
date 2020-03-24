@@ -5,11 +5,11 @@ import seedu.techtoday.objects.Article;
 
 public class ArticleAdder extends ViewedArticleList {
 
-    public ArticleAdder(){
+    public ArticleAdder() {
         super();
     }
 
     public static void execute(ArrayList<Article> articleList, Article article) {
            articleList.add(article);
-        }
+    }
 }

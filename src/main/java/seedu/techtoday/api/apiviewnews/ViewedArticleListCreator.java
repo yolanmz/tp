@@ -30,7 +30,7 @@ public class ViewedArticleListCreator {
 
             // Creating a news each time
             JSONObject rawNews = UrlJsonParser.readJsonFromUrl(finalUrl);
-//            System.out.println(rawNews.toString());
+            // System.out.println(rawNews.toString());
             Article processedArticle = NewsCreator.rawToProcessedNews(rawNews);
 
             //Adding it to ArrayList articleList

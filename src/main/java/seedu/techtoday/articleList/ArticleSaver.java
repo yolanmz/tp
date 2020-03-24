@@ -5,11 +5,16 @@ import java.util.ArrayList;
 
 public class ArticleSaver extends SavedArticleList {
 
-    public ArticleSaver(){
+    public ArticleSaver() {
         super();
     }
 
-    public static void execute(ArrayList<Article> taskList, String command){
+    /**
+     * ADD JAVADOC
+     * @param taskList
+     * @param command
+     */
+    public static void execute(ArrayList<Article> taskList, String command) {
         String[] commandArray = command.split(" ");
         int commandNumber = Integer.parseInt(commandArray[2]) - 1;
         Article articleToSave = ViewedArticleList.viewedArticleList.get(commandNumber);

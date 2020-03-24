@@ -3,6 +3,11 @@ package seedu.techtoday.articleList;
 import seedu.techtoday.objects.Article;
 
 public class ArticlePrinter {
+    /**
+     * ADD JAVADOC.
+     * @param taskCounter
+     * @param article
+     */
     public static void execute(int taskCounter, Article article) {
         String timestamp = article.getTimeStamp();
         String title = article.getTitle();
@@ -16,6 +21,10 @@ public class ArticlePrinter {
                                 + "   Extract: " + extract);
     }
 
+    /**
+     * ADD JAVADOC.
+     * @param article
+     */
     public static void printIsolatedArticle(Article article) {
         String timestamp = article.getTimeStamp();
         String title = article.getTitle();
