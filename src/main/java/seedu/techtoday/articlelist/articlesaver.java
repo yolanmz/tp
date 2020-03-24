@@ -21,6 +21,6 @@ public class articlesaver extends savedarticlelist {
         //add the article
         System.out.println("Done, saved the article with the following details:");
         articleprinter.printIsolatedArticle(articleToSave);
-        articleadder.execute(savedarticlelist.savedArticleList, articleToSave);
+        Articleadder.execute(savedarticlelist.savedArticleList, articleToSave);
     }
 }
