@@ -1,10 +1,8 @@
 package seedu.techtoday.storage;
 
-import seedu.techtoday.articleList.ArticleAdder;
-import seedu.techtoday.articleList.SavedArticleList;
-import seedu.techtoday.jobList.JobAdder;
+import seedu.techtoday.joblist.JobAdder;
 import seedu.techtoday.objects.Job;
-import seedu.techtoday.jobList.SavedJobList;
+import seedu.techtoday.joblist.SavedJobList;
 
 public class InBuiltJobListGenerator {
     /**

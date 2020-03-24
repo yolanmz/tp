@@ -2,8 +2,8 @@ package seedu.techtoday.api.apiviewnews;
 
 import java.io.IOException;
 import org.json.JSONException;
-import seedu.techtoday.articleList.ArticleListPrinter;
-import seedu.techtoday.articleList.ViewedArticleList;
+import seedu.techtoday.articlelist.ArticleListPrinter;
+import seedu.techtoday.articlelist.ViewedArticleList;
 
 /** Represents a class that reads a URL as a JSON objecs. */
 public class JsonNewsReader {

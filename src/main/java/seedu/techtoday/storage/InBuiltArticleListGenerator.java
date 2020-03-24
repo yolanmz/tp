@@ -1,8 +1,8 @@
 package seedu.techtoday.storage;
 
-import seedu.techtoday.articleList.SavedArticleList;
+import seedu.techtoday.articlelist.SavedArticleList;
 import seedu.techtoday.objects.Article;
-import seedu.techtoday.articleList.ArticleAdder;
+import seedu.techtoday.articlelist.ArticleAdder;
 
 public class InBuiltArticleListGenerator {
     /**

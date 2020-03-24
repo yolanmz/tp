@@ -1,7 +1,7 @@
 package seedu.techtoday.creator;
 
-import seedu.techtoday.articleList.SavedArticleList;
-import seedu.techtoday.articleList.ArticlePrinter;
+import seedu.techtoday.articlelist.SavedArticleList;
+import seedu.techtoday.articlelist.ArticlePrinter;
 import seedu.techtoday.objects.Article;
 import seedu.techtoday.ui.Ui;
 

@@ -1,4 +1,4 @@
-package seedu.techtoday.noteList;
+package seedu.techtoday.notelist;
 
 import java.util.ArrayList;
 import seedu.techtoday.objects.Note;

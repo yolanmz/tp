@@ -2,23 +2,24 @@ package seedu.techtoday;
 
 import seedu.techtoday.api.apiviewjobs.JsonJobsReader;
 import seedu.techtoday.api.apiviewnews.JsonNewsReader;
-import seedu.techtoday.articleList.SavedArticleList;
-import seedu.techtoday.articleList.ViewedArticleList;
-import seedu.techtoday.articleList.ArticleDeleter;
-import seedu.techtoday.articleList.ArticleListPrinter;
-import seedu.techtoday.articleList.ArticlePrinter;
+import seedu.techtoday.articlelist.ArticleDeleter;
+import seedu.techtoday.articlelist.ArticleListPrinter;
+import seedu.techtoday.articlelist.ArticlePrinter;
+import seedu.techtoday.articlelist.SavedArticleList;
+import seedu.techtoday.articlelist.ViewedArticleList;
 import seedu.techtoday.creator.ManualArticleCreator;
 import seedu.techtoday.creator.ManualJobCreator;
-import seedu.techtoday.jobList.SavedJobList;
-import seedu.techtoday.jobList.ViewedJobList;
-import seedu.techtoday.jobList.JobDeleter;
-import seedu.techtoday.jobList.JobListPrinter;
-import seedu.techtoday.jobList.JobPrinter;
-import seedu.techtoday.noteList.SavedNoteList;
-import seedu.techtoday.noteList.NotePrinter;
-import seedu.techtoday.noteList.NoteListPrinter;
-import seedu.techtoday.noteList.NoteSaver;
-import seedu.techtoday.noteList.NoteDeleter;
+import seedu.techtoday.creator.ManualNoteCreator;
+import seedu.techtoday.joblist.JobDeleter;
+import seedu.techtoday.joblist.JobListPrinter;
+import seedu.techtoday.joblist.JobPrinter;
+import seedu.techtoday.joblist.SavedJobList;
+import seedu.techtoday.joblist.ViewedJobList;
+import seedu.techtoday.notelist.NoteDeleter;
+import seedu.techtoday.notelist.NoteListPrinter;
+import seedu.techtoday.notelist.NotePrinter;
+import seedu.techtoday.notelist.NoteSaver;
+import seedu.techtoday.notelist.SavedNoteList;
 import seedu.techtoday.objects.Article;
 import seedu.techtoday.objects.Job;
 import seedu.techtoday.objects.Note;
@@ -29,12 +30,11 @@ import seedu.techtoday.storage.JobToFileSaver;
 import seedu.techtoday.storage.Loader;
 import seedu.techtoday.storage.NoteToFileSaver;
 import seedu.techtoday.ui.Ui;
-import seedu.techtoday.creator.ManualNoteCreator;
+
+import java.io.File;
+import java.io.IOException;
 
 import static seedu.techtoday.common.Messages.greet;
-import java.io.File;
-
-import java.io.IOException;
 
 /**
  * <h1>TechToday News/Jobs/Notes for technology related information for the technologist.</h1>
@@ -127,11 +127,11 @@ public class TechToday {
                 String type = userResponse.split(" ")[1];
                 switch (type) {
                 case "article": {
-                    seedu.techtoday.articleList.ArticleSaver.execute(SavedArticleList.savedArticleList, userResponse);
+                    seedu.techtoday.articlelist.ArticleSaver.execute(SavedArticleList.savedArticleList, userResponse);
                     break;
                 }
                 case "job": {
-                    seedu.techtoday.jobList.JobSaver.execute(SavedJobList.savedJobList, userResponse);
+                    seedu.techtoday.joblist.JobSaver.execute(SavedJobList.savedJobList, userResponse);
                     break;
                 }
                 case "note": {

@@ -4,7 +4,7 @@ package seedu.techtoday.api.apiviewjobs;
 import org.json.JSONException;
 import org.json.JSONObject;
 import seedu.techtoday.api.UrlJsonParser;
-import seedu.techtoday.jobList.ViewedJobList;
+import seedu.techtoday.joblist.ViewedJobList;
 import seedu.techtoday.objects.Job;
 
 import java.io.IOException;
