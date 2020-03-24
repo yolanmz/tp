@@ -66,7 +66,7 @@ public class TechToday {
         savedJobList = new SavedJobList();
         savedNoteList = new SavedNoteList();
     }
-
+  
     /**
      * Main entry-point for the java.techtoday application.
      */
