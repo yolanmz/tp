@@ -16,7 +16,7 @@ public class SavedArticleList {
     }
 
     /**
-     * Function that sorts article objects by title
+     * Function that sorts article objects by title.
      */
     public static void sort() {
         savedArticleList.sort(new TitleSorter());
