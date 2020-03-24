@@ -38,7 +38,7 @@ public class InBuiltJobListGenerator {
                 + "skills in the US.  Several groups I encountered didn't use source code control for code and didn't "
                 + "have a clue about configuration and release management.  When things broke, they'd have a "
                 + "massive shouting match to figure out who to blame, followed by a "
-                + "fire-drill to try to put things back together.\n"
+                + "fire-drill to try to put things back together.\n";
         Job jobFour = new Job(job4, text4, "default");
         jobFour.setTime(timeStampOfToday);
         // job 5
