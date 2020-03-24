@@ -5,8 +5,8 @@ import seedu.techtoday.objects.Article;
 public class ArticlePrinter {
     /**
      * ADD JAVADOC.
-     * @param taskCounter
-     * @param article
+     * @param taskCounter - ADD HERE
+     * @param article - ADD HERE
      */
     public static void execute(int taskCounter, Article article) {
         String timestamp = article.getTimeStamp();
@@ -23,7 +23,7 @@ public class ArticlePrinter {
 
     /**
      * ADD JAVADOC.
-     * @param article
+     * @param article - ADD HERE
      */
     public static void printIsolatedArticle(Article article) {
         String timestamp = article.getTimeStamp();

@@ -10,9 +10,9 @@ public class ArticleSaver extends SavedArticleList {
     }
 
     /**
-     * ADD JAVADOC
-     * @param taskList
-     * @param command
+     * ADD JAVADOC.
+     * @param taskList - ADD HERE.
+     * @param command - ADD HERE.
      */
     public static void execute(ArrayList<Article> taskList, String command) {
         String[] commandArray = command.split(" ");

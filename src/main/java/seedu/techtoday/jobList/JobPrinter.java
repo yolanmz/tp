@@ -4,6 +4,11 @@ import seedu.techtoday.objects.Job;
 import java.util.Date;
 
 public class JobPrinter {
+    /**
+     * ADD JAVADOC.
+     * @param taskCounter - ADD HERE.
+     * @param job - ADD HERE.
+     */
     public static void execute(int taskCounter, Job job) {
         String timestamp = job.getTimeStamp();
         String title = job.getTitle();
@@ -17,6 +22,10 @@ public class JobPrinter {
                             + "   Extract: " + extract);
     }
 
+    /**
+     * ADD JAVADOC.
+     * @param job - ADD HERE.
+     */
     public static void printIsolatedJob(Job job) {
         String timestamp = job.getTimeStamp();
         String title = job.getTitle();

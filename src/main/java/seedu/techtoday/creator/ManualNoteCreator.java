@@ -1,7 +1,5 @@
 package seedu.techtoday.creator;
 
-
-
 import seedu.techtoday.noteList.NotePrinter;
 import seedu.techtoday.objects.Note;
 
@@ -9,6 +7,9 @@ import seedu.techtoday.noteList.SavedNoteList;
 
 import seedu.techtoday.ui.Ui;
 
+/**
+ * ADD JAVADOC.
+ */
 public class ManualNoteCreator {
 
     public static void execute() {
