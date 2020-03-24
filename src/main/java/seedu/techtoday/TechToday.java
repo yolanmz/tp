@@ -12,6 +12,7 @@ public class TechToday {
     public static boolean isRunning = true;
     public static ArrayList<Article> savedArticles = new ArrayList<>();
     public static ArrayList<Article> viewArticles;
+    
     /**
      * Main entry-point for the java.techtoday application.
      */
