@@ -33,6 +33,10 @@ public class Information {
         info.extract = extract;
     }
 
+    public void setExtract(String extract) {
+        this.extract = extract;
+    }
+
     /**
      * This method sets a date for an article.
      * @param stamper An integer representing the timestamp of the article
@@ -64,7 +68,4 @@ public class Information {
         this.timeStamp = timeStamp;
     }
 
-    public void setExtract(String extract) {
-        this.extract = extract;
-    }
 }
