@@ -9,10 +9,16 @@ public class Note extends Information {
      * Constructor for note class.
      * @param title - The note title given by the user.
      */
-    public Note (String title) {
+    public Note(String title) {
         super(title, "", "");
     }
 
+    /**
+     * Alternate constructor for Note class.
+     * @param title - The note title.
+     * @param extract - The note extractor.
+     * @param epochSecond - The note epochSecond. 
+     */
     public Note(String title, String extract, String epochSecond) {
         super(title, extract, epochSecond);
         String pattern = "yyyy-MMM-dd E hh:mm a";

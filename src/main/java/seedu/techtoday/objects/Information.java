@@ -12,6 +12,12 @@ public class Information {
     protected String timeStamp;
     protected String category;
 
+    /**
+     * Constructor for the Information class.
+     * @param title - String representing the title
+     * @param extract - String representing the extract
+     * @param timeStamp - String representing the timestamp
+     */
     public Information(String title, String extract, String timeStamp) {
         this.title = title;
         this.extract = extract;
@@ -20,7 +26,6 @@ public class Information {
 
     /**
      * This methods sets an extract for a given article.
-     *
      * @param info Information object represting a news article.
      * @param extract An extract from the news info.
      */
@@ -55,10 +60,11 @@ public class Information {
         return category;
     }
 
-    public void setTime(String timeStamp){
+    public void setTime(String timeStamp) {
         this.timeStamp = timeStamp;
     }
 
-    public void setExtract(String extract) {this.extract = extract;
+    public void setExtract(String extract) {
+        this.extract = extract;
     }
 }

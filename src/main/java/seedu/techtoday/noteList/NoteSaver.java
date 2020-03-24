@@ -15,7 +15,7 @@ public class NoteSaver extends SavedNoteList {
     /**
      * ADD JAVADOC.
      * @param taskList - ADD HERE.
-     * @param command - ADD HERE. 
+     * @param command - ADD HERE.
      */
     public static void execute(ArrayList<Note> taskList, String command) {
         System.out.println("Enter the title of the note: ");

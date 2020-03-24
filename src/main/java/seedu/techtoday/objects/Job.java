@@ -28,7 +28,7 @@ public class Job extends Information {
         return category;
     }
 
-    public void setTime(String timeStamp){
+    public void setTime(String timeStamp) {
         this.timeStamp = timeStamp;
     }
 }
