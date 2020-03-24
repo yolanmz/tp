@@ -20,7 +20,9 @@ import seedu.techtoday.articleList.SavedArticleList;
 import seedu.techtoday.jobList.SavedJobList;
 import seedu.techtoday.objects.Article;
 
-
+/**
+ * ADD JAVADOC HERE.
+ */
 public class Loader {
     @SuppressWarnings("unchecked")
 
@@ -28,7 +30,13 @@ public class Loader {
     public static int idxJob = 1;
     public static int idxNotes = 1;
 
-    public static void execute(String fileNameArticle, String fileNameJobs, String fileNameNotes){
+    /**
+     * ADD JAVADOC HERE.
+     * @param fileNameArticle - ADD HERE.
+     * @param fileNameJobs - ADD HERE.
+     * @param fileNameNotes - ADD HERE.
+     */
+    public static void execute(String fileNameArticle, String fileNameJobs, String fileNameNotes) {
         JsonArray articleList = jsonReader(fileNameArticle);
         JsonArray jobList = jsonReader(fileNameJobs);
         JsonArray noteList = jsonReader(fileNameNotes);
@@ -41,10 +49,14 @@ public class Loader {
 
 
         //Iterate over noteList array
-//        noteList.forEach( obj -> parseNoteObject( (JsonObject) obj ) );
+        //noteList.forEach( obj -> parseNoteObject( (JsonObject) obj ) );
     }
 
-
+    /**
+     * ADD JAVADOC HERE.
+     * @param fileName - ADD HERE.
+     * @return - ADD HERE.
+     */
     public static JsonArray jsonReader(String fileName) {
 
         try (FileReader reader = new FileReader(fileName))
@@ -67,6 +79,10 @@ public class Loader {
 
     }
 
+    /**
+     * ADD JAVADOC HERE.
+     * @param article - ADD HERE.
+     */
     private static void parseArticleObject(JsonObject article) {
 
         String index = Integer.toString(idxArticle);
@@ -88,7 +104,7 @@ public class Loader {
         Article newArticle = new Article(title, url, category);
         newArticle.setTime(timeStamp);
 
-        if (extract == null){
+        if (extract == null) {
             extract = "";
         }
 
@@ -98,7 +114,10 @@ public class Loader {
 
     }
 
-
+    /**
+     * ADD JAVADOC HERE.
+     * @param job - ADD HERE.
+     */
     private static void parseJobObject(JsonObject job) {
 
         String index = Integer.toString(idxJob);
@@ -113,7 +132,7 @@ public class Loader {
         String extract = jobObject.get("extract").toString().replaceAll("\"", "");;
         String category = jobObject.get("category").toString().replaceAll("\"", "");;
 
-        if (category == null){
+        if (category == null) {
             category = "default";
         }
 
@@ -130,7 +149,10 @@ public class Loader {
 
     }
 
-
+    /**
+     * ADD JAVADOC HERE.
+     * @param note - ADD HERE.
+     */
     private static void parseNoteObject(JsonObject note) {
 
         String index = Integer.toString(idxNotes);
@@ -138,11 +160,11 @@ public class Loader {
         JsonObject jobObject = (JsonObject) note.get(index);
         idxNotes += 1;
 
-        //Get article title
+        // Get article title
         String title = jobObject.get("title").toString().replaceAll("\"", "");;
         String extract = jobObject.get("extract").toString().replaceAll("\"", "");;
         String timeStamp = jobObject.get("timestamp").toString().replaceAll("\"", "");;
-//        String category = jobObject.get("category").toString().replaceAll("\"", "");;
+       // String category = jobObject.get("category").toString().replaceAll("\"", "");;
 
 
         //Creates a note and a
@@ -150,7 +172,7 @@ public class Loader {
 
 
 
-//        NotePrinter.printIsolatedNote(newNote);
+        // NotePrinter.printIsolatedNote(newNote);
 
         SavedNoteList.savedNoteList.add(newNote);
 

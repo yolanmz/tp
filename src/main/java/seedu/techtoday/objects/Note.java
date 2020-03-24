@@ -17,7 +17,7 @@ public class Note extends Information {
      * Alternate constructor for Note class.
      * @param title - The note title.
      * @param extract - The note extractor.
-     * @param epochSecond - The note epochSecond. 
+     * @param epochSecond - The note epochSecond.
      */
     public Note(String title, String extract, String epochSecond) {
         super(title, extract, epochSecond);

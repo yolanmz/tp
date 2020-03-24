@@ -5,7 +5,10 @@ import seedu.techtoday.objects.Article;
 import seedu.techtoday.articleList.ArticleAdder;
 
 public class InBuiltArticleListGenerator {
-    public static void execute(){
+    /**
+     * ADD JAVADOC HERE.
+     */
+    public static void execute() {
         String title1 = "How Tailscale Works";
         String title2 = "Tesla Model 3 Vulnerability – Disable Autopilot Notifications, Speedometer, etc.";
         String title3 = "It never makes sense to use foldl on lists";
@@ -23,17 +26,16 @@ public class InBuiltArticleListGenerator {
         String timeStampToday = "1584768812";
 
         Article article1 = new Article(title1, url1, "default");
-        Article article2 = new Article(title2, url2, "default");
-        Article article3 = new Article(title3, url3, "default");
-        Article article4 = new Article(title4, url4, "default");
-        Article article5 = new Article(title5, url5, "default");
-        Article article6 = new Article(title6, url6, "default");
-
         article1.setTime(timeStampToday);
+        Article article2 = new Article(title2, url2, "default");
         article2.setTime(timeStampToday);
+        Article article3 = new Article(title3, url3, "default");
         article3.setTime(timeStampToday);
+        Article article4 = new Article(title4, url4, "default");
         article4.setTime(timeStampToday);
+        Article article5 = new Article(title5, url5, "default");
         article5.setTime(timeStampToday);
+        Article article6 = new Article(title6, url6, "default");
         article6.setTime(timeStampToday);
 
         ArticleAdder.execute(SavedArticleList.savedArticleList, article1);

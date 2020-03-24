@@ -10,6 +10,6 @@ public class ArticleAdder extends ViewedArticleList {
     }
 
     public static void execute(ArrayList<Article> articleList, Article article) {
-           articleList.add(article);
+        articleList.add(article);
     }
 }

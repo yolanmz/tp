@@ -11,6 +11,11 @@ import com.google.gson.JsonObject;
 
 public class ArticleToFileSaver {
 
+    /**
+     * ADD JAVADOC HERE.
+     * @param articleArrayList - ADD HERE.
+     * @param filePath - ADD HERE.
+     */
     public static void execute(ArrayList<Article> articleArrayList, String filePath) {
 
         int index = 1;

@@ -40,7 +40,7 @@ public class Information {
     public void setTimeStamp(int stamper) {
         String pattern = "yyyy-MMM-dd E hh:mm a";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-        String date = simpleDateFormat.format((new Date((long)stamper*1000)));
+        String date = simpleDateFormat.format((new Date((long)stamper * 1000)));
         this.timeStamp = date;
     }
 
@@ -62,9 +62,5 @@ public class Information {
 
     public void setTime(String timeStamp) {
         this.timeStamp = timeStamp;
-    }
-
-    public void setExtract(String extract) {
-        this.extract = extract;
     }
 }
