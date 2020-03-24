@@ -63,4 +63,8 @@ public class Information {
     public void setTime(String timeStamp) {
         this.timeStamp = timeStamp;
     }
+    
+    public void setExtract(String extract) {
+        this.extract = extract;
+    }
 }
