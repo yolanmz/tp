@@ -8,8 +8,11 @@ import seedu.techtoday.notelist.SavedNoteList;
 import seedu.techtoday.objects.Job;
 import seedu.techtoday.objects.Note;
 
-import com.google.gson.*;
-import com.google.gson.reflect.TypeToken;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonParser;
+import com.google.gson.JsonParseException;
+import com.google.gson.JsonObject;
+
 
 
 
