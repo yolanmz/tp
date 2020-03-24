@@ -2,7 +2,13 @@ package seedu.techtoday;
 
 import seedu.techtoday.api.apiviewjobs.JsonJobsReader;
 import seedu.techtoday.api.apiviewnews.JsonNewsReader;
-import seedu.techtoday.articlelist.*;
+import seedu.techtoday.articlelist.ArticleAdder;
+import seedu.techtoday.articlelist.ArticleDeleter;
+import seedu.techtoday.articlelist.ArticleListPrinter;
+import seedu.techtoday.articlelist.ArticlePrinter;
+import seedu.techtoday.articlelist.ArticleSaver;
+import seedu.techtoday.articlelist.SavedArticleList;
+import seedu.techtoday.articlelist.ViewedArticleList;
 import seedu.techtoday.creator.ManualArticleCreator;
 import seedu.techtoday.creator.ManualJobCreator;
 import seedu.techtoday.joblist.SavedJobList;
