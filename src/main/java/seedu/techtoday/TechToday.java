@@ -2,7 +2,6 @@ package seedu.techtoday;
 
 import seedu.techtoday.api.apiviewjobs.JsonJobsReader;
 import seedu.techtoday.api.apiviewnews.JsonNewsReader;
-import seedu.techtoday.articlelist.ArticleAdder;
 import seedu.techtoday.articlelist.ArticleDeleter;
 import seedu.techtoday.articlelist.ArticleListPrinter;
 import seedu.techtoday.articlelist.ArticlePrinter;
@@ -90,11 +89,17 @@ public class TechToday {
         }
 
 
-
+        // while loop that keeps running the techToday program.
         while (isRunning) {
             String userResponse = Ui.getCommand();
             String command = userResponse.split(" ")[0];
             String restOfUserInput = userResponse.replace(command, "").trim();
+
+            //ViewedArticleList.sort();
+            //SavedArticleList.sort();
+            //ViewedJobList.sort();
+            //SavedJobList.sort();
+            //SavedNoteList.sort();
 
             switch (command) {
             case "view": {
