@@ -51,6 +51,7 @@ public class TechToday {
     public static final String VERSION = "Hiroshi Nagai - Version 1.0";
 
     public static boolean isRunning = true;
+
     public ViewedArticleList viewedArticleList;
     public SavedArticleList savedArticleList;
     public ViewedJobList viewedJobList;
