@@ -11,7 +11,7 @@ public class InBuiltJobListGenerator {
      * ADD JAVADOC.
      */
     public static void execute() {
-        
+
         String timeStampToday = "1584768812";
         String timeStampOfToday = "1584768812";
 
@@ -34,10 +34,11 @@ public class InBuiltJobListGenerator {
         // job 4
         String job4 = "How to Excel as a Software Engineer in developing countries?";
         String text4 = "(FROM Quora): When I was working in China for awhile (a few years ago), I noticed that the "
-                + "biggest mismatch wasn't so much in coding skills, but in what would be called project management skills "
-                + "in the US.  Several groups I encountered didn't use source code control for code and didn't have a clue "
-                + "about configuration and release management.  When things broke, they'd have a massive shouting match to f"
-                + "igure out who to blame, followed by a  fire-drill to try to put things back together.\n";
+                + "biggest mismatch wasn't so much in coding skills, but in what would be called project management "
+                + "skills in the US.  Several groups I encountered didn't use source code control for code and didn't "
+                + "have a clue about configuration and release management.  When things broke, they'd have a "
+                + "massive shouting match to figure out who to blame, followed by a "
+                + "fire-drill to try to put things back together.\n"
         Job jobFour = new Job(job4, text4, "default");
         jobFour.setTime(timeStampOfToday);
         // job 5

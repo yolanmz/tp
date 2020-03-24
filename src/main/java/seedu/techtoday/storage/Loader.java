@@ -42,10 +42,10 @@ public class Loader {
         JsonArray noteList = jsonReader(fileNameNotes);
 
         //Iterate over articleList array
-        articleList.forEach( obj -> parseArticleObject( (JsonObject) obj ) );
+        articleList.forEach( obj -> parseArticleObject((JsonObject)obj));
 
         //Iterate over jobList array
-        jobList.forEach( obj -> parseJobObject( (JsonObject) obj ) );
+        jobList.forEach(obj -> parseJobObject((JsonObject)obj));
 
 
         //Iterate over noteList array
@@ -97,7 +97,7 @@ public class Loader {
         String extract = articleObject.get("extract").toString().replaceAll("\"", "");;
         String category = articleObject.get("category").toString().replaceAll("\"", "");;
 
-        if (category == null){
+        if (category == null) {
             category = "default";
         }
 
@@ -136,7 +136,7 @@ public class Loader {
             category = "default";
         }
 
-        if (extract == null){
+        if (extract == null) {
             extract = "";
         }
 
@@ -164,7 +164,7 @@ public class Loader {
         String title = jobObject.get("title").toString().replaceAll("\"", "");;
         String extract = jobObject.get("extract").toString().replaceAll("\"", "");;
         String timeStamp = jobObject.get("timestamp").toString().replaceAll("\"", "");;
-       // String category = jobObject.get("category").toString().replaceAll("\"", "");;
+        // String category = jobObject.get("category").toString().replaceAll("\"", "");;
 
 
         //Creates a note and a
