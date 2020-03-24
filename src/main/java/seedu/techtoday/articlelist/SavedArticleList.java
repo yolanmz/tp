@@ -15,4 +15,11 @@ public class SavedArticleList {
         savedArticleList = new ArrayList<>();
     }
 
+    /**
+     * Function that sorts article objects by title
+     */
+    public static void sort() {
+        savedArticleList.sort(new TitleSorter());
+    }
+
 }

@@ -20,7 +20,6 @@ public class Article extends Information {
         this.category = category;
     }
 
-
     public String getUrl() {
         return url;
     }
