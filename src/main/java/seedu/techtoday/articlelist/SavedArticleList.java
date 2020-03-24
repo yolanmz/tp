@@ -1,7 +1,6 @@
 package seedu.techtoday.articlelist;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 import seedu.techtoday.objects.Article;
 
@@ -19,7 +18,7 @@ public class SavedArticleList {
      * Function that sorts article objects by title.
      */
     public static void sort() {
-        savedArticleList.sort(new TitleSorter());
+        savedArticleList.sort(new ArticleTitleSorter());
     }
 
 }

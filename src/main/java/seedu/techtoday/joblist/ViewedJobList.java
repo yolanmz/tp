@@ -12,4 +12,11 @@ public class ViewedJobList {
     public ViewedJobList() {
         viewedJobList = new ArrayList<Job>();
     }
+
+    /**
+     * Function that sorts Job objects by title.
+     */
+    public static void sort() {
+        viewedJobList.sort(new JobTitleSorter());
+    }
 }

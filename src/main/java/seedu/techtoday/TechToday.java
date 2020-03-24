@@ -8,7 +8,6 @@ import seedu.techtoday.articlelist.ArticlePrinter;
 import seedu.techtoday.articlelist.ArticleSaver;
 import seedu.techtoday.articlelist.SavedArticleList;
 import seedu.techtoday.articlelist.ViewedArticleList;
-import seedu.techtoday.articlelist.TitleSorter;
 import seedu.techtoday.creator.ManualArticleCreator;
 import seedu.techtoday.creator.ManualJobCreator;
 import seedu.techtoday.joblist.SavedJobList;
@@ -97,11 +96,12 @@ public class TechToday {
             String command = userResponse.split(" ")[0];
             String restOfUserInput = userResponse.replace(command, "").trim();
 
+            // ensures all objects in list are being sorted 
             ViewedArticleList.sort();
             SavedArticleList.sort();
-            //ViewedJobList.sort();
-            //SavedJobList.sort();
-            //SavedNoteList.sort();
+            ViewedJobList.sort();
+            SavedJobList.sort();
+            SavedNoteList.sort();
 
             switch (command) {
             case "view": {

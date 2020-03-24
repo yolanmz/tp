@@ -17,6 +17,6 @@ public class ViewedArticleList {
      * Function that sorts article objects by title.
      */
     public static void sort() {
-        viewedArticleList.sort(new TitleSorter());
+        viewedArticleList.sort(new ArticleTitleSorter());
     }
 }

@@ -11,4 +11,11 @@ public class SavedNoteList {
     public SavedNoteList() {
         savedNoteList = new ArrayList<Note>();
     }
+
+    /**
+     * Function that sorts Notes objects by title.
+     */
+    public static void sort() {
+        savedNoteList.sort(new NoteTitleSorter());
+    }
 }
