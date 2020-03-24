@@ -1,4 +1,4 @@
-package seedu.techtoday.articlelist;
+package seedu.techtoday.articleList;
 
 import seedu.techtoday.objects.Article;
 
