@@ -7,11 +7,13 @@
 	∣            Let me show you some technology news to refresh your mind!            ∣
 	∣          ______________________________________________________________          ∣
 	∣                    Your queries can be of the following forms:                   ∣
-	∣                                  1. view [topic]                                 ∣
-	∣                           2. list [category (optional)]                          ∣
-	∣                  3. save [article number] [category (optional)]                  ∣
-	∣                                 4. add [category]                                ∣
+	∣                              1. view [article / job]                             ∣
+	∣                          2. list [article / job / note]                          ∣
+	∣             3. save [article / job / note] [index number (optional)]             ∣
+	∣                  4. delete [article / job / note] [index number]                 ∣
+	∣            5. addinfo [article / job / note] [index number] [extract]            ∣
+	∣                         6. create [article / job / note]                         ∣
+	∣                                      7. exit                                     ∣
 	∣                                                                                  ∣
      ﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊
      What can I do for you?
-
