@@ -28,7 +28,7 @@ application {
 }
 
 shadowJar {
-    archiveBaseName = "duke"
+    archiveBaseName = "techtoday"
     archiveVersion = "0.0.1"
     archiveClassifier = null
     archiveAppendix = null
