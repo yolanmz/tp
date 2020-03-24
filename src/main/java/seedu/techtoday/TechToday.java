@@ -96,7 +96,7 @@ public class TechToday {
             String command = userResponse.split(" ")[0];
             String restOfUserInput = userResponse.replace(command, "").trim();
 
-            // ensures all objects in list are being sorted 
+            // ensures all objects in list are being sorted
             ViewedArticleList.sort();
             SavedArticleList.sort();
             ViewedJobList.sort();
