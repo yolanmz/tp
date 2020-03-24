@@ -3,9 +3,9 @@ package seedu.techtoday.articlelist;
 import seedu.techtoday.objects.Article;
 import java.util.ArrayList;
 
-public class articlesaver extends savedarticlelist {
+public class ArticleSaver extends SavedArticleList {
 
-    public articlesaver() {
+    public ArticleSaver() {
         super();
     }
 
@@ -17,10 +17,10 @@ public class articlesaver extends savedarticlelist {
     public static void execute(ArrayList<Article> taskList, String command) {
         String[] commandArray = command.split(" ");
         int commandNumber = Integer.parseInt(commandArray[2]) - 1;
-        Article articleToSave = viewedarticlelist.viewedArticleList.get(commandNumber);
+        Article articleToSave = ViewedArticleList.viewedArticleList.get(commandNumber);
         //add the article
         System.out.println("Done, saved the article with the following details:");
-        articleprinter.printIsolatedArticle(articleToSave);
-        Articleadder.execute(savedarticlelist.savedArticleList, articleToSave);
+        ArticlePrinter.printIsolatedArticle(articleToSave);
+        ArticleAdder.execute(SavedArticleList.savedArticleList, articleToSave);
     }
 }

@@ -3,7 +3,7 @@ package seedu.techtoday.articlelist;
 import seedu.techtoday.objects.Article;
 import java.util.ArrayList;
 
-public class articlelistprinter {
+public class ArticleListPrinter {
     /**
      * Prints all available tasks.
      *
@@ -12,7 +12,7 @@ public class articlelistprinter {
     public static void execute(ArrayList<Article> articleList) {
         int taskCounter = 1;
         for (Article article : articleList) {
-            articleprinter.execute(taskCounter, article);
+            ArticlePrinter.execute(taskCounter, article);
             taskCounter += 1;
         }
     }

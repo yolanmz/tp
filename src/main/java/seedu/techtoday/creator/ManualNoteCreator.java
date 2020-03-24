@@ -1,9 +1,9 @@
 package seedu.techtoday.creator;
 
-import seedu.techtoday.noteList.NotePrinter;
+import seedu.techtoday.notelist.NotePrinter;
 import seedu.techtoday.objects.Note;
 
-import seedu.techtoday.noteList.SavedNoteList;
+import seedu.techtoday.notelist.SavedNoteList;
 
 import seedu.techtoday.ui.Ui;
 

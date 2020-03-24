@@ -2,8 +2,8 @@ package seedu.techtoday.api.apiviewjobs;
 
 import java.io.IOException;
 import org.json.JSONException;
-import seedu.techtoday.jobList.JobListPrinter;
-import seedu.techtoday.jobList.ViewedJobList;
+import seedu.techtoday.joblist.JobListPrinter;
+import seedu.techtoday.joblist.ViewedJobList;
 
 
 /** Represents a class that reads a URL as a JSON objecs. */

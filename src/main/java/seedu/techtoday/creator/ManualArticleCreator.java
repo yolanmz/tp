@@ -1,7 +1,7 @@
 package seedu.techtoday.creator;
 
-import seedu.techtoday.articlelist.savedarticlelist;
-import seedu.techtoday.articlelist.articleprinter;
+import seedu.techtoday.articlelist.SavedArticleList;
+import seedu.techtoday.articlelist.ArticlePrinter;
 import seedu.techtoday.objects.Article;
 import seedu.techtoday.ui.Ui;
 
@@ -23,9 +23,9 @@ public class ManualArticleCreator {
         String epochSecond = CurrentTimeFetcher.execute();
         Article article = new Article(title, url, category);
         article.setTime(epochSecond);
-        savedarticlelist.savedArticleList.add(article);
+        SavedArticleList.savedArticleList.add(article);
         System.out.println("Done, we have added the following job to your list of saved jobs");
-        articleprinter.printIsolatedArticle(article);
+        ArticlePrinter.printIsolatedArticle(article);
     }
 }
 

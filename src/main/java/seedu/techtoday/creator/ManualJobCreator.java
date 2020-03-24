@@ -1,7 +1,7 @@
 package seedu.techtoday.creator;
 
-import seedu.techtoday.jobList.JobPrinter;
-import seedu.techtoday.jobList.SavedJobList;
+import seedu.techtoday.joblist.JobPrinter;
+import seedu.techtoday.joblist.SavedJobList;
 
 import seedu.techtoday.objects.Job;
 import seedu.techtoday.ui.Ui;

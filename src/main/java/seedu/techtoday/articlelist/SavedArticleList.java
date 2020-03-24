@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import seedu.techtoday.objects.Article;
 
 /** Represents the data structure, i.e a list of Tasks, that stores the tasks.*/
-public class savedarticlelist {
+public class SavedArticleList {
 
     public static ArrayList<Article> savedArticleList;
 
     /** Initializes a new taskList.  */
-    public savedarticlelist() {
+    public SavedArticleList() {
         savedArticleList = new ArrayList<Article>();
     }
 }

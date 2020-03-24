@@ -1,6 +1,5 @@
-package seedu.techtoday.jobList;
+package seedu.techtoday.joblist;
 
-import seedu.techtoday.noteList.SavedNoteList;
 import seedu.techtoday.objects.Job;
 import java.util.ArrayList;
 

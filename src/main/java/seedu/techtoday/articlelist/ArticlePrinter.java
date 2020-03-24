@@ -2,7 +2,7 @@ package seedu.techtoday.articlelist;
 
 import seedu.techtoday.objects.Article;
 
-public class articleprinter {
+public class ArticlePrinter {
     /**
      * ADD JAVADOC.
      * @param taskCounter - ADD HERE

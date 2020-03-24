@@ -2,8 +2,8 @@ package seedu.techtoday.api.apiviewnews;
 
 import java.io.IOException;
 import org.json.JSONException;
-import seedu.techtoday.articlelist.articlelistprinter;
-import seedu.techtoday.articlelist.viewedarticlelist;
+import seedu.techtoday.articlelist.ArticleListPrinter;
+import seedu.techtoday.articlelist.ViewedArticleList;
 
 /** Represents a class that reads a URL as a JSON objecs. */
 public class JsonNewsReader {
@@ -15,7 +15,7 @@ public class JsonNewsReader {
      */
     public static void viewNewNews() throws IOException, JSONException {
         ViewedArticleListCreator.execute("https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty");
-        articlelistprinter.execute(viewedarticlelist.viewedArticleList);
+        ArticleListPrinter.execute(ViewedArticleList.viewedArticleList);
     }
 }
 

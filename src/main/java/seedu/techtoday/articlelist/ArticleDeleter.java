@@ -3,7 +3,7 @@ package seedu.techtoday.articlelist;
 import seedu.techtoday.objects.Article;
 
 /** Represents command that is used to call a method to delete article from taskList. */
-public class articledeleter {
+public class ArticleDeleter {
     /**
      * Deletes the task at index taskNumber from the tasklist.
      *
@@ -12,9 +12,9 @@ public class articledeleter {
     public static void execute(String command) {
         String[] commandArray = command.split(" ");
         int articleNumber = Integer.parseInt(commandArray[2]) - 1;
-        Article articleToDelete = savedarticlelist.savedArticleList.get(articleNumber);
+        Article articleToDelete = SavedArticleList.savedArticleList.get(articleNumber);
         System.out.println("Deleting the following article:");
-        articleprinter.printIsolatedArticle(articleToDelete);
-        savedarticlelist.savedArticleList.remove(articleNumber);
+        ArticlePrinter.printIsolatedArticle(articleToDelete);
+        SavedArticleList.savedArticleList.remove(articleNumber);
     }
 }

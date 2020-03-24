@@ -5,16 +5,16 @@ import seedu.techtoday.api.apiviewnews.JsonNewsReader;
 import seedu.techtoday.articlelist.*;
 import seedu.techtoday.creator.ManualArticleCreator;
 import seedu.techtoday.creator.ManualJobCreator;
-import seedu.techtoday.jobList.SavedJobList;
-import seedu.techtoday.jobList.ViewedJobList;
-import seedu.techtoday.jobList.JobDeleter;
-import seedu.techtoday.jobList.JobListPrinter;
-import seedu.techtoday.jobList.JobPrinter;
-import seedu.techtoday.noteList.SavedNoteList;
-import seedu.techtoday.noteList.NotePrinter;
-import seedu.techtoday.noteList.NoteListPrinter;
-import seedu.techtoday.noteList.NoteSaver;
-import seedu.techtoday.noteList.NoteDeleter;
+import seedu.techtoday.joblist.SavedJobList;
+import seedu.techtoday.joblist.ViewedJobList;
+import seedu.techtoday.joblist.JobDeleter;
+import seedu.techtoday.joblist.JobListPrinter;
+import seedu.techtoday.joblist.JobPrinter;
+import seedu.techtoday.notelist.SavedNoteList;
+import seedu.techtoday.notelist.NotePrinter;
+import seedu.techtoday.notelist.NoteListPrinter;
+import seedu.techtoday.notelist.NoteSaver;
+import seedu.techtoday.notelist.NoteDeleter;
 import seedu.techtoday.objects.Article;
 import seedu.techtoday.objects.Job;
 import seedu.techtoday.objects.Note;
@@ -46,16 +46,16 @@ public class TechToday {
     public static final String VERSION = "Hiroshi Nagai - Version 1.0";
 
     public static boolean isRunning = true;
-    public viewedarticlelist viewedArticleList;
-    public savedarticlelist savedArticleList;
+    public ViewedArticleList viewedArticleList;
+    public SavedArticleList savedArticleList;
     public ViewedJobList viewedJobList;
     public SavedJobList savedJobList;
     public SavedNoteList savedNoteList;
 
     /** Constructor that initializes the data structures that saves technology information. */
     public TechToday() {
-        viewedArticleList = new viewedarticlelist();
-        savedArticleList = new savedarticlelist();
+        viewedArticleList = new ViewedArticleList();
+        savedArticleList = new SavedArticleList();
         viewedJobList = new ViewedJobList();
         savedJobList = new SavedJobList();
         savedNoteList = new SavedNoteList();
@@ -109,12 +109,12 @@ public class TechToday {
                         System.out.println("Your device is not connected to the internet, " 
                                            + "we will load pre-existing articles");
                         InBuiltArticleListGenerator.execute();
-                        articlelistprinter.execute(savedarticlelist.savedArticleList);
+                        ArticleListPrinter.execute(SavedArticleList.savedArticleList);
                     }
                 }
                 break;
             } case "exit": {
-                ArticleToFileSaver.execute(savedarticlelist.savedArticleList, "articleList.json");
+                ArticleToFileSaver.execute(SavedArticleList.savedArticleList, "articleList.json");
                 JobToFileSaver.execute(SavedJobList.savedJobList, "jobList.json");
                 NoteToFileSaver.execute(SavedNoteList.savedNoteList, "noteList.json");
                 isRunning = false;
@@ -123,11 +123,11 @@ public class TechToday {
                 String type = userResponse.split(" ")[1];
                 switch (type) {
                 case "article": {
-                    articlesaver.execute(savedarticlelist.savedArticleList, userResponse);
+                    ArticleSaver.execute(SavedArticleList.savedArticleList, userResponse);
                     break;
                 }
                 case "job": {
-                    seedu.techtoday.jobList.JobSaver.execute(SavedJobList.savedJobList, userResponse);
+                    seedu.techtoday.joblist.JobSaver.execute(SavedJobList.savedJobList, userResponse);
                     break;
                 }
                 case "note": {
@@ -143,7 +143,7 @@ public class TechToday {
                 String type = userResponse.split(" ")[1];
                 switch (type) {
                 case "article": {
-                    articlelistprinter.execute(savedarticlelist.savedArticleList);
+                    ArticleListPrinter.execute(SavedArticleList.savedArticleList);
                     break;
                 }
                 case "job": {
@@ -181,7 +181,7 @@ public class TechToday {
                 String type = userResponse.split(" ")[1];
                 switch (type) {
                 case "article": {
-                    articledeleter.execute(userResponse);
+                    ArticleDeleter.execute(userResponse);
                     break;
                 }
                 case "job": {
@@ -202,9 +202,9 @@ public class TechToday {
                 String extract = userResponse.split(" ", 4)[3];
                 switch (type) {
                 case "article": {
-                    Article article = savedarticlelist.savedArticleList.get(index);
+                    Article article = SavedArticleList.savedArticleList.get(index);
                     article.setExtract(article, extract);
-                    articleprinter.printIsolatedArticle(article);
+                    ArticlePrinter.printIsolatedArticle(article);
                     break;
                 }
                 case "job": {

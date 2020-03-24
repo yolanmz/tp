@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.FileReader;
 
-import seedu.techtoday.noteList.SavedNoteList;
+import seedu.techtoday.notelist.SavedNoteList;
 import seedu.techtoday.objects.Job;
 import seedu.techtoday.objects.Note;
 
@@ -13,8 +13,8 @@ import com.google.gson.reflect.TypeToken;
 
 
 
-import seedu.techtoday.articlelist.savedarticlelist;
-import seedu.techtoday.jobList.SavedJobList;
+import seedu.techtoday.articlelist.SavedArticleList;
+import seedu.techtoday.joblist.SavedJobList;
 import seedu.techtoday.objects.Article;
 
 /**
@@ -106,7 +106,7 @@ public class Loader {
 
         newArticle.setExtract(extract);
 
-        savedarticlelist.savedArticleList.add(newArticle);
+        SavedArticleList.savedArticleList.add(newArticle);
 
     }
 
