@@ -2,6 +2,8 @@ package seedu.techtoday.api.apiviewnews;
 
 import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
+import seedu.techtoday.articlelist.ArticlePrinter;
+import seedu.techtoday.objects.Article;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -23,8 +25,18 @@ class NewsCreatorTest {
                 + "\"https://opensource.googleblog.com/2020/03/"
                 + "webassembly-brings-extensibility-to.html\"}";
 
-        JSONObject expectedOutput = new JSONObject(outputJsonText);
-        JSONObject output = NewsCreator.rawToProcessedNews(input);
-        assertEquals(expectedOutput.toString(), output.toString());
+        String title = "WebAssembly brings extensibility to network proxies";
+        String url = "https://opensource.googleblog.com/2020/03/webassembly-brings-extensibility-to.html";
+        String category = null;
+
+        Article output = NewsCreator.rawToProcessedNews(input);
+
+        String urlOutput = output.getUrl();
+        String categoryOutput = output.getCategory();
+        String titleOutput = output.getTitle();
+
+        assertEquals(url, urlOutput);
+        assertEquals(category, categoryOutput);
+        assertEquals(title, titleOutput);
     }
 }
