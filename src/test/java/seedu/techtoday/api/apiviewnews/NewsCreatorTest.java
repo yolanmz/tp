@@ -2,7 +2,6 @@ package seedu.techtoday.api.apiviewnews;
 
 import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
-import seedu.techtoday.articlelist.ArticlePrinter;
 import seedu.techtoday.objects.Article;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
