@@ -2,17 +2,18 @@
 
 ## Design & Implementation
 
-{Describe the design and implementation of the product. Use UML diagrams and short code snippets where applicable.}
+Learn how to implement our program TechToday so you can organize all your technology related news. 
 
 
 ## Product Scope
 ### Target user profile
 
-{Describe the target user profile}
+Our target user profile are students/workers who are looking for CLI (Command Line Interface) application to organize all 
+their technology related news. 
 
 ### Value proposition
 
-{Describe the value proposition: what problem does it solve?}
+The world of technology is constantly changing. A person involved in computing field wants access to a way to organize all the news they see about the field. This application aims to help the user organize all their technology related news by different categories. This application will also allow the user to add new notes about technology related news so that they do not lose track of past news articles. 
 
 ## User Stories
 
