@@ -34,6 +34,7 @@ public class InBuiltJobListGenerator {
         String text6 = "Mine is Elements of Programming";
 
         String timeStampToday = "1584768812";
+        String timeStampOfToday = "1584768812";
 
         Job jobOne = new Job(job1, text1, "default");
         jobOne.setTime(timeStampOfToday);
@@ -47,8 +48,7 @@ public class InBuiltJobListGenerator {
         jobFive.setTime(timeStampOfToday);
         Job jobSix = new Job(job6, text6, "default");
         jobSix.setTime(timeStampOfToday);
-
-        String timeStampOfToday = "1584768812";
+        
 
         JobAdder.execute(SavedJobList.savedJobList, jobOne);
         JobAdder.execute(SavedJobList.savedJobList, jobTwo);
