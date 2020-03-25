@@ -1,4 +1,4 @@
-package seedu.techtoday.apiview;
+package seedu.techtoday.api;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -11,7 +11,7 @@ import java.net.URL;
 import java.nio.charset.Charset;
 
 /** Represents a class that parses JSON objects that are required for the project. */
-public class JsonParser {
+public class UrlJsonParser {
     private static String readAll(Reader rd) throws IOException {
         StringBuilder sb = new StringBuilder();
         int cp;
