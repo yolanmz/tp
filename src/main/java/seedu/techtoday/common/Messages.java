@@ -6,7 +6,8 @@ public class Messages {
     public static String SPLIT_LINE = "______________________________________________________________";
 
 
-    public static String LINE = "     __________________________________________________________________________________";
+    public static String LINE = "     ______________________________________________" +
+            "____________________________________";
 
       /** Let the statement be printed in center. **/
     public static void printInCenter(@NotNull String str) {
