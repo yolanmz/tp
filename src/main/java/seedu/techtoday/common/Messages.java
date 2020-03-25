@@ -23,9 +23,6 @@ public class Messages {
     /** Show a ASCII code message to user. **/
     public static void greet() {
         System.out.println(HEADER_LINE);
-//        printInCenter("_____  ____  __    _    _____  ___   ___    __    _    ");
-//        printInCenter(" | |  | |_  / /`  | |_|  | |  / / \\ | | \\  / /\\  \\ \\_/ ");
-//        printInCenter(" |_|  |_|__ \\_\\_, |_| |  |_|  \\_\\_/ |_|_/ /_/--\\  |_|  ");
         printInCenter("");
         printInCenter("Hello! Here's TechToday.");
         printInCenter("Let me show you some technology news to refresh your mind!");
