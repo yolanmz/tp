@@ -14,10 +14,10 @@ public class JobPrinter {
         String text = job.getText();
         String category = job.getCategory();
         String extract = job.getExtract();
-        System.out.println(taskCounter + ". Title: " + title + "\n"
-                            + "   Date: " + timestamp + "\n"
-                            + "   Category: " + category + "\n"
-                            + "   Text: " + text + "\n"
+        System.out.println(taskCounter + ". Title: " + title + System.lineSeparator()
+                            + "   Date: " + timestamp + System.lineSeparator()
+                            + "   Category: " + category + System.lineSeparator()
+                            + "   Text: " + text + System.lineSeparator()
                             + "   Extract: " + extract);
     }
 
@@ -31,10 +31,10 @@ public class JobPrinter {
         String text = job.getText();
         String category = job.getCategory();
         String extract = job.getExtract();
-        System.out.println("   Title: " + title + "\n"
-                + "   Date: " + timestamp + "\n"
-                + "   Category: " + category + "\n"
-                + "   Text: " + text + "\n"
+        System.out.println("   Title: " + title + System.lineSeparator()
+                + "   Date: " + timestamp + System.lineSeparator()
+                + "   Category: " + category + System.lineSeparator()
+                + "   Text: " + text + System.lineSeparator()
                 + "   Extract: " + extract);
     }
 }

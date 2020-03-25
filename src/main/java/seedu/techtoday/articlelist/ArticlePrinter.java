@@ -14,10 +14,10 @@ public class ArticlePrinter {
         String url = article.getUrl();
         String category = article.getCategory();
         String extract = article.getExtract();
-        System.out.println(taskCounter + ". Title: " + title + "\n"
-                                + "   Date: " + timestamp + "\n"
-                                + "   Category: " + category + "\n"
-                                + "   Url: " + url + "\n"
+        System.out.println(taskCounter + ". Title: " + title + System.lineSeparator()
+                                + "   Date: " + timestamp + System.lineSeparator()
+                                + "   Category: " + category + System.lineSeparator()
+                                + "   Url: " + url + System.lineSeparator()
                                 + "   Extract: " + extract);
     }
 
@@ -31,10 +31,10 @@ public class ArticlePrinter {
         String url = article.getUrl();
         String category = article.getCategory();
         String extract = article.getExtract();
-        System.out.println("   Title: " + title + "\n"
-                                + "   Date: " + timestamp + "\n"
-                                + "   Category: " + category + "\n"
-                                + "   Url: " + url + "\n"
+        System.out.println("   Title: " + title + System.lineSeparator()
+                                + "   Date: " + timestamp + System.lineSeparator()
+                                + "   Category: " + category + System.lineSeparator()
+                                + "   Url: " + url + System.lineSeparator()
                                 + "   Extract: " + extract);
     }
 }
