@@ -3,11 +3,12 @@ package seedu.techtoday.common;
 import org.jetbrains.annotations.NotNull;
 
 public class Messages {
-    public static String HEADER_LINE = "     ﹎﹎﹎﹎﹎﹎﹎﹎﹎﹎﹎﹎﹎﹎﹎﹎﹎﹎﹎﹎﹎﹎﹎﹎﹎﹎﹎﹎﹎﹎﹎﹎﹎﹎﹎﹎﹎﹎﹎﹎﹎﹎﹎﹎﹎﹎﹎";
-    public static String BOTTOM_LINE = "     ﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊﹊";
     public static String SPLIT_LINE = "______________________________________________________________";
 
-    /** Let the statement be printed in center. **/
+
+    public static String LINE = "     __________________________________________________________________________________";
+
+      /** Let the statement be printed in center. **/
     public static void printInCenter(@NotNull String str) {
         int left = (83 - str.length()) / 2;
         int right = 83 - left - str.length();
@@ -22,7 +23,7 @@ public class Messages {
 
     /** Show a ASCII code message to user. **/
     public static void greet() {
-        System.out.println(HEADER_LINE);
+        System.out.println(LINE);
         printInCenter("");
         printInCenter("Hello! Here's TechToday.");
         printInCenter("Let me show you some technology news to refresh your mind!");
@@ -36,7 +37,7 @@ public class Messages {
         printInCenter("6. create [article / job / note]");
         printInCenter("7. exit");
         printInCenter("");
-        System.out.println(BOTTOM_LINE);
+        System.out.println(LINE);
         System.out.println("     What can I do for you?");
         System.out.println();
     }
