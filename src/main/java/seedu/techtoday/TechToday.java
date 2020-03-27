@@ -31,6 +31,7 @@ import seedu.techtoday.storage.Loader;
 import seedu.techtoday.storage.NoteToFileSaver;
 import seedu.techtoday.ui.Ui;
 import seedu.techtoday.creator.ManualNoteCreator;
+import seedu.techtoday.exception.TechTodayException;
 
 import static seedu.techtoday.common.Messages.greet;
 import java.io.File;
@@ -70,7 +71,7 @@ public class TechToday {
     /**
      * Main entry-point for the java.techtoday application.
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws TechTodayException{
         new TechToday();
         greet();
 
@@ -97,35 +98,40 @@ public class TechToday {
             String restOfUserInput = userResponse.replace(command, "").trim();
 
             // ensures all objects in list are being sorted
-            ViewedArticleList.sort();
-            SavedArticleList.sort();
-            ViewedJobList.sort();
-            SavedJobList.sort();
-            SavedNoteList.sort();
+            //ViewedArticleList.sort();
+            //SavedArticleList.sort();
+            //ViewedJobList.sort();
+            //SavedJobList.sort();
+            //SavedNoteList.sort();
 
             switch (command) {
             case "view": {
-                String type = userResponse.split(" ")[1];
-                if (type.equals("job")) {
-                    try {
-                        JsonJobsReader.viewNewJobs();
-                    } catch (IOException e) {
-                        System.out.println("Your device is not connected to the internet, " 
-                                           + "we will load pre-existing jobs");
-                        InBuiltJobListGenerator.execute();
-                        JobListPrinter.execute(SavedJobList.savedJobList);
+                try {
+                    String type = userResponse.split(" ")[1];
+                    if (type.equals("job")) {
+                        try {
+                            JsonJobsReader.viewNewJobs();
+                        } catch (IOException e) {
+                            System.out.println("Your device is not connected to the internet, "
+                                    + "we will load pre-existing jobs");
+                            InBuiltJobListGenerator.execute();
+                            JobListPrinter.execute(SavedJobList.savedJobList);
+                        }
+                    } else if (type.equals("article")) {
+                        try {
+                            JsonNewsReader.viewNewNews();
+                        } catch (IOException e) {
+                            System.out.println("Your device is not connected to the internet, "
+                                    + "we will load pre-existing articles");
+                            InBuiltArticleListGenerator.execute();
+                            ArticleListPrinter.execute(SavedArticleList.savedArticleList);
+                        }
                     }
-                } else if (type.equals("article")) {
-                    try {
-                        JsonNewsReader.viewNewNews();
-                    } catch (IOException e) {
-                        System.out.println("Your device is not connected to the internet, " 
-                                           + "we will load pre-existing articles");
-                        InBuiltArticleListGenerator.execute();
-                        ArticleListPrinter.execute(SavedArticleList.savedArticleList);
-                    }
+                    break;
+                } catch (IndexOutOfBoundsException e) {
+                    System.out.println("Missing view command. Please type which news you want to see.");
+                    break;
                 }
-                break;
             } case "exit": {
                 ArticleToFileSaver.execute(SavedArticleList.savedArticleList, "articleList.json");
                 JobToFileSaver.execute(SavedJobList.savedJobList, "jobList.json");
@@ -133,113 +139,141 @@ public class TechToday {
                 isRunning = false;
                 break;
             } case "save": {
-                String type = userResponse.split(" ")[1];
-                switch (type) {
-                case "article": {
-                    ArticleSaver.execute(SavedArticleList.savedArticleList, userResponse);
+                try {
+                    String type = userResponse.split(" ")[1];
+                    System.out.println(type);
+                    switch (type) {
+                    case "article": {
+                        ArticleSaver.execute(SavedArticleList.savedArticleList, userResponse);
+                        break;
+                    }
+                    case "job": {
+                        seedu.techtoday.joblist.JobSaver.execute(SavedJobList.savedJobList, userResponse);
+                        break;
+                    }
+                    case "note": {
+                        NoteSaver.execute(SavedNoteList.savedNoteList, userResponse);
+                        break;
+                    }
+                    default: {
+                        System.out.println("Invalid command for save!");
+                    }
+                    }
+                    break;
+                } catch (IndexOutOfBoundsException e) {
+                    System.out.println("Missing save command. Please type which list you would like to save to.");
                     break;
                 }
-                case "job": {
-                    seedu.techtoday.joblist.JobSaver.execute(SavedJobList.savedJobList, userResponse);
-                    break;
-                }
-                case "note": {
-                    NoteSaver.execute(SavedNoteList.savedNoteList, userResponse);
-                    break;
-                }
-                default: {
-                    System.out.println("Invalid command for save!");
-                }
-                }
-                break;
             } case "list": {
-                String type = userResponse.split(" ")[1];
-                switch (type) {
-                case "article": {
-                    ArticleListPrinter.execute(SavedArticleList.savedArticleList);
+                try {
+                    String type = userResponse.split(" ")[1];
+                    switch (type) {
+                    case "article": {
+                        ArticleListPrinter.execute(SavedArticleList.savedArticleList);
+                        break;
+                    }
+                    case "job": {
+                        JobListPrinter.execute(SavedJobList.savedJobList);
+                        break;
+                    }
+                    case "note": {
+                        NoteListPrinter.execute(SavedNoteList.savedNoteList);
+                        break;
+                    }
+                    default: {
+                        System.out.println("Invalid command for list!");
+                    }
+                    }
+                    break;
+                } catch (IndexOutOfBoundsException e) {
+                    System.out.println("Missing list command. Please type which list you want to see.");
                     break;
                 }
-                case "job": {
-                    JobListPrinter.execute(SavedJobList.savedJobList);
-                    break;
-                }
-                case "note": {
-                    NoteListPrinter.execute(SavedNoteList.savedNoteList);
-                    break;
-                } default: {
-                    System.out.println("Invalid command for list!");
-                }
-                }
-                break;
             } case "create": {
-                String type = userResponse.split(" ")[1];
-                switch (type) {
-                case "article": {
-                    ManualArticleCreator.execute();
+                try {
+                    String type = userResponse.split(" ")[1];
+                    switch (type) {
+                    case "article": {
+                        ManualArticleCreator.execute();
+                        break;
+                    }
+                    case "job": {
+                        ManualJobCreator.execute();
+                        break;
+                    }
+                    case "note": {
+                        ManualNoteCreator.execute();
+                        break;
+                    }
+                    default: {
+                        System.out.println("Invalid command for create!");
+                    }
+                    }
+                    break;
+                } catch (IndexOutOfBoundsException e) {
+                    System.out.println("Missing create command. Please give a type.");
                     break;
                 }
-                case "job": {
-                    ManualJobCreator.execute();
-                    break;
-                }
-                case "note": {
-                    ManualNoteCreator.execute();
-                    break;
-                } default: {
-                    System.out.println("Invalid command for create!");
-                }
-                }
-                break;
             } case "delete": {
-                String type = userResponse.split(" ")[1];
-                switch (type) {
-                case "article": {
-                    ArticleDeleter.execute(userResponse);
+                try {
+                    String type = userResponse.split(" ")[1];
+                    switch (type) {
+                    case "article": {
+                        ArticleDeleter.execute(userResponse);
+                        break;
+                    }
+                    case "job": {
+                        JobDeleter.execute(SavedJobList.savedJobList, userResponse);
+                        break;
+                    }
+                    case "note": {
+                        NoteDeleter.execute(SavedNoteList.savedNoteList, userResponse);
+                        break;
+                    }
+                    default: {
+                        System.out.println("Invalid command for delete!");
+                    }
+                    }
+                    break;
+                } catch (IndexOutOfBoundsException e) {
+                    System.out.println("Missing delete command. Please type which list you would like to delete from.");
                     break;
                 }
-                case "job": {
-                    JobDeleter.execute(SavedJobList.savedJobList, userResponse);
-                    break;
-                }
-                case "note": {
-                    NoteDeleter.execute(SavedNoteList.savedNoteList, userResponse);
-                    break;
-                } default: {
-                    System.out.println("Invalid command for delete!");
-                }
-                }
-                break;
             } case "addinfo": {
-                String type = userResponse.split(" ")[1];
-                int index = Integer.parseInt(userResponse.split(" ")[2]) - 1;
-                String extract = userResponse.split(" ", 4)[3];
-                switch (type) {
-                case "article": {
-                    Article article = SavedArticleList.savedArticleList.get(index);
-                    article.setExtract(article, extract);
-                    ArticlePrinter.printIsolatedArticle(article);
+                try {
+                    String type = userResponse.split(" ")[1];
+                    int index = Integer.parseInt(userResponse.split(" ")[2]) - 1;
+                    String extract = userResponse.split(" ", 4)[3];
+                    switch (type) {
+                    case "article": {
+                        Article article = SavedArticleList.savedArticleList.get(index);
+                        article.setExtract(article, extract);
+                        ArticlePrinter.printIsolatedArticle(article);
+                        break;
+                    }
+                    case "job": {
+                        Job job = SavedJobList.savedJobList.get(index);
+                        job.setExtract(job, extract);
+                        JobPrinter.printIsolatedJob(job);
+                        break;
+                    }
+                    case "note": {
+                        Note note = SavedNoteList.savedNoteList.get(index);
+                        note.setExtract(note, extract);
+                        NotePrinter.printIsolatedNote(note);
+                        break;
+                    }
+                    default: {
+                        System.out.println("Invalid command for addinfo.");
+                    }
+                    }
+                    break;
+                } catch (IndexOutOfBoundsException e) {
+                    System.out.println("Missing addinfo command. Please type which list you want to add to.");
                     break;
                 }
-                case "job": {
-                    Job job = SavedJobList.savedJobList.get(index);
-                    job.setExtract(job, extract);
-                    JobPrinter.printIsolatedJob(job);
-                    break;
-                }
-                case "note": {
-                    Note note = SavedNoteList.savedNoteList.get(index);
-                    note.setExtract(note, extract);
-                    NotePrinter.printIsolatedNote(note);
-                    break;
-                }
-                default: {
-                    System.out.println("Invalid command for addinfo!");
-                }
-                }
-                break;
             } default: {
-                System.out.println("Command not found, try again");
-                isRunning = false;
+                System.out.println("Invalid command. Try again using a valid command!");
                 break;
             }
             }
