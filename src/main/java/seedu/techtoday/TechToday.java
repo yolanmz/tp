@@ -126,6 +126,9 @@ public class TechToday {
                             InBuiltArticleListGenerator.execute();
                             ArticleListPrinter.execute(SavedArticleList.savedArticleList);
                         }
+                    } else {
+                        System.out.print("Invalid command for view!");
+                        break;
                     }
                     break;
                 } catch (IndexOutOfBoundsException e) {
@@ -264,7 +267,7 @@ public class TechToday {
                         break;
                     }
                     default: {
-                        System.out.println("Invalid command for addinfo.");
+                        System.out.println("Invalid command for addinfo!");
                     }
                     }
                     break;
