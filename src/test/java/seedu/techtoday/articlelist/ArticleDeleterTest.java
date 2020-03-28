@@ -39,7 +39,7 @@ class ArticleDeleterTest {
                 + "   Url: www.test2.com"
                 + System.lineSeparator()
                 + "   Extract: ..."
-                + System.lineSeparator() ;
+                + System.lineSeparator();
         assertEquals(expectedOutput, outContent.toString());
     }
 }

@@ -63,7 +63,7 @@ class ArticleListPrinterTest {
                 + "   Extract: ..."
                 + System.lineSeparator()
                 + System.lineSeparator()
-                + System.lineSeparator() ;
+                + System.lineSeparator();
         assertEquals(expectedOutput, outContent.toString());
     }
 }
