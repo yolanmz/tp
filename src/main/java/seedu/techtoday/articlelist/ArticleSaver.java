@@ -1,6 +1,7 @@
 package seedu.techtoday.articlelist;
 
 import seedu.techtoday.objects.Article;
+import seedu.techtoday.exception.TechTodayException;
 import java.util.ArrayList;
 
 public class ArticleSaver extends SavedArticleList {
@@ -10,11 +11,11 @@ public class ArticleSaver extends SavedArticleList {
     }
 
     /**
-     * ADD JAVADOC.
-     * @param taskList - ADD HERE.
-     * @param command - ADD HERE.
+     * Function that executes the save features for articles.
+     * @param taskList - list of articles to be saved to.
+     * @param command - number of article to be saved.
      */
-    public static void execute(ArrayList<Article> taskList, String command) {
+    public static void execute(ArrayList<Article> taskList, String command) throws TechTodayException {
         String[] commandArray = command.split(" ");
         int commandNumber = Integer.parseInt(commandArray[2]) - 1;
         Article articleToSave = ViewedArticleList.viewedArticleList.get(commandNumber);
