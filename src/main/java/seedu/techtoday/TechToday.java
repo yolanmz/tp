@@ -2,7 +2,7 @@ package seedu.techtoday;
 
 import seedu.techtoday.articlelist.SavedArticleList;
 import seedu.techtoday.articlelist.ViewedArticleList;
-import seedu.techtoday.commands.*;
+import seedu.techtoday.commands.ProgramExecutor;
 import seedu.techtoday.joblist.SavedJobList;
 import seedu.techtoday.joblist.ViewedJobList;
 import seedu.techtoday.notelist.SavedNoteList;
@@ -14,7 +14,7 @@ import static seedu.techtoday.common.Messages.greet;
  * Entry point of the "TechToday" application.
  * Initializes the application and starts the interaction with the user.
  * <b>Note:</b> This application is written for CS2113 for tp at the NUS School of computing.
- * @author  Alaukik, Kate, Melissa, Yolanda,
+ * @author  Alaukik, Kate, Melissa, Yolanda
  * @since   2020-03-27
  */
 public class TechToday {

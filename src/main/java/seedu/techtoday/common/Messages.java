@@ -3,8 +3,10 @@ package seedu.techtoday.common;
 import org.jetbrains.annotations.NotNull;
 
 public class Messages {
-    public static String SPLIT_LINE_HELP = "**_____________________________________________________________________________**";
-    public static String SPLIT_LINE = "__________________________________________________________________________________________";
+    public static String SPLIT_LINE_HELP = "**_____________________________________________"
+            + "________________________________**";
+    public static String SPLIT_LINE = "__________________________________________"
+            + "________________________________________________";
 
 
     /** Let the statement be printed in center. **/
@@ -48,7 +50,7 @@ public class Messages {
     }
 
     /** Prints a straight line. */
-    public static void printStraightLine(){
+    public static void printStraightLine() {
         System.out.println(SPLIT_LINE + "\n");
         System.out.println("\n");
     }

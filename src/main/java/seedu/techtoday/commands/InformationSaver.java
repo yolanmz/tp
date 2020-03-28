@@ -35,16 +35,17 @@ public class InformationSaver {
                 break;
             }
             default: {
-                System.out.println("Save command or its index number is incorrect. It should be of the following form: \n");
+                System.out.println("Save command or its index number is incorrect. "
+                        + "It should be of the following form: \n");
                 Messages.printInCenter("save [article / job] [index number (optional)]");
                 Messages.printStraightLine();
             }
             }
             return;
         } catch (IndexOutOfBoundsException e) {
-            System.out.println("Sorry! You can only save article/job with valid index number!\n" +
-                    "Maybe you havent viewed any articles to save \n\n" +
-                     "Try \" view [article \\ job] \" or a differnt command");
+            System.out.println("Sorry! You can only save article/job with valid index number!\n"
+                    + "Maybe you havent viewed any articles to save \n\n"
+                    + "Try \" view [article \\ job] \" or a differnt command");
             Messages.printStraightLine();
             return;
         }

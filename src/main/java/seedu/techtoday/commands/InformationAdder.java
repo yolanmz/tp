@@ -56,8 +56,8 @@ public class InformationAdder {
             }
             return;
         } catch (IndexOutOfBoundsException e) {
-            System.out.println("Sorry! You can only add extract to article/job/note with valid index number! " +
-                    "Your command format is incorrect. Try again ");
+            System.out.println("Sorry! You can only add extract to article/job/note with valid index number! "
+                    + "Your command format is incorrect. Try again ");
             Messages.printStraightLine();
             return;
         }

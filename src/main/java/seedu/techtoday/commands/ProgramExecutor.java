@@ -50,7 +50,8 @@ public class ProgramExecutor {
                 Helper.execute();
                 break;
             } default: {
-                System.out.println("Invalid command. Try again using a valid command! Type \"help\" for looking at commands");
+                System.out.println("Invalid command. Try again using a valid command! "
+                        + "Type \"help\" for looking at commands");
                 Messages.printStraightLine();
                 break;
             }

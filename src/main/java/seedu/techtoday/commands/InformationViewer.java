@@ -42,7 +42,8 @@ public class InformationViewer {
                     ArticleListPrinter.execute(SavedArticleList.savedArticleList);
                 }
             } else {
-                System.out.print("Sorry! You can only view article/job! Your command format is incorrect. Try again \n");
+                System.out.print("Sorry! You can only view article/job! "
+                        + "Your command format is incorrect. Try again \n");
                 return;
             }
             return;

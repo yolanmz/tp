@@ -38,7 +38,8 @@ public class InformationLister {
                 break;
             }
             default: {
-                System.out.println("Invalid command for list!. It should be of the form \"list [article / job / note]\"");
+                System.out.println("Invalid command for list!. It should be of "
+                        + "the form \"list [article / job / note]\"");
             }
             }
             return;

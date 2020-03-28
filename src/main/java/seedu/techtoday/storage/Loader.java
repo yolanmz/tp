@@ -4,7 +4,11 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.FileReader;
 
-import com.google.gson.*;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.JsonSyntaxException;
+import com.google.gson.JsonParser;
 import seedu.techtoday.notelist.SavedNoteList;
 import seedu.techtoday.objects.Job;
 import seedu.techtoday.objects.Note;
@@ -43,8 +47,8 @@ public class Loader {
 
 
             //Iterate over noteList array
-            noteList.forEach( obj -> parseNoteObject( (JsonObject) obj ) );
-        } catch (JsonSyntaxException e)  {
+            noteList.forEach(obj -> parseNoteObject((JsonObject)obj));
+        } catch (JsonSyntaxException e) {
             System.out.println("One or more of you files are corrupted, we will create new files");
             }
     }
