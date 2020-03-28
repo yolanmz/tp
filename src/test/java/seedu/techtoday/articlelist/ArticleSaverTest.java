@@ -8,7 +8,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ArticleSaverTest {
 
@@ -29,12 +29,12 @@ class ArticleSaverTest {
         // execute command
         ArticleSaver.execute(SavedArticleList.savedArticleList, "save article 2");
 
-        String expectedOutput = "Done, saved the article with the following details:\n" +
-                "   Title: Test2\n" +
-                "   Date: \n" +
-                "   Category: article\n" +
-                "   Url: www.test2.com\n" +
-                "   Extract: ...\n";
+        String expectedOutput = "Done, saved the article with the following details:\n"
+                + "   Title: Test2\n"
+                + "   Date: \n"
+                + "   Category: article\n"
+                + "   Url: www.test2.com\n"
+                + "   Extract: ...\n";
         assertEquals(expectedOutput, outContent.toString());
     }
 
