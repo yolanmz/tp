@@ -38,7 +38,6 @@ class ArticleListPrinterTest {
                 + System.lineSeparator()
                 + "   Extract: ..."
                 + System.lineSeparator()
-                + System.lineSeparator()
                 + ""
                 + System.lineSeparator()
                 + ""
@@ -52,7 +51,6 @@ class ArticleListPrinterTest {
                 + "   Url: www.test2.com"
                 + System.lineSeparator()
                 + "   Extract: ..."
-                + System.lineSeparator()
                 + System.lineSeparator()
                 + ""
                 + System.lineSeparator()
