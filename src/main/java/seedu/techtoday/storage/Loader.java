@@ -34,23 +34,19 @@ public class Loader {
      * @param fileNameNotes - Name of file containing notes.
      */
     public static void execute(String fileNameArticle, String fileNameJobs, String fileNameNotes) {
-        try {
-            JsonArray articleList = jsonReader(fileNameArticle);
-            JsonArray jobList = jsonReader(fileNameJobs);
-            JsonArray noteList = jsonReader(fileNameNotes);
 
-            //Iterate over articleList array
-            articleList.forEach(obj -> parseArticleObject((JsonObject)obj));
+        JsonArray articleList = jsonReader(fileNameArticle);
+        JsonArray jobList = jsonReader(fileNameJobs);
+        JsonArray noteList = jsonReader(fileNameNotes);
 
-            //Iterate over jobList array
-            jobList.forEach(obj -> parseJobObject((JsonObject)obj));
+        //Iterate over articleList array
+        articleList.forEach(obj -> parseArticleObject((JsonObject)obj));
 
+        //Iterate over jobList array
+        jobList.forEach(obj -> parseJobObject((JsonObject)obj));
 
-            //Iterate over noteList array
-            noteList.forEach(obj -> parseNoteObject((JsonObject)obj));
-        } catch (JsonSyntaxException e) {
-            System.out.println("One or more of you files are corrupted, we will create new files");
-            }
+        //Iterate over noteList array
+        noteList.forEach(obj -> parseNoteObject((JsonObject)obj));
     }
 
 
