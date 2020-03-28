@@ -4,9 +4,12 @@ import seedu.techtoday.articlelist.SavedArticleList;
 import seedu.techtoday.objects.Article;
 import seedu.techtoday.articlelist.ArticleAdder;
 
+/**
+ * Class representing method to generate an article list when there is no internet.
+ */
 public class InBuiltArticleListGenerator {
     /**
-     * ADD JAVADOC HERE.
+     * Executes the generation of articles from existing information.
      */
     public static void execute() {
 

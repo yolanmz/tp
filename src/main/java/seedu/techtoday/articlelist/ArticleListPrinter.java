@@ -3,6 +3,7 @@ package seedu.techtoday.articlelist;
 import seedu.techtoday.objects.Article;
 import java.util.ArrayList;
 
+/** Represents class that is used to call a method to delete article from taskList. */
 public class ArticleListPrinter {
     /**
      * Prints all available tasks.
@@ -14,6 +15,7 @@ public class ArticleListPrinter {
         for (Article article : articleList) {
             ArticlePrinter.execute(taskCounter, article);
             taskCounter += 1;
+            System.out.println("\n");
         }
     }
 }

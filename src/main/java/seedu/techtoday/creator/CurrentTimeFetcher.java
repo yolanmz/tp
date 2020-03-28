@@ -1,15 +1,12 @@
 package seedu.techtoday.creator;
 
 import java.time.Instant;
-import seedu.techtoday.objects.Information;
 
-/**
- * ADD JAVADOC.
- */
+/** Class representing the method used to fetch the current time. */
 public class CurrentTimeFetcher {
     /**
-     * ADD JAVADOC.
-     * @return - ADD HERE.
+     * Retutns the timestamp associated with the current time.
+     * @return - Current timestamp (epochSecond).
      */
     public static String execute() {
         Instant instant = Instant.now();

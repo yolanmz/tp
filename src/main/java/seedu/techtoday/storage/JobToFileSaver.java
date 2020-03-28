@@ -12,9 +12,9 @@ import com.google.gson.JsonObject;
 public class JobToFileSaver {
 
     /**
-     * ADD JAVADOC HERE.
-     * @param jobArrayList - ADD HERE.
-     * @param filePath - ADD HERE.
+     * Saves a list of jobs to a file.
+     * @param jobArrayList - List representing jobs.
+     * @param filePath - The path wo where the job is to be saved.
      */
     public static void execute(ArrayList<Job> jobArrayList, String filePath) {
 

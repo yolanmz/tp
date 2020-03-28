@@ -4,24 +4,17 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.FileReader;
 
+import com.google.gson.*;
 import seedu.techtoday.notelist.SavedNoteList;
 import seedu.techtoday.objects.Job;
 import seedu.techtoday.objects.Note;
-
-import com.google.gson.JsonArray;
-import com.google.gson.JsonParser;
-import com.google.gson.JsonParseException;
-import com.google.gson.JsonObject;
-
-
-
 
 import seedu.techtoday.articlelist.SavedArticleList;
 import seedu.techtoday.joblist.SavedJobList;
 import seedu.techtoday.objects.Article;
 
 /**
- * ADD JAVADOC HERE.
+ * Loads articles from memory.
  */
 public class Loader {
     @SuppressWarnings("unchecked")
@@ -31,26 +24,31 @@ public class Loader {
     public static int idxNotes = 1;
 
     /**
-     * ADD JAVADOC HERE.
-     * @param fileNameArticle - ADD HERE.
-     * @param fileNameJobs - ADD HERE.
-     * @param fileNameNotes - ADD HERE.
+     * Executes the loading of articles from memory.
+     * @param fileNameArticle - Name of file containing articles.
+     * @param fileNameJobs - Name of file containing jobs.
+     * @param fileNameNotes - Name of file containing notes.
      */
     public static void execute(String fileNameArticle, String fileNameJobs, String fileNameNotes) {
-        JsonArray articleList = jsonReader(fileNameArticle);
-        JsonArray jobList = jsonReader(fileNameJobs);
-        JsonArray noteList = jsonReader(fileNameNotes);
+        try {
+            JsonArray articleList = jsonReader(fileNameArticle);
+            JsonArray jobList = jsonReader(fileNameJobs);
+            JsonArray noteList = jsonReader(fileNameNotes);
 
-        //Iterate over articleList array
-        articleList.forEach(obj -> parseArticleObject((JsonObject)obj));
+            //Iterate over articleList array
+            articleList.forEach(obj -> parseArticleObject((JsonObject)obj));
 
-        //Iterate over jobList array
-        jobList.forEach(obj -> parseJobObject((JsonObject)obj));
+            //Iterate over jobList array
+            jobList.forEach(obj -> parseJobObject((JsonObject)obj));
 
 
-        //Iterate over noteList array
-        //noteList.forEach( obj -> parseNoteObject( (JsonObject) obj ) );
+            //Iterate over noteList array
+            noteList.forEach( obj -> parseNoteObject( (JsonObject) obj ) );
+        } catch (JsonSyntaxException e)  {
+            System.out.println("One or more of you files are corrupted, we will create new files");
+            }
     }
+
 
     /**
      * ADD JAVADOC HERE.
@@ -156,24 +154,22 @@ public class Loader {
 
         String index = Integer.toString(idxNotes);
         //Get employee object within list
-        JsonObject jobObject = (JsonObject) note.get(index);
+        JsonObject noteObject = (JsonObject) note.get(index);
         idxNotes += 1;
 
         // Get article title
-        String title = jobObject.get("title").toString().replaceAll("\"", "");;
-        String extract = jobObject.get("extract").toString().replaceAll("\"", "");;
-        String timeStamp = jobObject.get("timestamp").toString().replaceAll("\"", "");;
-        // String category = jobObject.get("category").toString().replaceAll("\"", "");;
-
+        String title = noteObject.get("title").toString().replaceAll("\"", "");;
+        String extract = noteObject.get("extract").toString().replaceAll("\"", "");;
+        String timeStamp = noteObject.get("timestamp").toString().replaceAll("\"", "");;
+        String url = noteObject.get("url").toString().replaceAll("\"", "");;
+        String category = noteObject.get("category").toString().replaceAll("\"", "");;
 
         //Creates a note and a
         Note newNote = new Note(title, extract, timeStamp);
-
-
+        newNote.setUrl(url);
+        newNote.setCategory(category);
 
         // NotePrinter.printIsolatedNote(newNote);
-
         SavedNoteList.savedNoteList.add(newNote);
-
     }
 }

@@ -13,6 +13,7 @@ public class JobListPrinter {
         for (Job job : jobList) {
             JobPrinter.execute(taskCounter, job);
             taskCounter += 1;
+            System.out.println("\n");
         }
     }
 

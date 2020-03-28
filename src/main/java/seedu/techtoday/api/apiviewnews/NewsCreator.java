@@ -2,6 +2,7 @@ package seedu.techtoday.api.apiviewnews;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import seedu.techtoday.common.CommonMethods;
 import seedu.techtoday.objects.Article;
 
 /** Create news creates a JSON object for 1 news article fetched through the API. */
@@ -14,7 +15,8 @@ public class NewsCreator {
      */
     public static Article rawToProcessedNews(JSONObject json) throws JSONException {
         String title = json.get("title").toString();
-        int timeStamp = Integer.parseInt(json.get("time").toString());
+        String timeStamp = json.get("time").toString();
+        assert (CommonMethods.isLong(timeStamp)) : "Timestamp should be of long type";
         String url;
         try {
             url = json.get("url").toString();
@@ -22,7 +24,7 @@ public class NewsCreator {
             url = "URL Not provided";
         }
         Article article = new Article(title, url, "default");
-        article.setTimeStamp(timeStamp);
+        article.setTime(timeStamp);
         return article;
     }
 }

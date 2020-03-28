@@ -1,38 +1,44 @@
 package seedu.techtoday.joblist;
 
+import seedu.techtoday.common.TimeStampToDateConverter;
 import seedu.techtoday.objects.Job;
 
+/** Class representing a method used to print a job. */
 public class JobPrinter {
     /**
-     * ADD JAVADOC.
-     * @param taskCounter - ADD HERE.
-     * @param job - ADD HERE.
+     * Executes the printing of a job.
+     * @param taskCounter - Index number of jobs in jobList.
+     * @param job - Job object representing a job.
      */
     public static void execute(int taskCounter, Job job) {
-        String timestamp = job.getTimeStamp();
+        String timeStamp = job.getTimeStamp();
+        String date = TimeStampToDateConverter.execute(timeStamp);
         String title = job.getTitle();
         String text = job.getText();
+        String upToNCharactersText = text.substring(0, Math.min(text.length(), 100)) + "...";
         String category = job.getCategory();
         String extract = job.getExtract();
+        String upToNCharactersExtarct = extract.substring(0, Math.min(extract.length(), 100)) + "...";
         System.out.println(taskCounter + ". Title: " + title + System.lineSeparator()
-                            + "   Date: " + timestamp + System.lineSeparator()
+                            + "   Date: " + date + System.lineSeparator()
                             + "   Category: " + category + System.lineSeparator()
-                            + "   Text: " + text + System.lineSeparator()
-                            + "   Extract: " + extract);
+                            + "   Text: " + upToNCharactersText + System.lineSeparator()
+                            + "   Extract: " + upToNCharactersExtarct);
     }
 
     /**
-     * ADD JAVADOC.
-     * @param job - ADD HERE.
+     * Prints a job outside the context of a jobList.
+     * @param job - Job object representing a job.
      */
     public static void printIsolatedJob(Job job) {
-        String timestamp = job.getTimeStamp();
+        String timeStamp = job.getTimeStamp();
+        String date = TimeStampToDateConverter.execute(timeStamp);
         String title = job.getTitle();
         String text = job.getText();
         String category = job.getCategory();
         String extract = job.getExtract();
         System.out.println("   Title: " + title + System.lineSeparator()
-                + "   Date: " + timestamp + System.lineSeparator()
+                + "   Date: " + date + System.lineSeparator()
                 + "   Category: " + category + System.lineSeparator()
                 + "   Text: " + text + System.lineSeparator()
                 + "   Extract: " + extract);

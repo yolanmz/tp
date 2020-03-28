@@ -1,17 +1,24 @@
-	∣          ______________________________________________________________          ∣
-	∣                                                                                  ∣
-	∣                             Hello! Here's TechToday.                             ∣
-	∣            Let me show you some technology news to refresh your mind!            ∣
-	∣          ______________________________________________________________          ∣
-	∣                    Your queries can be of the following forms:                   ∣
-	∣                              1. view [article / job]                             ∣
-	∣                          2. list [article / job / note]                          ∣
-	∣             3. save [article / job / note] [index number (optional)]             ∣
-	∣                  4. delete [article / job / note] [index number]                 ∣
-	∣            5. addinfo [article / job / note] [index number] [extract]            ∣
-	∣                         6. create [article / job / note]                         ∣
-	∣                                      7. exit                                     ∣
-	∣                                                                                  ∣
-	∣          ______________________________________________________________          ∣
+_ **_____________________________________________________________________________**_
+_                                                                                  _
+_                             Hello! Here's TechToday.                             _
+_            Let me show you some technology news to refresh your mind!            _
+_ **_____________________________________________________________________________**_
+_                    Your queries can be of the following forms:                   _
+_                              1. view [article / job]                             _
+_                          2. list [article / job / note]                          _
+_             3. save [article / job / note] [index number (optional)]             _
+_                  4. delete [article / job / note] [index number]                 _
+_            5. addinfo [article / job / note] [index number] [extract]            _
+_                         6. create [article / job / note]                         _
+_                                      7. help                                     _
+_                                      8. exit                                     _
+_                                                                                  _
+_ **_____________________________________________________________________________**_
      What can I do for you?
 
+__________________________________________________________________________________________
+
+
+_                                Saving your data...                               _
+_                           We are exiting the program...                          _
+_                            Bye. Come back again later.                           _
