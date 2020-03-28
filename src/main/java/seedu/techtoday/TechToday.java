@@ -71,7 +71,7 @@ public class TechToday {
     /**
      * Main entry-point for the java.techtoday application.
      */
-    public static void main(String[] args) throws TechTodayException{
+    public static void main(String[] args) throws TechTodayException {
         new TechToday();
         greet();
 
