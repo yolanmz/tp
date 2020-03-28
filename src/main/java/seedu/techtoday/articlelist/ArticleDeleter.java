@@ -17,4 +17,5 @@ public class ArticleDeleter {
         ArticlePrinter.printIsolatedArticle(articleToDelete);
         SavedArticleList.savedArticleList.remove(articleNumber);
     }
+
 }
