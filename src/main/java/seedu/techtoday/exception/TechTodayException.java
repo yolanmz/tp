@@ -5,4 +5,13 @@ package seedu.techtoday.exception;
  */
 public class TechTodayException extends Exception {
     // class extends Exception
+    private String message;
+
+    public TechTodayException(){
+        super();
+    }
+    public TechTodayException(String message){
+        super(message);
+        this.message = message;
+    }
 }
