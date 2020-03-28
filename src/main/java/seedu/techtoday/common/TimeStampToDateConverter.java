@@ -11,7 +11,7 @@ public class TimeStampToDateConverter {
      * @param timeStamp A string representing the timestamp of the article
      */
     public static String execute(String timeStamp) {
-        if(timeStamp.isEmpty()) {
+        if (timeStamp.isEmpty()) {
             return timeStamp;
         } else {
             String pattern = "yyyy-MMM-dd E hh:mm a";
