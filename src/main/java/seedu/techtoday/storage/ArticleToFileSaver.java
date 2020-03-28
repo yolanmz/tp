@@ -9,12 +9,13 @@ import java.io.FileWriter;
 
 import com.google.gson.JsonObject;
 
+/** Represents class that saves articles to file. */
 public class ArticleToFileSaver {
 
     /**
-     * ADD JAVADOC HERE.
-     * @param articleArrayList - ADD HERE.
-     * @param filePath - ADD HERE.
+     * Executes saving og articles to file.
+     * @param articleArrayList - List of articles.
+     * @param filePath - Path where articles are saved.
      */
     public static void execute(ArrayList<Article> articleArrayList, String filePath) {
 
@@ -28,7 +29,6 @@ public class ArticleToFileSaver {
             String category = article.getCategory();
             String extract = article.getExtract();
             String timeStamp = article.getTimeStamp();
-
 
             //article Details
             JsonObject articleDetails = new JsonObject();

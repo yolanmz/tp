@@ -1,9 +1,10 @@
 package seedu.techtoday.objects;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class Note extends Information {
+
+    public String url;
+    public String category;
 
     /**
      * Constructor for note class.
@@ -21,9 +22,21 @@ public class Note extends Information {
      */
     public Note(String title, String extract, String epochSecond) {
         super(title, extract, epochSecond);
-        String pattern = "yyyy-MMM-dd E hh:mm a";
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-        String date = simpleDateFormat.format((new Date(Long.parseLong(epochSecond) * 1000)));
-        this.timeStamp = date;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public String getCategory() {
+        return category;
     }
 }

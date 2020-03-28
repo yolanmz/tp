@@ -6,13 +6,10 @@ import seedu.techtoday.joblist.SavedJobList;
 import seedu.techtoday.objects.Job;
 import seedu.techtoday.ui.Ui;
 
-/**
- * ADD JAVADOC.
- */
+/** Class representing a method used to create a job based on user input. */
 public class ManualJobCreator {
-    /**
-     * ADD JAVADOC.
-     */
+
+    /** Executes the creation of a job object from user input. */
     public static void execute() {
         System.out.println("Enter the title of the job?");
         String title = Ui.getCommand();

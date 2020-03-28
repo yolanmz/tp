@@ -4,6 +4,7 @@ import seedu.techtoday.objects.Article;
 import seedu.techtoday.exception.TechTodayException;
 import java.util.ArrayList;
 
+/** Class to save articles to SavedArticleList. */
 public class ArticleSaver extends SavedArticleList {
 
     public ArticleSaver() {

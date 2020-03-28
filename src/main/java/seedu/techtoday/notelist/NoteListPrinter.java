@@ -3,9 +3,11 @@ package seedu.techtoday.notelist;
 import seedu.techtoday.objects.Note;
 import java.util.ArrayList;
 
+/** Represents command that is used to call a method to print noteList. */
 public class NoteListPrinter {
+
     /**
-     * Prints all available tasks.
+     * Prints all available notes.
      * @param noteList List that stores the jobs mentioned until now.
      */
     public static void execute(ArrayList<Note> noteList) {
@@ -13,6 +15,7 @@ public class NoteListPrinter {
         for (Note job : noteList) {
             NotePrinter.execute(taskCounter, job);
             taskCounter += 1;
+            System.out.println("\n");
         }
     }
 }

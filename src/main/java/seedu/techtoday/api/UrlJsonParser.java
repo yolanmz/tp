@@ -10,6 +10,7 @@ import java.io.BufferedReader;
 import java.net.URL;
 import java.nio.charset.Charset;
 
+// Source: https://stackoverflow.com/questions/4308554/simplest-way-to-read-json-from-a-url-in-java
 /** Represents a class that parses JSON objects that are required for the project. */
 public class UrlJsonParser {
     private static String readAll(Reader rd) throws IOException {

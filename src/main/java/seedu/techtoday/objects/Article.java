@@ -24,4 +24,8 @@ public class Article extends Information {
         return url;
     }
 
+    public String getCategory() {
+        return category;
+    }
+
 }

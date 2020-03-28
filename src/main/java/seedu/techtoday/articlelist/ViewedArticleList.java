@@ -6,6 +6,7 @@ import seedu.techtoday.objects.Article;
 /** Represents the data structure, i.e a list of Tasks, that stores the tasks.*/
 public class ViewedArticleList {
 
+    /** Class variable that represents a the viewedArticle list. */
     public static ArrayList<Article> viewedArticleList;
 
     /** Initializes a new taskList.  */

@@ -26,7 +26,7 @@ class NewsCreatorTest {
 
         String title = "WebAssembly brings extensibility to network proxies";
         String url = "https://opensource.googleblog.com/2020/03/webassembly-brings-extensibility-to.html";
-        String category = null;
+        String category = "default";
 
         Article output = NewsCreator.rawToProcessedNews(input);
 

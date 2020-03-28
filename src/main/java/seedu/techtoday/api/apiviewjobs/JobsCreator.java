@@ -1,11 +1,11 @@
 package seedu.techtoday.api.apiviewjobs;
 
 import org.json.JSONObject;
+import seedu.techtoday.common.CommonMethods;
 import seedu.techtoday.objects.Job;
 
 /** Create news creates a JSON object for 1 news article fetched through the API. */
 public class JobsCreator {
-
 
     /**
      * Returns an article object from a JSONObject representing a news article from the internet.
@@ -14,7 +14,8 @@ public class JobsCreator {
      */
     public static Job rawToProcessedJob(JSONObject json) {
         String title = json.get("title").toString();
-        int timeStamp = Integer.parseInt(json.get("time").toString());
+        String timeStamp = json.get("time").toString();
+        assert (CommonMethods.isLong(timeStamp)) : "Timestamp should be of long type";
         String text;
         try {
             text = json.get("text").toString();
@@ -22,7 +23,7 @@ public class JobsCreator {
             text = "text Not provided";
         }
         Job job = new Job(title, text, "default");
-        job.setTimeStamp(timeStamp);
+        job.setTime(timeStamp);
         return job;
     }
 }

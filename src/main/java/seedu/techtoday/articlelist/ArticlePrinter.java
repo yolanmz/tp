@@ -1,40 +1,49 @@
 package seedu.techtoday.articlelist;
 
+import seedu.techtoday.common.TimeStampToDateConverter;
 import seedu.techtoday.objects.Article;
 
+/** Class that represents a command used to print an article. */
 public class ArticlePrinter {
+
     /**
-     * ADD JAVADOC.
-     * @param taskCounter - ADD HERE
-     * @param article - ADD HERE
+     * Executes the printing of an article.
+     *
+     * @param taskCounter - Index of the information in the information list.
+     * @param article - Article representing an article object.
      */
     public static void execute(int taskCounter, Article article) {
-        String timestamp = article.getTimeStamp();
+        String timeStamp = article.getTimeStamp();
+        String date = TimeStampToDateConverter.execute(timeStamp);
         String title = article.getTitle();
         String url = article.getUrl();
         String category = article.getCategory();
         String extract = article.getExtract();
+        String upToNCharacters = extract.substring(0, Math.min(extract.length(), 100)) + "...";
         System.out.println(taskCounter + ". Title: " + title + System.lineSeparator()
-                                + "   Date: " + timestamp + System.lineSeparator()
+                                + "   Date: " + date + System.lineSeparator()
                                 + "   Category: " + category + System.lineSeparator()
                                 + "   Url: " + url + System.lineSeparator()
-                                + "   Extract: " + extract);
+                                + "   Extract: " + upToNCharacters);
     }
 
     /**
-     * ADD JAVADOC.
-     * @param article - ADD HERE
+     * Prints an article outside the setting of a article list.
+     *
+     * @param article - Article representing an article object.
      */
     public static void printIsolatedArticle(Article article) {
-        String timestamp = article.getTimeStamp();
+        String timeStamp = article.getTimeStamp();
+        String date = TimeStampToDateConverter.execute(timeStamp);
         String title = article.getTitle();
         String url = article.getUrl();
         String category = article.getCategory();
         String extract = article.getExtract();
+        String upToNCharacters = extract.substring(0, Math.min(extract.length(), 100)) + "...";
         System.out.println("   Title: " + title + System.lineSeparator()
-                                + "   Date: " + timestamp + System.lineSeparator()
+                                + "   Date: " + date + System.lineSeparator()
                                 + "   Category: " + category + System.lineSeparator()
                                 + "   Url: " + url + System.lineSeparator()
-                                + "   Extract: " + extract);
+                                + "   Extract: " + upToNCharacters);
     }
 }

@@ -6,7 +6,7 @@ import seedu.techtoday.joblist.SavedJobList;
 
 public class InBuiltJobListGenerator {
     /**
-     * ADD JAVADOC.
+     * Method to add jobs to viewedJobList in case of no internet.
      */
     public static void execute() {
 
