@@ -28,27 +28,42 @@ class ArticleListPrinterTest {
         // execute command
         ArticleListPrinter.execute(SavedArticleList.savedArticleList);
 
-        String expectedOutput = "1. Title: Test1\n"
-                + "   Date: \n"
-                + "   Category: article\n"
-                + "   Url: www.test1.com\n"
-                + "   Extract: ...\n"
-                + "\n"
-                + "\n"
-                + "2. Title: Test2\n"
-                + "   Date: \n"
-                + "   Category: article\n"
-                + "   Url: www.test2.com\n"
-                + "   Extract: ...\n"
-                + "\n"
-                + "\n"
-                + "3. Title: Test3\n"
-                + "   Date: \n"
-                + "   Category: article\n"
-                + "   Url: www.test3.com\n"
-                + "   Extract: ...\n"
-                + "\n"
-                + "\n";
+        String expectedOutput = "1. Title: Test1"
+                + System.lineSeparator()
+                + "   Date: "
+                + System.lineSeparator()
+                + "   Category: article"
+                + System.lineSeparator()
+                + "   Url: www.test1.com"
+                + System.lineSeparator()
+                + "   Extract: ..."
+                + System.lineSeparator()
+                + System.lineSeparator()
+                + System.lineSeparator()
+                + "2. Title: Test2"
+                + System.lineSeparator()
+                + "   Date: "
+                + System.lineSeparator()
+                + "   Category: article"
+                + System.lineSeparator()
+                + "   Url: www.test2.com"
+                + System.lineSeparator()
+                + "   Extract: ..."
+                + System.lineSeparator()
+                + System.lineSeparator()
+                + System.lineSeparator()
+                + "3. Title: Test3"
+                + System.lineSeparator()
+                + "   Date: "
+                + System.lineSeparator()
+                + "   Category: article"
+                + System.lineSeparator()
+                + "   Url: www.test3.com"
+                + System.lineSeparator()
+                + "   Extract: ..."
+                + System.lineSeparator()
+                + System.lineSeparator()
+                + System.lineSeparator() ;
         assertEquals(expectedOutput, outContent.toString());
     }
 }

@@ -28,12 +28,18 @@ class ArticleDeleterTest {
         // execute command
         ArticleDeleter.execute("delete article 2");
 
-        String expectedOutput = "Deleting the following article:\n"
-                + "   Title: Test2\n"
-                + "   Date: \n"
-                + "   Category: article\n"
-                + "   Url: www.test2.com\n"
-                + "   Extract: ...\n";
+        String expectedOutput = "Deleting the following article:"
+                + System.lineSeparator()
+                + "   Title: Test2"
+                + System.lineSeparator()
+                + "   Date: "
+                + System.lineSeparator()
+                + "   Category: article"
+                + System.lineSeparator()
+                + "   Url: www.test2.com"
+                + System.lineSeparator()
+                + "   Extract: ..."
+                + System.lineSeparator() ;
         assertEquals(expectedOutput, outContent.toString());
     }
 }

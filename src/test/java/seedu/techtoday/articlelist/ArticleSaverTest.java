@@ -29,12 +29,18 @@ class ArticleSaverTest {
         // execute command
         ArticleSaver.execute(SavedArticleList.savedArticleList, "save article 2");
 
-        String expectedOutput = "Done, saved the article with the following details:\n"
-                + "   Title: Test2\n"
-                + "   Date: \n"
-                + "   Category: article\n"
-                + "   Url: www.test2.com\n"
-                + "   Extract: ...\n";
+        String expectedOutput = "Done, saved the article with the following details:"
+                + System.lineSeparator()
+                + "   Title: Test2"
+                + System.lineSeparator()
+                + "   Date: "
+                + System.lineSeparator()
+                + "   Category: article"
+                + System.lineSeparator()
+                + "   Url: www.test2.com"
+                + System.lineSeparator()
+                + "   Extract: ..."
+                + System.lineSeparator() ;
         assertEquals(expectedOutput, outContent.toString());
     }
 
