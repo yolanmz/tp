@@ -11,11 +11,15 @@ public class TimeStampToDateConverter {
      * @param timeStamp A string representing the timestamp of the article
      */
     public static String execute(String timeStamp) {
-        String pattern = "yyyy-MMM-dd E hh:mm a";
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-        int intTimeStamp = Integer.parseInt(timeStamp);
-        String date = simpleDateFormat.format((new Date((long)intTimeStamp * 1000)));
-        return date;
+        if(timeStamp.isEmpty()) {
+            return timeStamp;
+        } else {
+            String pattern = "yyyy-MMM-dd E hh:mm a";
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+            int intTimeStamp = Integer.parseInt(timeStamp);
+            String date = simpleDateFormat.format((new Date((long) intTimeStamp * 1000)));
+            return date;
+        }
     }
 
 }
