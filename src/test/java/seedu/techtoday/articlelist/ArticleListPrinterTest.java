@@ -39,6 +39,9 @@ class ArticleListPrinterTest {
                 + "   Extract: ..."
                 + System.lineSeparator()
                 + System.lineSeparator()
+                + ""
+                + System.lineSeparator()
+                + ""
                 + System.lineSeparator()
                 + "2. Title: Test2"
                 + System.lineSeparator()
@@ -51,6 +54,9 @@ class ArticleListPrinterTest {
                 + "   Extract: ..."
                 + System.lineSeparator()
                 + System.lineSeparator()
+                + ""
+                + System.lineSeparator()
+                + ""
                 + System.lineSeparator()
                 + "3. Title: Test3"
                 + System.lineSeparator()
@@ -62,7 +68,9 @@ class ArticleListPrinterTest {
                 + System.lineSeparator()
                 + "   Extract: ..."
                 + System.lineSeparator()
+                + ""
                 + System.lineSeparator()
+                + ""
                 + System.lineSeparator();
         assertEquals(expectedOutput, outContent.toString());
     }
