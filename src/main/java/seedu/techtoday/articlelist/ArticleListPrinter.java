@@ -1,5 +1,6 @@
 package seedu.techtoday.articlelist;
 
+import seedu.techtoday.common.Messages;
 import seedu.techtoday.objects.Article;
 import java.util.ArrayList;
 
@@ -11,6 +12,9 @@ public class ArticleListPrinter {
      * @param articleList List that stores the tasks mentioned until now.
      */
     public static void execute(ArrayList<Article> articleList) {
+        if (articleList.size() == 0) {
+            Messages.printInCenter("There is nothing in the list currently.");
+        }
         int taskCounter = 1;
         for (Article article : articleList) {
             ArticlePrinter.execute(taskCounter, article);

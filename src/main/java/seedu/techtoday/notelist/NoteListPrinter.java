@@ -1,5 +1,6 @@
 package seedu.techtoday.notelist;
 
+import seedu.techtoday.common.Messages;
 import seedu.techtoday.objects.Note;
 import java.util.ArrayList;
 
@@ -11,6 +12,9 @@ public class NoteListPrinter {
      * @param noteList List that stores the jobs mentioned until now.
      */
     public static void execute(ArrayList<Note> noteList) {
+        if (noteList.size() == 0) {
+            Messages.printInCenter("There is nothing in the list currently.");
+        }
         int taskCounter = 1;
         for (Note job : noteList) {
             NotePrinter.execute(taskCounter, job);
