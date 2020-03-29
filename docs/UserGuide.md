@@ -2,21 +2,20 @@
 
 By: `Alaukik Nath Pant, Melissa Lopez`      Since: `Feb 2020`      Licence: `MIT`      Course: `CS2113`
 
-
-- [Introduction](#Introduction)
-- [Quick Start](#quick-start)
-- [Features](#features)
-  * [Command Format](#command-format)
-    + [Asking for help with valid commands : `help`](#asking-for-help-with-valid-commands----help-)
-    + [Viewing articles or jobs : `view`](#viewing-articles-or-jobs----view-)
-    + [Saving an article or job: `save `](#saving-an-article-or-job---save--)
-    + [Creating an `article`, `job`, or `note`: `create`](#creating-an--article----job---or--note----create-)
-    + [Listing saved/created `article`, `job`, `note`: `list `](#listing-saved-created--article----job----note----list--)
-    + [Deleting saved/created `article`, `job`, or `note`: `delete `](#deleting-saved-created--article----job---or--note----delete--)
-    + [Adding an extract to `article`, `job`, or `note`: `list`](#adding-an-extract-to--article----job---or--note----list-)
-    + [Exiting the program : `exit`](#exiting-the-program----exit-)
-- [FAQ](#faq)
-- [Command Summary](#command-summary)
+1. [Introduction](#Introduction)
+2. [Quick Start](#quick-start)
+3. [Features](#features)
+    1. [Command Format](#command-format)
+        1. [Asking for help with valid commands : `help`](#asking-for-help-with-valid-commands----help-)
+        2. [Viewing articles or jobs : `view`](#viewing-articles-or-jobs----view-)
+        3. [Saving an article or job: `save `](#saving-an-article-or-job---save--)
+        4. [Creating an `article`, `job`, or `note`: `create`](#creating-an--article----job---or--note----create-)
+        5. [Listing saved/created `article`, `job`, `note`: `list `](#listing-saved-created--article----job----note----list--)
+        5. [Deleting saved/created `article`, `job`, or `note`: `delete `](#deleting-saved-created--article----job---or--note----delete--)
+        7. [Adding an extract to `article`, `job`, or `note`: `list`](#adding-an-extract-to--article----job---or--note----list-)
+        8. [Exiting the program : `exit`](#exiting-the-program----exit-)
+4. [FAQ](#faq)
+5. [Command Summary](#command-summary)
 
 ## Introduction
 
