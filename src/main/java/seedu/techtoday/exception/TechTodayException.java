@@ -7,10 +7,11 @@ public class TechTodayException extends Exception {
     // class extends Exception
     private String message;
 
-    public TechTodayException(){
+    public TechTodayException() {
         super();
     }
-    public TechTodayException(String message){
+    
+    public TechTodayException(String message) {
         super(message);
         this.message = message;
     }
