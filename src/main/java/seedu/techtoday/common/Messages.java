@@ -38,13 +38,13 @@ public class Messages {
     /** Prints the list of possible commands the user can type. **/
     public static void printCommand() {
         printInCenter("Your queries can be of the following forms:");
-        printInCenter("1. view [article / job]");
-        printInCenter("2. list [article / job / note]");
-        printInCenter("3. save [article / job / note] [index number (optional)]");
-        printInCenter("4. delete [article / job / note] [index number]");
-        printInCenter("5. addinfo [article / job / note] [index number] [extract]");
-        printInCenter("6. create [article / job / note]");
-        printInCenter("7. help");
+        printInCenter("1. help");
+        printInCenter("2. view [article / job]");
+        printInCenter("3. save [article / job] INDEX_NUMBER");
+        printInCenter("4. create [article / job / note]");
+        printInCenter("5. list [article / job / note]");
+        printInCenter("6. delete [article / job / note] INDEX_NUMBER");
+        printInCenter("7. addinfo [article / job / note] INDEX_NUMBER EXTRACT");
         printInCenter("8. exit");
         printInCenter("");
     }
