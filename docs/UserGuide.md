@@ -1,7 +1,22 @@
 ## [Project TechToday](https://github.com/AY1920S2-CS2113-T14-2/tp) - User Guide
 
-
 By: `Alaukik Nath Pant, Melissa Lopez`      Since: `Feb 2020`      Licence: `MIT`      Course: `CS2113`
+
+
+- [Introduction](#Introduction)
+- [Quick Start](#quick-start)
+- [Features](#features)
+  * [Command Format](#command-format)
+    + [Asking for help with valid commands : `help`](#asking-for-help-with-valid-commands----help-)
+    + [Viewing articles or jobs : `view`](#viewing-articles-or-jobs----view-)
+    + [Saving an article or job: `save `](#saving-an-article-or-job---save--)
+    + [Creating an `article`, `job`, or `note`: `create`](#creating-an--article----job---or--note----create-)
+    + [Listing saved/created `article`, `job`, `note`: `list `](#listing-saved-created--article----job----note----list--)
+    + [Deleting saved/created `article`, `job`, or `note`: `delete `](#deleting-saved-created--article----job---or--note----delete--)
+    + [Adding an extract to `article`, `job`, or `note`: `list`](#adding-an-extract-to--article----job---or--note----list-)
+    + [Exiting the program : `exit`](#exiting-the-program----exit-)
+- [FAQ](#faq)
+- [Command Summary](#command-summary)
 
 ## Introduction
 
