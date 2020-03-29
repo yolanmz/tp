@@ -6,6 +6,7 @@ import seedu.techtoday.storage.Loader;
 import seedu.techtoday.ui.Ui;
 
 import java.io.File;
+import java.io.IOException;
 
 /** Class representing the commands essential for the logic that laods the data and runs the program. */
 public class ProgramExecutor {
@@ -75,6 +76,15 @@ public class ProgramExecutor {
         } else {
             System.out.println("No files with your data exits, we will create new files to save your data.");
             Messages.printStraightLine();
+        }
+    }
+
+    /** Initializes the logger for Information Adder class- the only class that utilizes logger. */
+    public static void startLogger() {
+        try {
+            InformationAdder.startLogger();
+        } catch (IOException e) {
+            System.out.println("Logging setup failed! Logs will be printed to console instead of saved to file.");
         }
     }
 }
