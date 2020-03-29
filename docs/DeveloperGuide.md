@@ -1,328 +1,425 @@
-## [Project TechToday](https://github.com/AY1920S2-CS2113-T14-2/tp) - User Guide
+= AddressBook Level 3 - Developer Guide
+:site-section: DeveloperGuide
+:toc:
+:toc-title:
+:toc-placement: preamble
+:sectnums:
+:imagesDir: images
+:stylesDir: stylesheets
+:xrefstyle: full
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:warning-caption: :warning:
+endif::[]
+:repoURL: https://github.com/se-edu/addressbook-level3/tree/master
 
+By: `Team SE-EDU`      Since: `Jun 2016`      Licence: `MIT`
 
-By: `Alaukik Nath Pant, Melissa Lopez`      Since: `Feb 2020`      Licence: `MIT`      Course: `CS2113`
+== Setting up
 
+Refer to the guide <<SettingUp#, here>>.
 
+== Design
 
-## Introduction 
+[[Design-Architecture]]
+=== Architecture
 
-TechToday Information Tracker(TTIT) is for those who *prefer to use a desktop app for managing information about technology including news, jobs or even notes*. TTIT is *optimized for those who prefer to work with a Command Line Interface* (CLI).
-TTIT utilizes [Hacker News](https://github.com/HackerNews/API) API to give the user the option to **view** new news articles and questions/jobs. If the device is not connected to the internet, the user can **view** pre-loaded articles and jobs. The user also has the option to add interesting articles, jobs, questions, notes about technology themselves using the **create** functionality. 
+.Architecture Diagram
+image::ArchitectureDiagram.png[]
 
-## Quick Start
-
-*  Ensure you have Java `11` or above installed in your Computer.
-*  Download the latest `tp.jar` [latest reslease here!](https://github.com/AY1920S2-CS2113-T14-2/tp/releases/tag/v1.0).
-*  Copy the file to the folder you want to use as the home folder for your Technology Information tracker.
-*  Go to the directory where the Jar file is stored and type: `java -jar tp.jar`
-* When the application executes, all possible commands that can help you manage your information are shown.
-*Some example commands you can try:
-    * **`view `**`article` : helps you view articles about technolgy from the internet. If the device is not connected to the internet, it loads an existing set of articles pre-loaded into the program.
-    * **`list `**`article`: Lists all the articles you have saved in your database into the Command Line.
-    * **`delete `**` article 1` : deletes the 1st artile that appears in the article list.
-    * **`exit`** : exits the app.
-
-
-## Features
-
-
-### Command Format
-
-* The user is required to supply one of `article`, `job`, `note` from the option of `[article / job / note]` or `[article / job]`. For example, `view article`, `list note`.
-* The `INDEX_NUMBER` is the interger index of a article/job/note to be saved, deleted, or edited from a saved article list, or a saved note list or a saved job list. It is of format `delete article INDEX_NUMBER`, `save job TASK_NUMBER`.
-* `EXTRACT` represents a string that can be composed of multiple words that you wish to add to an existing note, job or article. For example, `addinfo article INDEX_NUMBER EXTRACT`.
-
-
-
-#### Asking for help with valid commands : `help`
-
-* Loads all possible commands that the user can type.
-* Format: `help`
-
-Examples:
-
-    help
-
-Expected Ourcome:
-   
-      __________________________________________________________________________________________
-
-    _                    Your queries can be of the following forms:                   _
-    _                                      1. help                                     _
-    _                              2. view [article / job]                             _
-    _                       3. save [article / job] INDEX_NUMBER                       _
-    _                         4. create [article / job / note]                         _
-    _                          5. list [article / job / note]                          _
-    _                   6. delete [article / job / note] INDEX_NUMBER                  _
-    _              7. addinfo [article / job / note] INDEX_NUMBER EXTRACT              _
-    _                                      8. exit                                     _
-    _                                                                                  _
-    __________________________________________________________________________________________
-
-****
-
-
-
-#### Viewing articles or jobs : `view`
-
-* Displays a list articles or jobs from the internet. If device is not connected to the interted, pre-loaded data is shown.
-* Format: `view [article / job]`
+The *_Architecture Diagram_* given above explains the high-level design of the App. Given below is a quick overview of each component.
 
 [TIP]
-Connect to the internet if you wish to see latest articles.
+The `.puml` files used to create diagrams in this document can be found in the link:{repoURL}/docs/diagrams/[diagrams] folder.
+Refer to the <<UsingPlantUml#, Using PlantUML guide>> to learn how to create and edit diagrams.
 
-Examples:
+`Main` has two classes called link:{repoURL}/src/main/java/seedu/address/Main.java[`Main`] and link:{repoURL}/src/main/java/seedu/address/MainApp.java[`MainApp`]. It is responsible for,
 
-    view article
+* At app launch: Initializes the components in the correct sequence, and connects them up with each other.
+* At shut down: Shuts down the components and invokes cleanup method where necessary.
 
+<<Design-Commons,*`Commons`*>> represents a collection of classes used by multiple other components.
+The following class plays an important role at the architecture level:
 
-Expected Outcome:
+* `LogsCenter` : Used by many classes to write log messages to the App's log file.
 
-    __________________________________________________________________________________________
+The rest of the App consists of four components.
 
+* <<Design-Ui,*`UI`*>>: The UI of the App.
+* <<Design-Logic,*`Logic`*>>: The command executor.
+* <<Design-Model,*`Model`*>>: Holds the data of the App in-memory.
+* <<Design-Storage,*`Storage`*>>: Reads data from, and writes data to, the hard disk.
 
-    Loading information from the internet... 
+Each of the four components
 
-    1. Title: JITs Are Un-Ergonomic
-       Date: 2020-Mar-29 Sun 10:47 AM
-       Category: default
-       Url: https://abe-winter.github.io/2020/03/28/jitu-brutus.html
-       Extract: ...
+* Defines its _API_ in an `interface` with the same name as the Component.
+* Exposes its functionality using a `{Component Name}Manager` class.
 
+For example, the `Logic` component (see the class diagram given below) defines it's API in the `Logic.java` interface and exposes its functionality using the `LogicManager.java` class.
 
-    2. Title: Show HN: SpicyPass – A free and open-source minimalist password manager
-       Date: 2020-Mar-29 Sun 06:18 AM
-       Category: default
-       Url: https://github.com/JFreegman/SpicyPass
-       Extract: ...
+.Class Diagram of the Logic Component
+image::LogicClassDiagram.png[]
 
+[discrete]
+==== How the architecture components interact with each other
 
-    3. Title: Building a Raspberry Pi GPS Speedometer
-       Date: 2020-Mar-29 Sun 07:48 AM
-       Category: default
-       Url: https://gleslie.com/rpi/raspberry/pi/dashboard/2020/03/28/building-a-rpi-vehicle-dashboard.html
-       Extract: ...
+The _Sequence Diagram_ below shows how the components interact with each other for the scenario where the user issues the command `delete 1`.
 
+.Component interactions for `delete 1` command
+image::ArchitectureSequenceDiagram.png[]
 
-    4. Title: National Emergency Library – Free 1.4M ebooks
-       Date: 2020-Mar-29 Sun 07:12 AM
-       Category: default
-       Url: https://archive.org/details/nationalemergencylibrary
-       Extract: ...
+The sections below give more details of each component.
 
+[[Design-Ui]]
+=== UI component
 
-    5. Title: New Grad vs. Senior Dev
-       Date: 2020-Mar-28 Sat 08:20 AM
-       Category: default
-       Url: https://ericlippert.com/2020/03/27/new-grad-vs-senior-dev/
-       Extract: ...
+.Structure of the UI Component
+image::UiClassDiagram.png[]
 
+*API* : link:{repoURL}/src/main/java/seedu/address/ui/Ui.java[`Ui.java`]
 
-    6. Title: NYC Subway Turnstile Data
-       Date: 2020-Mar-29 Sun 05:49 AM
-       Category: default
-       Url: https://github.com/toddwschneider/nyc-subway-turnstile-data
-       Extract: ...
+The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PersonListPanel`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class.
 
+The `UI` component uses JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the link:{repoURL}/src/main/java/seedu/address/ui/MainWindow.java[`MainWindow`] is specified in link:{repoURL}/src/main/resources/view/MainWindow.fxml[`MainWindow.fxml`]
 
-    __________________________________________________________________________________________
+The `UI` component,
 
-****
+* Executes user commands using the `Logic` component.
+* Listens for changes to `Model` data so that the UI can be updated with the modified data.
 
-#### Saving an article or job: `save `
+[[Design-Logic]]
+=== Logic component
 
-* Saves an article you see from the internet/database through the view option.
-* Format: `save [article / job / note] INDEX_NUMBER`
+[[fig-LogicClassDiagram]]
+.Structure of the Logic Component
+image::LogicClassDiagram.png[]
 
-[TIP]
-You have to view an article/job before being able to save it.
+*API* :
+link:{repoURL}/src/main/java/seedu/address/logic/Logic.java[`Logic.java`]
 
-Examples:
+.  `Logic` uses the `AddressBookParser` class to parse the user command.
+.  This results in a `Command` object which is executed by the `LogicManager`.
+.  The command execution can affect the `Model` (e.g. adding a person).
+.  The result of the command execution is encapsulated as a `CommandResult` object which is passed back to the `Ui`.
+.  In addition, the `CommandResult` object can also instruct the `Ui` to perform certain actions, such as displaying help to the user.
 
-    save article 1
+Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("delete 1")` API call.
 
-Expected Outcome
+.Interactions Inside the Logic Component for the `delete 1` Command
+image::DeleteSequenceDiagram.png[]
 
-    ________________________________________________________________________________________
+NOTE: The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 
+[[Design-Model]]
+=== Model component
 
-    Done, saved the article with the following details:
-       Title: JITs Are Un-Ergonomic
-       Date: 2020-Mar-29 Sun 10:47 AM
-       Category: default
-       Url: https://abe-winter.github.io/2020/03/28/jitu-brutus.html
-       Extract: ...
-    __________________________________________________________________________________________
+.Structure of the Model Component
+image::ModelClassDiagram.png[]
 
+*API* : link:{repoURL}/src/main/java/seedu/address/model/Model.java[`Model.java`]
 
-****
+The `Model`,
 
+* stores a `UserPref` object that represents the user's preferences.
+* stores the Address Book data.
+* exposes an unmodifiable `ObservableList<Person>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
+* does not depend on any of the other three components.
 
-#### Creating an `article`, `job`, or `note`: `create`
+[NOTE]
+As a more OOP model, we can store a `Tag` list in `Address Book`, which `Person` can reference. This would allow `Address Book` to only require one `Tag` object per unique `Tag`, instead of each `Person` needing their own `Tag` object. An example of how such a model may look like is given below. +
+ +
+image:BetterModelClassDiagram.png[]
 
-* Helps user manually create  an `article`, `job`, or `note` and add it to the list of articles, jobs or notes respectively.
-* Format: `create article`
+[[Design-Storage]]
+=== Storage component
 
+.Structure of the Storage Component
+image::StorageClassDiagram.png[]
 
-Examples:
+*API* : link:{repoURL}/src/main/java/seedu/address/storage/Storage.java[`Storage.java`]
 
-    create article
+The `Storage` component,
 
-Expected Outcome:
+* can save `UserPref` objects in json format and read it back.
+* can save the Address Book data in json format and read it back.
 
-    Enter the title of the article?
-    New grad vs senior dev
-    __________________________________________________________________________________________
+[[Design-Commons]]
+=== Common classes
 
+Classes used by multiple components are in the `seedu.addressbook.commons` package.
 
-    What is the URl of the article (type "No URL")?
-    https://ericlippert.com/2020/03/27/new-grad-vs-senior-dev/ 
-    __________________________________________________________________________________________
+== Implementation
 
+This section describes some noteworthy details on how certain features are implemented.
 
-    What is the category (type "default" if you done know it)
-    Funny
-    __________________________________________________________________________________________
+// tag::undoredo[]
+=== [Proposed] Undo/Redo feature
+==== Proposed Implementation
 
+The undo/redo mechanism is facilitated by `VersionedAddressBook`.
+It extends `AddressBook` with an undo/redo history, stored internally as an `addressBookStateList` and `currentStatePointer`.
+Additionally, it implements the following operations:
 
-    Done, we have added the following job to your list of saved jobs
-       Title: New grad vs senior dev
-       Date: 2020-Mar-29 Sun 12:25 PM
-       Category: Funny
-       Url: https://ericlippert.com/2020/03/27/new-grad-vs-senior-dev/
-       Extract: ...
-    __________________________________________________________________________________________
+* `VersionedAddressBook#commit()` -- Saves the current address book state in its history.
+* `VersionedAddressBook#undo()` -- Restores the previous address book state from its history.
+* `VersionedAddressBook#redo()` -- Restores a previously undone address book state from its history.
 
-****
+These operations are exposed in the `Model` interface as `Model#commitAddressBook()`, `Model#undoAddressBook()` and `Model#redoAddressBook()` respectively.
 
-#### Listing saved/created `article`, `job`, `note`: `list `
+Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.
 
-* Lists articles, jobs or notes that you have creaed or saved from the internet/database.
-* Format: `list [article / job / note]`
+Step 1. The user launches the application for the first time. The `VersionedAddressBook` will be initialized with the initial address book state, and the `currentStatePointer` pointing to that single address book state.
 
-[TIP]
-You must have saved or created some articles/jobs/notes in order to list them.
+image::UndoRedoState0.png[]
 
-Examples:
+Step 2. The user executes `delete 5` command to delete the 5th person in the address book. The `delete` command calls `Model#commitAddressBook()`, causing the modified state of the address book after the `delete 5` command executes to be saved in the `addressBookStateList`, and the `currentStatePointer` is shifted to the newly inserted address book state.
 
-    list article
+image::UndoRedoState1.png[]
 
-Expected Outcome:
-      
-      __________________________________________________________________________________________
+Step 3. The user executes `add n/David ...` to add a new person. The `add` command also calls `Model#commitAddressBook()`, causing another modified address book state to be saved into the `addressBookStateList`.
 
+image::UndoRedoState2.png[]
 
-      _                                   Article List                                   _
+[NOTE]
+If a command fails its execution, it will not call `Model#commitAddressBook()`, so the address book state will not be saved into the `addressBookStateList`.
 
+Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the `undo` command. The `undo` command will call `Model#undoAddressBook()`, which will shift the `currentStatePointer` once to the left, pointing it to the previous address book state, and restores the address book to that state.
 
-      1. Title: JITs Are Un-Ergonomic
-         Date: 2020-Mar-29 Sun 10:47 AM
-         Category: default
-         Url: https://abe-winter.github.io/2020/03/28/jitu-brutus.html
-         Extract: ...
+image::UndoRedoState3.png[]
 
+[NOTE]
+If the `currentStatePointer` is at index 0, pointing to the initial address book state, then there are no previous address book states to restore. The `undo` command uses `Model#canUndoAddressBook()` to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
 
-      2. Title: New grad vs senior dev
-         Date: 2020-Mar-29 Sun 12:25 PM
-         Category: Funny
-         Url: https://ericlippert.com/2020/03/27/new-grad-vs-senior-dev/
-         Extract: It turns out that yes, fresh grads and keener interns do complain to senior developers about asympto...
-      __________________________________________________________________________________________
+The following sequence diagram shows how the undo operation works:
 
-****
+image::UndoSequenceDiagram.png[]
 
-#### Deleting saved/created `article`, `job`, or `note`: `delete `
+NOTE: The lifeline for `UndoCommand` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 
-* Deletes `article`, `job`, or `note` at the specified `INDEX_NUMBER`. 
-* When an `article`, `job`, or `note` is deleted, all subsequest ones in the resepective list will have their index reduced by 1.
-* Format: `delete [article / job / note] INDEX_NUMBER`
+The `redo` command does the opposite -- it calls `Model#redoAddressBook()`, which shifts the `currentStatePointer` once to the right, pointing to the previously undone state, and restores the address book to that state.
 
-Examples:
+[NOTE]
+If the `currentStatePointer` is at index `addressBookStateList.size() - 1`, pointing to the latest address book state, then there are no undone address book states to restore. The `redo` command uses `Model#canRedoAddressBook()` to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
 
-    delete article 1
+Step 5. The user then decides to execute the command `list`. Commands that do not modify the address book, such as `list`, will usually not call `Model#commitAddressBook()`, `Model#undoAddressBook()` or `Model#redoAddressBook()`. Thus, the `addressBookStateList` remains unchanged.
 
-Expected Outcome
+image::UndoRedoState4.png[]
 
-    __________________________________________________________________________________________
+Step 6. The user executes `clear`, which calls `Model#commitAddressBook()`. Since the `currentStatePointer` is not pointing at the end of the `addressBookStateList`, all address book states after the `currentStatePointer` will be purged. We designed it this way because it no longer makes sense to redo the `add n/David ...` command. This is the behavior that most modern desktop applications follow.
 
-    Deleting the following article:
-       Title: JITs Are Un-Ergonomic
-       Date: 2020-Mar-29 Sun 10:47 AM
-       Category: default
-       Url: https://abe-winter.github.io/2020/03/28/jitu-brutus.html
-       Extract: ...
-    __________________________________________________________________________________________
-****
+image::UndoRedoState5.png[]
 
-#### Adding an extract to `article`, `job`, or `note`: `list`
+The following activity diagram summarizes what happens when a user executes a new command:
 
-* Adds an extract to an `article`, `job`, or `note`.
-* Format: `addinfo [article / job / note] INDEX_NUMBER EXTRACT`
+image::CommitActivityDiagram.png[]
 
-Examples:
+==== Design Considerations
 
-    addinfo article 1 It turns out that yes, fresh grads and keener interns do complain to senior developers about asymptotic efficiency.
+===== Aspect: How undo & redo executes
 
-Expected outcome:
+* **Alternative 1 (current choice):** Saves the entire address book.
+** Pros: Easy to implement.
+** Cons: May have performance issues in terms of memory usage.
+* **Alternative 2:** Individual command knows how to undo/redo by itself.
+** Pros: Will use less memory (e.g. for `delete`, just save the person being deleted).
+** Cons: We must ensure that the implementation of each individual command are correct.
 
-      __________________________________________________________________________________________
+===== Aspect: Data structure to support the undo/redo commands
 
-    Done, the article description now looks like the following 
+* **Alternative 1 (current choice):** Use a list to store the history of address book states.
+** Pros: Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.
+** Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both `HistoryManager` and `VersionedAddressBook`.
+* **Alternative 2:** Use `HistoryManager` for undo/redo
+** Pros: We do not need to maintain a separate list, and just reuse what is already in the codebase.
+** Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as `HistoryManager` now needs to do two different things.
+// end::undoredo[]
 
-       Title: New grad vs senior dev
-       Date: 2020-Mar-29 Sun 12:25 PM
-       Category: Funny
-       Url: https://ericlippert.com/2020/03/27/new-grad-vs-senior-dev/
-       Extract: It turns out that yes, fresh grads and keener interns do complain to senior developers about asympto...
-    __________________________________________________________________________________________
+// tag::dataencryption[]
+=== [Proposed] Data Encryption
 
+_{Explain here how the data encryption feature will be implemented}_
 
-****
+// end::dataencryption[]
 
+=== Logging
 
-#### Exiting the program : `exit`
+We are using `java.util.logging` package for logging. The `LogsCenter` class is used to manage the logging levels and logging destinations.
 
-* Exits the program. 
-* Format: `exit`
+* The logging level can be controlled using the `logLevel` setting in the configuration file (See <<Implementation-Configuration>>)
+* The `Logger` for a class can be obtained using `LogsCenter.getLogger(Class)` which will log messages according to the specified logging level
+* Currently log messages are output through: `Console` and to a `.log` file.
 
-Examples:
+*Logging Levels*
 
-* `exit` 
+* `SEVERE` : Critical problem detected which may possibly cause the termination of the application
+* `WARNING` : Can continue, but with caution
+* `INFO` : Information showing the noteworthy actions by the App
+* `FINE` : Details that is not usually noteworthy but may be useful in debugging e.g. print the actual list instead of just its size
 
-Expected Ourcome:
+[[Implementation-Configuration]]
+=== Configuration
 
-    __________________________________________________________________________________________
+Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: `config.json`).
 
+== Documentation
 
-    _                                Saving your data...                               _
-    _                           We are exiting the program...                          _
-    _                            Bye. Come back again later.                           _
+Refer to the guide <<Documentation#, here>>.
 
-****
+== Testing
 
-## FAQ
+Refer to the guide <<Testing#, here>>.
 
-*Q*: How do I transfer my data to another Computer? +
-*A*: Copy three text files called "articlelist.json", "notelist.json", 'joblist.json' that has saved your information into the directory from which you will run the application in your new computer. You are then set to go!
+== Dev Ops
 
-## Command Summary
-* *Help*  : `help`; 
-e.g. `help`
-* *View* : `view [article / job]`;
-eg. `view article`
-* *Save* : `save [article / job] INDEX_NUMBER"`;
-eg. `save article 1`
-* *Create* : `create [article / job / note]`
-eg. `create article`
-* *List* : `list [article / job / note]`;
-eg. `list article`
-* *Delete* : `delete [article / job / note] INDEX_NUMBER`;
-e.g. `delete article 1`
-* *Addinfo* : `addinfo [article / job / note] INDEX_NUMBER EXTRACT`;
-e.g. `addinfo article 1 It turns out that yes, fresh grads and keener interns do complain to senior developers about asymptotic efficiency.`
-* *Exit* : `exit`
-e.g. `exit`
+Refer to the guide <<DevOps#, here>>.
 
-## Acknowledgement
-Our UserGuide has been heavily inspired by the superb format of the AddressBook user guide that we were given access to for this course.
+[appendix]
+== Product Scope
+
+*Target user profile*:
+
+* has a need to manage a significant number of contacts
+* prefer desktop apps over other types
+* can type fast
+* prefers typing over mouse input
+* is reasonably comfortable using CLI apps
+
+*Value proposition*: manage contacts faster than a typical mouse/GUI driven app
+
+[appendix]
+== User Stories
+
+Priorities: High (must have) - `* * \*`, Medium (nice to have) - `* \*`, Low (unlikely to have) - `*`
+
+[width="59%",cols="22%,<23%,<25%,<30%",options="header",]
+|=======================================================================
+|Priority |As a ... |I want to ... |So that I can...
+|`* * *` |new user |see usage instructions |refer to instructions when I forget how to use the App
+
+|`* * *` |user |add a new person |
+
+|`* * *` |user |delete a person |remove entries that I no longer need
+
+|`* * *` |user |find a person by name |locate details of persons without having to go through the entire list
+
+|`* *` |user |hide <<private-contact-detail,private contact details>> by default |minimize chance of someone else seeing them by accident
+
+|`*` |user with many persons in the address book |sort persons by name |locate a person easily
+|=======================================================================
+
+_{More to be added}_
+
+[appendix]
+== Use Cases
+
+(For all use cases below, the *System* is the `AddressBook` and the *Actor* is the `user`, unless specified otherwise)
+
+[discrete]
+=== Use case: Delete person
+
+*MSS*
+
+1.  User requests to list persons
+2.  AddressBook shows a list of persons
+3.  User requests to delete a specific person in the list
+4.  AddressBook deletes the person
++
+Use case ends.
+
+*Extensions*
+
+[none]
+* 2a. The list is empty.
++
+Use case ends.
+
+* 3a. The given index is invalid.
++
+[none]
+** 3a1. AddressBook shows an error message.
++
+Use case resumes at step 2.
+
+_{More to be added}_
+
+[appendix]
+== Non Functional Requirements
+
+.  Should work on any <<mainstream-os,mainstream OS>> as long as it has Java `11` or above installed.
+.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
+.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+
+_{More to be added}_
+
+[appendix]
+== Glossary
+
+[[mainstream-os]] Mainstream OS::
+Windows, Linux, Unix, OS-X
+
+[[private-contact-detail]] Private contact detail::
+A contact detail that is not meant to be shared with others
+
+[appendix]
+== Product Survey
+
+*Product Name*
+
+Author: ...
+
+Pros:
+
+* ...
+* ...
+
+Cons:
+
+* ...
+* ...
+
+[appendix]
+== Instructions for Manual Testing
+
+Given below are instructions to test the app manually.
+
+[NOTE]
+These instructions only provide a starting point for testers to work on; testers are expected to do more _exploratory_ testing.
+
+=== Launch and Shutdown
+
+. Initial launch
+
+.. Download the jar file and copy into an empty folder
+.. Double-click the jar file +
+   Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
+
+. Saving window preferences
+
+.. Resize the window to an optimum size. Move the window to a different location. Close the window.
+.. Re-launch the app by double-clicking the jar file. +
+   Expected: The most recent window size and location is retained.
+
+_{ more test cases ... }_
+
+=== Deleting a person
+
+. Deleting a person while all persons are listed
+
+.. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
+.. Test case: `delete 1` +
+   Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
+.. Test case: `delete 0` +
+   Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.
+.. Other incorrect delete commands to try: `delete`, `delete x` (where x is larger than the list size) _{give more}_ +
+   Expected: Similar to previous.
+
+_{ more test cases ... }_
+
+=== Saving data
+
+. Dealing with missing/corrupted data files
+
+.. _{explain how to simulate a missing/corrupted file and the expected behavior}_
+
+_{ more test cases ... }_
