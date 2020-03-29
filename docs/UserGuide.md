@@ -7,7 +7,6 @@
 :imagesDir: images
 :stylesDir: stylesheets
 :xrefstyle: full
-:experimental:
 ifdef::env-github[]
 :tip-caption: :bulb:
 :note-caption: :information_source:
@@ -57,8 +56,8 @@ Examples:
     help
 
 Expected Ourcome:
-    __________________________________________________________________________________________
-
+   
+      __________________________________________________________________________________________
 
     _                    Your queries can be of the following forms:                   _
     _                                      1. help                                     _
@@ -155,6 +154,7 @@ Examples:
     save article 1
 
 Expected Outcome
+
     ________________________________________________________________________________________
 
 
@@ -220,6 +220,7 @@ Examples:
     list article
 
 Expected Outcome:
+      
       __________________________________________________________________________________________
 
 
@@ -253,8 +254,8 @@ Examples:
     delete article 1
 
 Expected Outcome
-    __________________________________________________________________________________________
 
+    __________________________________________________________________________________________
 
     Deleting the following article:
        Title: JITs Are Un-Ergonomic
@@ -275,8 +276,8 @@ Examples:
     addinfo article 1 It turns out that yes, fresh grads and keener interns do complain to senior developers about asymptotic efficiency.
 
 Expected outcome:
-    __________________________________________________________________________________________
 
+      __________________________________________________________________________________________
 
     Done, the article description now looks like the following 
 
