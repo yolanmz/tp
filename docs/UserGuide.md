@@ -16,12 +16,12 @@ endif::[]
 
 By: `Alaukik Nath Pant, Melissa Lopez`      Since: `Feb 2020`      Licence: `MIT`      Course: `CS2113`
 
-## Introduction
+== Introduction
 
 TechToday Information Tracker(TTIT) is for those who *prefer to use a desktop app for managing information about technology including news, jobs or even notes*. TTIT is *optimized for those who prefer to work with a Command Line Interface* (CLI).
 TTIT utilizes [Hacker News](https://github.com/HackerNews/API) API to give the user the option to **view** new news articles and questions/jobs. If the device is not connected to the internet, the user can **view** pre-loaded articles and jobs. The user also has the option to add interesting articles, jobs, questions, notes about technology themselves using the **create** functionality. 
 
-## Quick Start
+== Quick Start
 
 *  Ensure you have Java `11` or above installed in your Computer.
 *  Download the latest `tp.jar` [latest reslease here!](https://github.com/AY1920S2-CS2113-T14-2/tp/releases/tag/v1.0).
