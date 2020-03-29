@@ -1,23 +1,23 @@
-package seedu.techtoday.articlelist;
+package seedu.techtoday.joblist;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import seedu.techtoday.objects.Article;
+import seedu.techtoday.objects.Job;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
-class ArticleListPrinterTest {
+class JobListPrinterTest {
 
     @BeforeEach
     void setUp() {
-        SavedArticleList.savedArticleList = new ArrayList<>();
-        ArticleAdder.execute(SavedArticleList.savedArticleList, new Article("Test1", "www.test1.com", "article"));
-        ArticleAdder.execute(SavedArticleList.savedArticleList, new Article("Test2", "www.test2.com", "article"));
-        ArticleAdder.execute(SavedArticleList.savedArticleList, new Article("Test3", "www.test3.com", "article"));
+        SavedJobList.savedJobList = new ArrayList<>();
+        JobAdder.execute(SavedJobList.savedJobList, new Job("Test1", "www.test1.com", "job"));
+        JobAdder.execute(SavedJobList.savedJobList, new Job("Test2", "www.test2.com", "job"));
+        JobAdder.execute(SavedJobList.savedJobList, new Job("Test3", "www.test3.com", "job"));
     }
 
     @Test
@@ -26,15 +26,15 @@ class ArticleListPrinterTest {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
         // execute command
-        ArticleListPrinter.execute(SavedArticleList.savedArticleList);
+        JobListPrinter.execute(SavedJobList.savedJobList);
 
         String expectedOutput = "1. Title: Test1"
                 + System.lineSeparator()
                 + "   Date: "
                 + System.lineSeparator()
-                + "   Category: article"
+                + "   Category: job"
                 + System.lineSeparator()
-                + "   Url: www.test1.com"
+                + "   Text: www.test1.com..."
                 + System.lineSeparator()
                 + "   Extract: ..."
                 + System.lineSeparator()
@@ -46,9 +46,9 @@ class ArticleListPrinterTest {
                 + System.lineSeparator()
                 + "   Date: "
                 + System.lineSeparator()
-                + "   Category: article"
+                + "   Category: job"
                 + System.lineSeparator()
-                + "   Url: www.test2.com"
+                + "   Text: www.test2.com..."
                 + System.lineSeparator()
                 + "   Extract: ..."
                 + System.lineSeparator()
@@ -60,16 +60,16 @@ class ArticleListPrinterTest {
                 + System.lineSeparator()
                 + "   Date: "
                 + System.lineSeparator()
-                + "   Category: article"
+                + "   Category: job"
                 + System.lineSeparator()
-                + "   Url: www.test3.com"
+                + "   Text: www.test3.com..."
                 + System.lineSeparator()
                 + "   Extract: ..."
                 + System.lineSeparator()
                 + ""
                 + System.lineSeparator()
                 + ""
-                + System.lineSeparator();;
+                + System.lineSeparator();
         assertEquals(expectedOutput, outContent.toString());
     }
 }
