@@ -2,12 +2,16 @@ package seedu.techtoday;
 
 import seedu.techtoday.articlelist.SavedArticleList;
 import seedu.techtoday.articlelist.ViewedArticleList;
+import seedu.techtoday.commands.InformationAdder;
 import seedu.techtoday.commands.ProgramExecutor;
+import seedu.techtoday.common.CommonMethods;
 import seedu.techtoday.joblist.SavedJobList;
 import seedu.techtoday.joblist.ViewedJobList;
 import seedu.techtoday.notelist.SavedNoteList;
 import seedu.techtoday.exception.TechTodayException;
 import static seedu.techtoday.common.Messages.greet;
+import java.io.IOException;
+import java.util.logging.Logger;
 
 /**
  * <h1>TechToday News/Jobs/Notes for technology related information for the technologist.</h1>
@@ -46,7 +50,9 @@ public class TechToday {
         new TechToday();
         greet();
         ProgramExecutor.loadData();
+        ProgramExecutor.startLogger();
         ProgramExecutor.executeProgram(isRunning);
     }
+
 }
 
