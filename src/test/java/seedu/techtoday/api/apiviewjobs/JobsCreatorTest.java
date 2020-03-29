@@ -4,7 +4,7 @@ import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
 import seedu.techtoday.objects.Job;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class JobsCreatorTest {
 
