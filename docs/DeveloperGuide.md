@@ -88,8 +88,11 @@ Receive and manage the most updated articles and jobs information specifically r
 * *glossary item* - Definition
 
 ## Instructions for Manual Testing
+### Launch and Shutdown 
+1. Launch and shutdown 
+   a. Download the jar file and copy into an empty folder
+   b. Run the jar file in your terminal using the command 
 
-{Give instructions on how to do a manual product testing e.g., how to load sample data to be used for testing}
 
 
 
