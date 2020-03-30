@@ -5,5 +5,4 @@ package seedu.techtoday.exception;
  */
 public class TechTodayException extends Exception {
     // class extends Exception
-
 }
