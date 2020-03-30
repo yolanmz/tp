@@ -90,9 +90,8 @@ Receive and manage the most updated articles and jobs information specifically r
 ## Instructions for Manual Testing
 ### Launch and Shutdown 
 1. Launch and shutdown 
-   a. Download the jar file and copy into an empty folder
-   b. Run the jar file in your terminal using the command 
-
+   a. Download the jar file and copy into an empty folder\n
+   b. Run the jar file in your terminal with the command `java -jar techtoday.jar`
 
 
 
