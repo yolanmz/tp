@@ -102,12 +102,12 @@ Receive and manage the most updated articles and jobs information specifically r
       Expected: Deleting the following job:\
    Title: \
    Date: \
-   Category: \ 
+   Category: 
    Text: \
    Extract: \
    c. Test case: `delete job x`(where x is larger than the list size)\
       Expected: You can only delete article/job/note with valid index number! Your command format is incorrect. Try again\
-   Other incorrect delete commands to try: `delete`, `delete job x`\
+   d. Other incorrect delete commands to try: `delete`, `delete job x`\
 
 
 
