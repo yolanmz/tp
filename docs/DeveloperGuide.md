@@ -96,7 +96,7 @@ Receive and manage the most updated articles and jobs information specifically r
    1. 
 
 ### Deleting an item
-1. Deleting a job from the job list
+1. Deleting a job from the job list\
    a. Prerequisites: List all the saved jobs using the `list job` command\
    b. Test case: `delete job 1`\
       Expected: Deleting the following job:\
