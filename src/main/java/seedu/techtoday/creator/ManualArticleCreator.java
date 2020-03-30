@@ -5,14 +5,10 @@ import seedu.techtoday.articlelist.ArticlePrinter;
 import seedu.techtoday.objects.Article;
 import seedu.techtoday.ui.Ui;
 
-/**
- * ADD JAVADOC.
- */
+/** Class representing a method used to ceate an article based on user input. */
 public class ManualArticleCreator {
 
-    /**
-     * ADD JAVADOC.
-     */
+    /** Executes the method used to create an article object using user inputs. */
     public static void execute() {
         System.out.println("Enter the title of the article?");
         String title = Ui.getCommand();

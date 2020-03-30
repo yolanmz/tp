@@ -1,19 +1,76 @@
-# Developer Guide
 
-## Design & Implementation
 
-Learn how to implement our program TechToday so you can organize all your technology related news. 
+## [Project TechToday](https://github.com/AY1920S2-CS2113-T14-2/tp) - Developer Guide
+
+By: `Team SE-EDU`      Since: `Jun 2016`      Licence: `MIT`
+
+
+## Setting Up
+
+Prerequisites: JDK 11, update Intellij to the most recent version
+
+1. Open Intellij (if you are not in the welcome screen, click `File` > `Close Project` to close the existing project dialog first)
+1. Set up the correct JDK version
+   1. Click `Configure` > `Structure for New Projects` and then `Project Settings` > `Project` > `Project SDK`
+   1. If JDK 11 is listed in the drop down, select it. If it is not, click `New...` and select the directory where you installed JDK 11
+   1. Click `OK`
+1. Click `Import Project`
+1. **IMPORTANT: Locate the `build.gradle` file** in the project directory, select it, and click `OK`
+1. If there are any further prompts, accept the defaults.
+1. After the set up is complete, you can locate the `src/main/java/seedu/techtoday/TechToday.java` file, right-click it, and choose `Run TechToday.main()`. If the setup is correct, you should see something like the below:
+
+        _ **_____________________________________________________________________________**_
+        _                                                                                  _
+        _                             Hello! Here's TechToday.                             _
+        _            Let me show you some technology news to refresh your mind!            _
+        _ **_____________________________________________________________________________**_
+        _                    Your queries can be of the following forms:                   _
+        _                                      1. help                                     _
+        _                              2. view [article / job]                             _
+        _                       3. save [article / job] INDEX_NUMBER                       _
+        _                         4. create [article / job / note]                         _
+        _                          5. list [article / job / note]                          _
+        _                   6. delete [article / job / note] INDEX_NUMBER                  _
+        _              7. addinfo [article / job / note] INDEX_NUMBER EXTRACT              _
+        _                                      8. exit                                     _
+        _                                                                                  _
+        _ **_____________________________________________________________________________**_
+             What can I do for you?
+
+        No files with your data exits, we will create new files to save your data.
+        __________________________________________________________________________________________
+
+Type exit and press enter to let the execution proceed to the end. Also note how Intellij is now using Gradle to run your code (you can make Intellij run the code without Gradle [this way](tutorials/assets/RunUsingIntellij.png)).
+
+* Acknowledgement- The set-up portion is a direct adaptation of the set-up instructions given to us for this project.
+
+## Design 
+
+{Describe the design and implementation of the product. Use UML diagrams and short code snippets where applicable.}
+
+## Implementation
+
+This section will describe details of implementation of features in TechToday.
+
+### `view` feature
+
+#### Overview
+
+The view feature adds articles, notes and jobs into the Article, Note and Job List respectively.
 
 
 ## Product Scope
 ### Target user profile
 
-Our target user profile are students/workers who are looking for CLI (Command Line Interface) application to organize all 
-their technology related news. 
+* has a need to view and manage information on technology updates
+* prefers desktop apps over other types
+* prefers typing over mouse input
+* has access to internet to receive updates
+
 
 ### Value proposition
 
-The world of technology is constantly changing. A person involved in computing field wants access to a way to organize all the news they see about the field. This application aims to help the user organize all their technology related news by different categories. This application will also allow the user to add new notes about technology related news so that they do not lose track of past news articles. 
+Receive and manage the most updated articles and jobs information specifically related to technology.
 
 ## User Stories
 
@@ -33,3 +90,10 @@ The world of technology is constantly changing. A person involved in computing f
 ## Instructions for Manual Testing
 
 {Give instructions on how to do a manual product testing e.g., how to load sample data to be used for testing}
+
+
+
+
+
+
+

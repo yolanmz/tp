@@ -6,6 +6,7 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/** Represents command that is used to call a method to save note from noteList. */
 public class NoteSaver extends SavedNoteList {
 
     public NoteSaver() {
@@ -13,11 +14,11 @@ public class NoteSaver extends SavedNoteList {
     }
 
     /**
-     * ADD JAVADOC.
-     * @param taskList - ADD HERE.
-     * @param command - ADD HERE.
+     * Saves a note in a noteList.
+     * @param noteList - ADD HERE.
+     * @param command - User command in the terminal.
      */
-    public static void execute(ArrayList<Note> taskList, String command) {
+    public static void execute(ArrayList<Note> noteList, String command) {
         System.out.println("Enter the title of the note: ");
         Scanner titleInput = new Scanner(System.in);
         String title = titleInput.nextLine();

@@ -1,32 +1,45 @@
 package seedu.techtoday.notelist;
 
+import seedu.techtoday.common.TimeStampToDateConverter;
 import seedu.techtoday.objects.Note;
 
+/** Represents command that is used to call a method to print note from noteList. */
 public class NotePrinter {
     /**
-     * ADD JAVA DOC.
-     * @param taskCounter - ADD HERE.
-     * @param note - ADD HERE.
+     * Prints a particular note.
+     * @param taskCounter - Index of the note in noteList.
+     * @param note - Objecting representing note.
      */
     public static void execute(int taskCounter, Note note) {
-        String timestamp = note.getTimeStamp();
+        String timeStamp = note.getTimeStamp();
+        String date = TimeStampToDateConverter.execute(timeStamp);
         String title = note.getTitle();
         String extract = note.getExtract();
+        String category = note.getCategory();
+        String url = note.getUrl();
         System.out.println(taskCounter + ". Title: " + title + System.lineSeparator()
-                                + "   Date: " + timestamp + System.lineSeparator()
-                                + "   Text: " + extract);
+                                + "   Date: " + date + System.lineSeparator()
+                                + "   Text: " + extract + System.lineSeparator()
+                                + "   Category: " + category + System.lineSeparator()
+                                + "   URL: " + url);
     }
 
     /**
-     * ADD JAVADOC.
-     * @param note - ADD HERE.
+     * Prints a note outside the scope of a noteList.
+     * @param note - Object representing note.
      */
     public static void printIsolatedNote(Note note) {
-        String timestamp = note.getTimeStamp();
+        String timeStamp = note.getTimeStamp();
+        String date = TimeStampToDateConverter.execute(timeStamp);
         String title = note.getTitle();
         String extract = note.getExtract();
+        String category = note.getCategory();
+        String url = note.getUrl();
         System.out.println("   Title: " + title + System.lineSeparator()
-                                + "   Date: " + timestamp + System.lineSeparator()
-                                + "   Text: " + extract);
+                + "   Date: " + date + System.lineSeparator()
+                + "   Text: " + extract + System.lineSeparator()
+                + "   Category: " + category + System.lineSeparator()
+                + "   URL: " + url);
     }
 }
+

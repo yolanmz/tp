@@ -1,42 +1,340 @@
-# User Guide
+## [Project TechToday](https://github.com/AY1920S2-CS2113-T14-2/tp) - User Guide
+
+By: `Alaukik Nath Pant, Melissa Lopez`      Since: `Feb 2020`      Licence: `MIT`      Course: `CS2113`
+
+1. [Introduction](#Introduction)
+2. [Quick Start](#quick-start)
+3. [Features](#features)
+    1. [Command Format](#command-format)
+        1. [Asking for help with valid commands : `help`](#asking-for-help-with-valid-commands----`help`-)
+        2. [Viewing articles or jobs : `view`](#viewing-articles-or-jobs----view-)
+        3. [Saving an article or job: `save `](#saving-an-article-or-job---save--)
+        4. [Creating an `article`, `job`, or `note`: `create`](#creating-an--article----job---or--note----create-)
+        5. [Listing saved/created `article`, `job`, `note`: `list `](#listing-saved-created--article----job----note----list--)
+        5. [Deleting saved/created `article`, `job`, or `note`: `delete `](#deleting-saved-created--article----job---or--note----delete--)
+        7. [Adding an extract to `article`, `job`, or `note`: `list`](#adding-an-extract-to--article----job---or--note----list-)
+        8. [Exiting the program : `exit`](#exiting-the-program----exit-)
+4. [FAQ](#faq)
+5. [Command Summary](#command-summary)
 
 ## Introduction
 
-{Give a product intro}
+TechToday Information Tracker(TTIT) is for those who *prefer to use a desktop app for managing information about technology including news, jobs or even notes*. TTIT is *optimized for those who prefer to work with a Command Line Interface* (CLI).
+TTIT utilizes [Hacker News](https://github.com/HackerNews/API) API to give the user the option to **view** new news articles and questions/jobs. If the device is not connected to the internet, the user can **view** pre-loaded articles and jobs. The user also has the option to add interesting articles, jobs, questions, notes about technology themselves using the **create** functionality. 
 
 ## Quick Start
 
-{Give steps to get started quickly}
+*  Ensure you have Java `11` or above installed in your Computer.
+*  Download the latest `tp.jar` [latest reslease here!](https://github.com/AY1920S2-CS2113-T14-2/tp/releases/tag/v1.0).
+*  Copy the file to the folder you want to use as the home folder for your Technology Information tracker.
+*  Go to the directory where the Jar file is stored and type: `java -jar tp.jar`
+* When the application executes, all possible commands that can help you manage your information are shown.
+*Some example commands you can try:
+    * **`view `**`article` : helps you view articles about technolgy from the internet. If the device is not connected to the internet, it loads an existing set of articles pre-loaded into the program.
+    * **`list `**`article`: Lists all the articles you have saved in your database into the Command Line.
+    * **`delete `**` article 1` : deletes the 1st artile that appears in the article list.
+    * **`exit`** : exits the app.
 
-1. Ensure that you have Java 11 or above installed.
-1. Down the latest version of `Duke` from [here](http://link.to/duke).
 
-## Features 
+## Features
 
-{Give detailed description of each feature}
 
-### Adding a to-do: `todo`
-Adds a to-do item to the list of to-dos.
+### Command Format
 
-Format: `todo n/TODO_NAME d/DEADLINE`
+* The user is required to supply one of `article`, `job`, `note` from the option of `[article / job / note]` or `[article / job]`. For example, `view article`, `list note`.
+* The `INDEX_NUMBER` is the interger index of a article/job/note to be saved, deleted, or edited from a saved article list, or a saved note list or a saved job list. It is of format `delete article INDEX_NUMBER`, `save job TASK_NUMBER`.
+* `EXTRACT` represents a string that can be composed of multiple words that you wish to add to an existing note, job or article. For example, `addinfo article INDEX_NUMBER EXTRACT`.
 
-* The `DEADLINE` can be in a natural language format.
-* The `TODO_NAME` cannot contain punctuation.  
 
-Example of usage: 
 
-`todo n/Write the rest of the User Guide d/next week`
+#### Asking for help with valid commands : `help`
 
-`todo n/Refactor the User Guide to remove passive voice d/13/04/2020`
+* Loads all possible commands that the user can type.
+* Format: `help`
+
+Examples:
+
+    help
+
+Expected Ourcome:
+   
+      __________________________________________________________________________________________
+
+    _                    Your queries can be of the following forms:                   _
+    _                                      1. help                                     _
+    _                              2. view [article / job]                             _
+    _                       3. save [article / job] INDEX_NUMBER                       _
+    _                         4. create [article / job / note]                         _
+    _                          5. list [article / job / note]                          _
+    _                   6. delete [article / job / note] INDEX_NUMBER                  _
+    _              7. addinfo [article / job / note] INDEX_NUMBER EXTRACT              _
+    _                                      8. exit                                     _
+    _                                                                                  _
+    __________________________________________________________________________________________
+
+****
+
+
+
+#### Viewing articles or jobs : `view`
+
+* Displays a list articles or jobs from the internet. If device is not connected to the interted, pre-loaded data is shown.
+* Format: `view [article / job]`
+
+[TIP]
+Connect to the internet if you wish to see latest articles.
+
+Examples:
+
+    view article
+
+
+Expected Outcome:
+
+    __________________________________________________________________________________________
+
+
+    Loading information from the internet... 
+
+    1. Title: JITs Are Un-Ergonomic
+       Date: 2020-Mar-29 Sun 10:47 AM
+       Category: default
+       Url: https://abe-winter.github.io/2020/03/28/jitu-brutus.html
+       Extract: ...
+
+
+    2. Title: Show HN: SpicyPass – A free and open-source minimalist password manager
+       Date: 2020-Mar-29 Sun 06:18 AM
+       Category: default
+       Url: https://github.com/JFreegman/SpicyPass
+       Extract: ...
+
+
+    3. Title: Building a Raspberry Pi GPS Speedometer
+       Date: 2020-Mar-29 Sun 07:48 AM
+       Category: default
+       Url: https://gleslie.com/rpi/raspberry/pi/dashboard/2020/03/28/building-a-rpi-vehicle-dashboard.html
+       Extract: ...
+
+
+    4. Title: National Emergency Library – Free 1.4M ebooks
+       Date: 2020-Mar-29 Sun 07:12 AM
+       Category: default
+       Url: https://archive.org/details/nationalemergencylibrary
+       Extract: ...
+
+
+    5. Title: New Grad vs. Senior Dev
+       Date: 2020-Mar-28 Sat 08:20 AM
+       Category: default
+       Url: https://ericlippert.com/2020/03/27/new-grad-vs-senior-dev/
+       Extract: ...
+
+
+    6. Title: NYC Subway Turnstile Data
+       Date: 2020-Mar-29 Sun 05:49 AM
+       Category: default
+       Url: https://github.com/toddwschneider/nyc-subway-turnstile-data
+       Extract: ...
+
+
+    __________________________________________________________________________________________
+
+****
+
+#### Saving an article or job: `save `
+
+* Saves an article you see from the internet/database through the view option.
+* Format: `save [article / job / note] INDEX_NUMBER`
+
+[TIP]
+You have to view an article/job before being able to save it.
+
+Examples:
+
+    save article 1
+
+Expected Outcome
+
+    ________________________________________________________________________________________
+
+
+    Done, saved the article with the following details:
+       Title: JITs Are Un-Ergonomic
+       Date: 2020-Mar-29 Sun 10:47 AM
+       Category: default
+       Url: https://abe-winter.github.io/2020/03/28/jitu-brutus.html
+       Extract: ...
+    __________________________________________________________________________________________
+
+
+****
+
+
+#### Creating an `article`, `job`, or `note`: `create`
+
+* Helps user manually create  an `article`, `job`, or `note` and add it to the list of articles, jobs or notes respectively.
+* Format: `create article`
+
+
+Examples:
+
+    create article
+
+Expected Outcome:
+
+    Enter the title of the article?
+    New grad vs senior dev
+    __________________________________________________________________________________________
+
+
+    What is the URl of the article (type "No URL")?
+    https://ericlippert.com/2020/03/27/new-grad-vs-senior-dev/ 
+    __________________________________________________________________________________________
+
+
+    What is the category (type "default" if you done know it)
+    Funny
+    __________________________________________________________________________________________
+
+
+    Done, we have added the following job to your list of saved jobs
+       Title: New grad vs senior dev
+       Date: 2020-Mar-29 Sun 12:25 PM
+       Category: Funny
+       Url: https://ericlippert.com/2020/03/27/new-grad-vs-senior-dev/
+       Extract: ...
+    __________________________________________________________________________________________
+
+****
+
+#### Listing saved/created `article`, `job`, `note`: `list `
+
+* Lists articles, jobs or notes that you have creaed or saved from the internet/database.
+* Format: `list [article / job / note]`
+
+[TIP]
+You must have saved or created some articles/jobs/notes in order to list them.
+
+Examples:
+
+    list article
+
+Expected Outcome:
+      
+      __________________________________________________________________________________________
+
+
+      _                                   Article List                                   _
+
+
+      1. Title: JITs Are Un-Ergonomic
+         Date: 2020-Mar-29 Sun 10:47 AM
+         Category: default
+         Url: https://abe-winter.github.io/2020/03/28/jitu-brutus.html
+         Extract: ...
+
+
+      2. Title: New grad vs senior dev
+         Date: 2020-Mar-29 Sun 12:25 PM
+         Category: Funny
+         Url: https://ericlippert.com/2020/03/27/new-grad-vs-senior-dev/
+         Extract: It turns out that yes, fresh grads and keener interns do complain to senior developers about asympto...
+      __________________________________________________________________________________________
+
+****
+
+#### Deleting saved/created `article`, `job`, or `note`: `delete `
+
+* Deletes `article`, `job`, or `note` at the specified `INDEX_NUMBER`. 
+* When an `article`, `job`, or `note` is deleted, all subsequest ones in the resepective list will have their index reduced by 1.
+* Format: `delete [article / job / note] INDEX_NUMBER`
+
+Examples:
+
+    delete article 1
+
+Expected Outcome
+
+    __________________________________________________________________________________________
+
+    Deleting the following article:
+       Title: JITs Are Un-Ergonomic
+       Date: 2020-Mar-29 Sun 10:47 AM
+       Category: default
+       Url: https://abe-winter.github.io/2020/03/28/jitu-brutus.html
+       Extract: ...
+    __________________________________________________________________________________________
+****
+
+#### Adding an extract to `article`, `job`, or `note`: `list`
+
+* Adds an extract to an `article`, `job`, or `note`.
+* Format: `addinfo [article / job / note] INDEX_NUMBER EXTRACT`
+
+Examples:
+
+    addinfo article 1 It turns out that yes, fresh grads and keener interns do complain to senior developers about asymptotic efficiency.
+
+Expected outcome:
+
+      __________________________________________________________________________________________
+
+    Done, the article description now looks like the following 
+
+       Title: New grad vs senior dev
+       Date: 2020-Mar-29 Sun 12:25 PM
+       Category: Funny
+       Url: https://ericlippert.com/2020/03/27/new-grad-vs-senior-dev/
+       Extract: It turns out that yes, fresh grads and keener interns do complain to senior developers about asympto...
+    __________________________________________________________________________________________
+
+
+****
+
+
+#### Exiting the program : `exit`
+
+* Exits the program. 
+* Format: `exit`
+
+Examples:
+
+* `exit` 
+
+Expected Ourcome:
+
+    __________________________________________________________________________________________
+
+
+    _                                Saving your data...                               _
+    _                           We are exiting the program...                          _
+    _                            Bye. Come back again later.                           _
+
+****
 
 ## FAQ
 
-**Q**: How do I transfer my data to another computer? 
-
-**A**: Well, write the User Guide in active voice anyway.
+*Q*: How do I transfer my data to another Computer? +
+*A*: Copy three text files called "articlelist.json", "notelist.json", 'joblist.json' that has saved your information into the directory from which you will run the application in your new computer. You are then set to go!
 
 ## Command Summary
+* *Help*  : `help`; 
+e.g. `help`
+* *View* : `view [article / job]`;
+eg. `view article`
+* *Save* : `save [article / job] INDEX_NUMBER"`;
+eg. `save article 1`
+* *Create* : `create [article / job / note]`
+eg. `create article`
+* *List* : `list [article / job / note]`;
+eg. `list article`
+* *Delete* : `delete [article / job / note] INDEX_NUMBER`;
+e.g. `delete article 1`
+* *Addinfo* : `addinfo [article / job / note] INDEX_NUMBER EXTRACT`;
+e.g. `addinfo article 1 It turns out that yes, fresh grads and keener interns do complain to senior developers about asymptotic efficiency.`
+* *Exit* : `exit`
+e.g. `exit`
 
-{Give a 'cheat sheet' of commands here}
-
-* Add to-do `todo n/TODO_NAME d/DEADLINE`
+## Acknowledgement
+Our UserGuide has been heavily inspired by the superb format of the AddressBook user guide that we were given access to for this course.

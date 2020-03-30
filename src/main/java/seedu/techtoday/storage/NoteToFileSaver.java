@@ -12,9 +12,9 @@ import com.google.gson.JsonObject;
 public class NoteToFileSaver {
 
     /**
-     * ADD JAVADOC HERE.
-     * @param noteArrayList -ADD HERE.
-     * @param filePath -ADD HERE.
+     * Saves notes to file.
+     * @param noteArrayList - List of notes.
+     * @param filePath - Filepath where notes are to be saved.
      */
     public static void execute(ArrayList<Note> noteArrayList, String filePath) {
 
@@ -26,12 +26,16 @@ public class NoteToFileSaver {
             String title = note.getTitle();
             String extract = note.getExtract();
             String timeStamp = note.getTimeStamp();
+            String category = note.getCategory();
+            String url = note.getUrl();
 
             //note Details
             JsonObject noteDetails = new JsonObject();
             noteDetails.addProperty("title", title);
             noteDetails.addProperty("extract", extract);
             noteDetails.addProperty("timestamp", timeStamp);
+            noteDetails.addProperty("category", category);
+            noteDetails.addProperty("url", url);
 
             //Index: note Details
             JsonObject noteObject = new JsonObject();

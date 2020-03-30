@@ -3,6 +3,7 @@ package seedu.techtoday.joblist;
 import seedu.techtoday.objects.Job;
 import java.util.ArrayList;
 
+/** Class representing a method used to save a job. */
 public class JobSaver extends SavedJobList {
 
     public JobSaver() {
@@ -10,11 +11,11 @@ public class JobSaver extends SavedJobList {
     }
 
     /**
-     * ADD JAVADOC.
-     * @param taskList - ADD HERE.
-     * @param command - ADD HERE.
+     * Executes the saving of a job.
+     * @param jobArrayList - List of jobs.
+     * @param command - User command on the terminal.
      */
-    public static void execute(ArrayList<Job> taskList, String command) {
+    public static void execute(ArrayList<Job> jobArrayList, String command) {
         String[] commandArray = command.split(" ");
         int commandNumber = Integer.parseInt(commandArray[2]) - 1;
         Job jobToSave = ViewedJobList.viewedJobList.get(commandNumber);

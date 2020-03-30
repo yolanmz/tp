@@ -19,14 +19,9 @@ class NewsCreatorTest {
 
         JSONObject input = new JSONObject(inputJsonText);
 
-        String outputJsonText = "{ \"timeStamp\": \"1584262684\", \"title\": \"WebAssembly "
-                + "brings extensibility to network proxies\", \"url\": "
-                + "\"https://opensource.googleblog.com/2020/03/"
-                + "webassembly-brings-extensibility-to.html\"}";
-
         String title = "WebAssembly brings extensibility to network proxies";
         String url = "https://opensource.googleblog.com/2020/03/webassembly-brings-extensibility-to.html";
-        String category = null;
+        String category = "default";
 
         Article output = NewsCreator.rawToProcessedNews(input);
 

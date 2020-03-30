@@ -1,7 +1,8 @@
 package seedu.techtoday.notelist;
 
-import java.util.ArrayList;
 import seedu.techtoday.objects.Note;
+
+import java.util.ArrayList;
 
 /** Represents the data structure, i.e a list of Tasks, that stores the tasks.*/
 public class SavedNoteList {
@@ -12,10 +13,4 @@ public class SavedNoteList {
         savedNoteList = new ArrayList<Note>();
     }
 
-    /**
-     * Function that sorts Notes objects by title.
-     */
-    public static void sort() {
-        savedNoteList.sort(new NoteTitleSorter());
-    }
 }

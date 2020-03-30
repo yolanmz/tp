@@ -1,7 +1,5 @@
 package seedu.techtoday.objects;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 /**
  * Structure for an information.
@@ -35,17 +33,6 @@ public class Information {
 
     public void setExtract(String extract) {
         this.extract = extract;
-    }
-
-    /**
-     * This method sets a date for an article.
-     * @param stamper An integer representing the timestamp of the article
-     */
-    public void setTimeStamp(int stamper) {
-        String pattern = "yyyy-MMM-dd E hh:mm a";
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-        String date = simpleDateFormat.format((new Date((long)stamper * 1000)));
-        this.timeStamp = date;
     }
 
     public String getTitle() {
