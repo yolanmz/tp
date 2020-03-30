@@ -62,11 +62,15 @@ The view feature adds articles, notes and jobs into the Article, Note and Job Li
 ## Product Scope
 ### Target user profile
 
-{Describe the target user profile}
+* has a need to view and manage information on technology updates
+* prefers desktop apps over other types
+* prefers typing over mouse input
+* has access to internet to receive updates
+
 
 ### Value proposition
 
-{Describe the value proposition: what problem does it solve?}
+Receive and manage the most updated articles and jobs information specifically related to technology.
 
 ## User Stories
 
