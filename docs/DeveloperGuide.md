@@ -106,8 +106,9 @@ Receive and manage the most updated articles and jobs information specifically r
    Text: \
    Extract: \
    c. Test case: `delete job x`(where x is larger than the list size)\
-      Expected: You can only delete article/job/note with valid index number! Your command format is incorrect. Try again\
+      Expected: You can only delete article/job/note with valid index number! Your command format is incorrect. Try again.\
    d. Other incorrect delete commands to try: `delete`, `delete job x`\
+      Expected: You can only delete article/job/note with valid index number! Your command format is incorrect. Try again.\
 
 
 
