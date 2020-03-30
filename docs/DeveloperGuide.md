@@ -89,7 +89,7 @@ Receive and manage the most updated articles and jobs information specifically r
 
 ## Instructions for Manual Testing
 ### Launch and Shutdown 
-   1. Download the jar file and copy into an empty folder\
+   1. Download the jar file and copy into an empty folder
    2. Run the jar file in your terminal with the command `java -jar techtoday.jar`
 
 ### Creating an item
@@ -103,7 +103,7 @@ Receive and manage the most updated articles and jobs information specifically r
    Title: \
    Date: \
    Category:\ 
-   Text: \
+   Text:\
    Extract: \
    c. Test case: `delete job x`(where x is larger than the list size)\
       Expected: You can only delete article/job/note with valid index number! Your command format is incorrect. Try again\
