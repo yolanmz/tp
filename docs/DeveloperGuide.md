@@ -89,8 +89,25 @@ Receive and manage the most updated articles and jobs information specifically r
 
 ## Instructions for Manual Testing
 ### Launch and Shutdown 
-   a. Download the jar file and copy into an empty folder\
-   b. Run the jar file in your terminal with the command `java -jar techtoday.jar`
+   1. Download the jar file and copy into an empty folder\
+   2. Run the jar file in your terminal with the command `java -jar techtoday.jar`
+
+### Creating an item
+   1. 
+
+### Deleting an item
+1. Deleting a job from the job list
+   a. Prerequisites: List all the saved jobs using the `list job` command
+   b. Test case: `delete job 1`
+      Expected: Deleting the following job:
+   Title: 
+   Date: 
+   Category: 
+   Text: 
+   Extract: 
+   c. Test case: `delete job x`(where x is larger than the list size)
+      Expected: You can only delete article/job/note with valid index number! Your command format is incorrect. Try again
+   Other incorrect delete commands to try: `delete`, `delete job x`
 
 
 
